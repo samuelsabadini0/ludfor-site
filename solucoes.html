@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soluções em energia — Ludfor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+.lay{display:grid;grid-template-columns:280px 1fr;gap:72px;padding:100px 0 120px}
+.idx{position:sticky;top:110px;align-self:start;border-top:1px solid var(--linha)}
+.idx>a{display:grid;grid-template-columns:32px 1fr;padding:16px 0;border-bottom:1px solid var(--linha);font-size:15px;color:var(--muted);position:relative;transition:color .3s}
+.idx>a small{font-size:12px;padding-top:2px}
+.idx>a::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--verde);transform:scaleX(var(--p,0));transform-origin:left}
+.idx>a.on{color:var(--texto)}
+.idx .cta{margin-top:28px}
+.sol{padding-bottom:110px;margin-bottom:110px;border-bottom:1px solid var(--linha);scroll-margin-top:110px}
+.sol:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.sol .num{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:12px}
+.sol .num::after{content:"";width:60px;height:1px;background:var(--linha)}
+.sol h2{font-size:clamp(38px,4.4vw,64px);margin:22px 0 28px;max-width:15ch}
+.sol .lead{font-size:20px;line-height:1.55;font-weight:300;max-width:720px}
+.sol p.t{color:var(--muted);line-height:1.65;max-width:720px;margin-top:18px}
+.sol .img{aspect-ratio:16/8;background-size:cover;background-position:center;margin:44px 0}
+.sol .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.sol h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted);margin-bottom:16px}
+.sol ul{list-style:none;border-top:1px solid var(--linha)}
+.sol li{padding:13px 0 13px 26px;border-bottom:1px solid var(--linha);font-size:15px;line-height:1.4;position:relative}
+.sol li::before{content:"";position:absolute;left:0;top:18px;width:8px;height:8px;background:var(--amarelo)}
+.sol li b{font-weight:500}
+.sol li span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.sol .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--linha);margin:8px 0 40px}
+.sol .stats div{padding:22px 20px 0;border-right:1px solid var(--linha)}
+.sol .stats div:first-child{padding-left:0}
+.sol .stats div:last-child{border-right:0}
+.sol .stats strong{display:block;font-size:clamp(34px,3.4vw,52px);font-weight:300;letter-spacing:-.04em;color:var(--verde)}
+.sol .stats span{font-size:14px;color:var(--muted)}
+.sol .sub{margin-top:36px}
+.sol .sub h3{font-size:28px;margin-bottom:10px}
+.marca{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--noite);color:#fff;padding:26px 28px;margin-top:44px}
+.marca .lg{display:flex;align-items:center;gap:20px}
+.marca .lg img{height:40px;max-width:200px;object-fit:contain}
+.marca .lg b{font-size:26px;font-weight:600}
+.marca small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9DB8B3;margin-bottom:6px}
+@media (max-width:1000px){
+  .lay{grid-template-columns:1fr;gap:0;padding-top:70px}
+  .idx{display:none}
+  .sol .cols{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .sol .stats{grid-template-columns:1fr}
+  .sol .stats div{padding:18px 0;border-right:0;border-bottom:1px solid var(--linha)}
+}
+</style>
+</head>
+<body data-page="solucoes">
+
+<header class="phero dark">
+  <div class="bg" style="background-image:url(assets/usinas/2469bfd7f6f686fc4e75cb00585ea2cb91c2ea3d.jpg)"></div>
+  <div class="wrap">
+    <div class="crumbs" data-reveal data-intro><a href="index.html">Home</a><span>Soluções</span></div>
+    <h1 class="lines" data-intro><span>Toda a cadeia da</span><span>energia em <em>um só grupo</em></span></h1>
+    <div data-reveal data-intro><p class="lead">Da geração à gestão, o Grupo Ludfor tem uma solução para cada etapa da energia do seu negócio.</p></div>
+    <div class="jump" data-reveal data-intro>
+      <a class="chip" href="#gestao">Gestão</a><a class="chip" href="#autoproducao">Autoprodução</a><a class="chip" href="#geracao">Geração</a>
+      <a class="chip" href="#comercializacao">Comercialização</a><a class="chip" href="#gd">Geração Distribuída</a><a class="chip" href="#engenharia">Engenharia</a>
+    </div>
+  </div>
+</header>
+<div class="steps" data-steps><div></div><div class="v"></div></div>
+
+<div class="wrap lay">
+  <nav class="idx" aria-label="Soluções">
+    <a href="#gestao"><small>01</small>Gestão</a>
+    <a href="#autoproducao"><small>02</small>Autoprodução</a>
+    <a href="#geracao"><small>03</small>Geração</a>
+    <a href="#comercializacao"><small>04</small>Comercialização</a>
+    <a href="#gd"><small>05</small>Geração Distribuída</a>
+    <a href="#engenharia"><small>06</small>Engenharia</a>
+    <div class="cta"><a href="fale-conosco.html" class="btn verde"><span>Fale com um especialista</span><i>→</i></a></div>
+  </nav>
+
+  <div>
+    <!-- 01 GESTÃO -->
+    <section class="sol" id="gestao">
+      <div class="num" data-reveal><span>01 · Gestão</span></div>
+      <h2 class="lines"><span>Gestão no Mercado</span><span>Livre de Energia</span></h2>
+      <div data-reveal>
+        <p class="lead">A Ludfor coordena a migração e a operacionalização de empresas no Mercado Livre de Energia, ambiente que permite economia média de até 30% nos gastos com energia elétrica.</p>
+        <p class="t">Nossa equipe acompanha as demandas de empresas de médio e grande porte, analisa as tarifas e oferece suporte jurídico e contábil na gestão energética do cliente. O objetivo é facilitar o acesso a uma energia competitiva para o seu perfil de consumo, com previsibilidade e economia.</p>
+      </div>
+      <div class="img wipe" style="background-image:url(assets/789f2e31fd69bb40134f443bfa37a921d3c89793.png)"></div>
+      <div class="cols">
+        <div data-reveal><h4>Vantagens de migrar</h4><ul>
+          <li>Facilidade de negociação de preços de energia</li>
+          <li>Previsão orçamentária do fluxo de caixa</li>
+          <li>Horário de ponta com custo reduzido</li>
+          <li>Escolha do fornecedor mais vantajoso</li>
+          <li>Contratação de energia de fontes renováveis</li>
+        </ul></div>
+        <div data-reveal><h4>O que entregamos</h4><ul>
+          <li>Assessoria em energia e consultoria técnica</li>
+          <li>Operacionalização no Mercado Livre (CCEE)</li>
+          <li>Laudos para crédito de ICMS</li>
+          <li>Laudos técnicos e pareceres</li>
+          <li>Certificado de Energia Renovável</li>
+          <li>Análise de risco e inteligência de mercado</li>
+          <li>Monitoramento energético via internet</li>
+          <li>Análise contábil e tributária</li>
+          <li>Assessoria jurídica em energia</li>
+          <li>Consultoria de gás natural</li>
+          <li>Gestão de geradores</li>
+          <li>Investimentos em geração</li>
+        </ul></div>
+      </div>
+      <div class="marca" data-reveal><div class="lg"><div><small>Marca responsável</small><img src="assets/marcas/be4224f5dfc696aaf6a7fe91535cbf9b93391d25.png" alt="Ludfor Gestão"></div></div><a href="fale-conosco.html" class="btn"><span>Fale com um especialista</span><i>→</i></a></div>
+    </section>
+
+    <!-- 02 AUTOPRODUÇÃO -->
+    <section class="sol" id="autoproducao">
+      <div class="num" data-reveal><span>02 · Autoprodução</span></div>
+      <h2 class="lines"><span>Autoprodução</span><span>de energia</span></h2>
+      <div data-reveal>
+        <p class="lead">Para empresas que querem gerar a própria energia, estruturamos modelos de autoprodução com previsibilidade de custo no longo prazo e energia de fonte renovável.</p>
+        <p class="t">Unimos a experiência do grupo em geração, comercialização e gestão para desenhar o modelo mais adequado ao perfil de consumo da sua empresa.</p>
+      </div>
+      <div class="img wipe" style="background-image:url(assets/usinas/aa8ed1e171964e0637f967938f87c87b454e038d.jpg)"></div>
+      <div class="marca" data-reveal><div class="lg"><div><small>Marca responsável</small><img src="assets/logo_branco.svg" alt="Grupo Ludfor"></div></div><a href="fale-conosco.html" class="btn"><span>Fale com um especialista</span><i>→</i></a></div>
+    </section>
+
+    <!-- 03 GERAÇÃO -->
+    <section class="sol" id="geracao">
+      <div class="num" data-reveal><span>03 · Geração</span></div>
+      <h2 class="lines"><span>Geração de</span><span>energia limpa</span></h2>
+      <div data-reveal>
+        <p class="lead">A Origem Energia, braço de geração da Ludfor, tem investimentos e participações em usinas compostas por Pequenas Centrais Hidrelétricas (PCHs) e Usinas Fotovoltaicas (UFVs).</p>
+      </div>
+      <div class="img wipe" style="background-image:url(assets/42aba2471d6ced916b59412d4f18a89e6a93d9b7.jpg)"></div>
+      <div class="stats" data-reveal>
+        <div><strong data-count="51">51</strong><span>usinas com investimento ou participação</span></div>
+        <div><strong data-count="153" data-suf=" MW">153 MW</strong><span>de capacidade instalada de energia limpa</span></div>
+        <div><strong data-count="509" data-pre="R$" data-suf="mi">R$509mi</strong><span>em investimentos até 2027</span></div>
+      </div>
+      <div data-reveal><h4>Algumas das nossas usinas</h4><ul>
+        <li><b>PCH Âmbar</b><span>Romelândia · SC · 5,1 MW · em operação desde fev/2020</span></li>
+        <li><b>CGH Laje de Pedra</b><span>Concórdia · SC · 3 MW · em operação desde nov/2020</span></li>
+        <li><b>CGH Jacutinga</b><span>Concórdia · SC · 5 MW · em operação desde ago/2021</span></li>
+        <li><b>CGH Bandiera Ronfim</b><span>Corbélia · PR · 2,15 MW · em operação desde jul/2022</span></li>
+        <li><b>CGH Salto Piquirizinho</b><span>Corbélia · PR · 1,6 MW · em operação desde 2023</span></li>
+        <li><b>CGH Pedra Branca</b><span>Campestre da Serra · RS · 1 MW · em operação desde 2022</span></li>
+        <li><b>UFV Inajá</b><span>Inajá · PE</span></li>
+      </ul></div>
+      <div class="marca" data-reveal><div class="lg"><div><small>Marca responsável</small><img src="assets/marcas/902b3254383d06ee26833ef96dc3617fbbe78406.png" alt="Origem Energia"></div></div><a href="fale-conosco.html" class="btn"><span>Fale com um especialista</span><i>→</i></a></div>
+    </section>
+
+    <!-- 04 COMERCIALIZAÇÃO -->
+    <section class="sol" id="comercializacao">
+      <div class="num" data-reveal><span>04 · Comercialização</span></div>
+      <h2 class="lines"><span>Comercialização</span><span>de energia</span></h2>
+      <div data-reveal>
+        <p class="lead">A Mesa de Comercialização mantém relacionamento com geradores e outras comercializadoras, realizando operações de compra e venda de energia.</p>
+        <p class="t">Com um time dedicado, monitoramos as condições de mercado e preço, o que permite resposta rápida e antecipação frente às mudanças do setor, auxiliando os clientes na definição do melhor momento de compra. A Mesa está habilitada para receber todos os clientes do mercado livre e garante o ajuste de sobras e déficits de energia.</p>
+      </div>
+      <div class="img wipe" style="background-image:url(assets/76332fab96b1b7b77dbc4dcf1f5a8b1c18687035.png)"></div>
+      <div class="sub" data-reveal>
+        <h3>Mercado Varejista</h3>
+        <p class="t">O Comercializador Varejista representa consumidores de menor porte, simplificando as atividades do Mercado Livre. A carga do cliente é modelada sob uma comercializadora, que atende 100% daquela unidade e cuida de toda a interação com o mercado, regras e procedimentos. Assim, o cliente foca no seu negócio e nós cuidamos da estratégia em energia.</p>
+      </div>
+      <div class="marca" data-reveal><div class="lg"><div><small>Marca responsável</small><img src="assets/marcas/d6af68ffe1553b5c5ab84e4b01faff4b28cb9a7f.png" alt="Ludfor Comercialização"></div></div><a href="fale-conosco.html" class="btn"><span>Fale com um especialista</span><i>→</i></a></div>
+    </section>
+
+    <!-- 05 GERAÇÃO DISTRIBUÍDA -->
+    <section class="sol" id="gd">
+      <div class="num" data-reveal><span>05 · Geração Distribuída</span></div>
+      <h2 class="lines"><span>Geração</span><span>Distribuída</span></h2>
+      <div data-reveal>
+        <p class="lead">Soluções personalizadas para reduzir o custo de energia da sua empresa ou residência, nos segmentos de geração distribuída (GD) e mercado livre varejista.</p>
+      </div>
+      <div class="img wipe" style="background-image:url(assets/usinas/9e405fab5b8b8a6a7ebcb36b73c0b0d58465f903.jpg)"></div>
+      <div class="marca" data-reveal><div class="lg"><div><small>Marca responsável</small><img src="assets/marcas/0d5ce42bc0728ac08a186e725fafac7db6421507.png" alt="Simplifica Energia"></div></div><a href="fale-conosco.html" class="btn"><span>Fale com um especialista</span><i>→</i></a></div>
+    </section>
+
+    <!-- 06 ENGENHARIA -->
+    <section class="sol" id="engenharia">
+      <div class="num" data-reveal><span>06 · Engenharia</span></div>
+      <h2 class="lines"><span>Soluções completas em</span><span>engenharia e energia</span></h2>
+      <div data-reveal>
+        <p class="lead">Especialistas em prover soluções estruturadas com foco na eficiência e na rentabilidade dos recursos energéticos.</p>
+      </div>
+      <div class="img wipe" style="background-image:url(assets/18035c38edf87ef42f514ce52f9deba1bd2b6c1c.jpg)"></div>
+      <div class="marca" data-reveal><div class="lg"><div><small>Marca responsável</small><img src="assets/marcas/8a5166f7aaf01941a82af601f299c17dd9d34fc9.png" alt="Trifase Energia"></div></div><a href="fale-conosco.html" class="btn"><span>Fale com um especialista</span><i>→</i></a></div>
+    </section>
+  </div>
+</div>
+
+<script src="js/base.js"></script>
+<script>
+/* índice lateral: marca a solução visível e mostra o progresso de leitura dela */
+const items = [...document.querySelectorAll('.idx>a')], secs = items.map(a => document.querySelector(a.getAttribute('href')));
+Ludfor.onScroll(() => {
+  const mid = innerHeight * 0.4;
+  secs.forEach((s, i) => {
+    const r = s.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (mid - r.top) / r.height));
+    items[i].classList.toggle('on', r.top <= mid && r.bottom > mid);
+    items[i].style.setProperty('--p', p);
+  });
+});
+</script>
+</body>
+</html>

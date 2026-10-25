@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fale conosco — Ludfor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+.sec{padding:110px 0;scroll-margin-top:80px}
+.contact{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
+.form{background:#fff;border:1px solid var(--linha);padding:44px}
+.form h2{font-size:clamp(34px,3.4vw,50px);margin:18px 0 10px}
+.form .sub{color:var(--muted);font-size:15px;margin-bottom:32px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.f{display:grid;gap:8px;position:relative}
+.f.full{grid-column:span 2}
+.f label{font-size:13px;color:var(--muted)}
+.f input,.f select,.f textarea{font:inherit;font-size:16px;color:var(--texto);border:0;border-bottom:1px solid var(--linha);background:transparent;padding:10px 0;border-radius:0;outline:none;transition:border-color .3s}
+.f textarea{min-height:110px;resize:vertical}
+.f::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--verde);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.f:focus-within::after{transform:scaleX(1)}
+.f .err{font-size:12px;color:#B3261E;min-height:14px}
+.lgpd{display:grid;grid-template-columns:20px 1fr;gap:12px;margin-top:28px;font-size:13px;line-height:1.55;color:var(--muted)}
+.lgpd input{width:18px;height:18px;margin-top:2px;accent-color:var(--verde)}
+.lgpd a{color:var(--verde);text-decoration:underline}
+.form .send{margin-top:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.form .ok{font-size:14px;color:var(--verde);display:none}
+.form.sent .ok{display:block}
+.aside{display:grid;gap:20px}
+.box{padding:32px}
+.box small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9DB8B3}
+.box h3{font-size:28px;margin:12px 0 16px}
+.box p{line-height:1.6;color:#C9D8D5;font-size:15px}
+.box a.tel{display:block;font-size:30px;font-weight:300;letter-spacing:-.02em;margin-top:18px;color:var(--amarelo)}
+.box.light{background:#fff;border:1px solid var(--linha)}
+.box.light small{color:var(--muted)}
+.box.light p{color:var(--muted)}
+.box .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+/* filiais */
+.regs{display:flex;gap:8px;flex-wrap:wrap;margin:40px 0 24px}
+.regs button{font:inherit;cursor:pointer}
+.fil{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--linha);border-left:1px solid var(--linha)}
+.fil .c{border-right:1px solid var(--linha);border-bottom:1px solid var(--linha);background:#fff;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:200px;animation:swap .6s var(--ease) both;animation-delay:calc(var(--i)*35ms)}
+@keyframes swap{from{opacity:0;transform:translateY(14px)}}
+.fil .c small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde)}
+.fil .c h3{font-size:26px}
+.fil .c p{font-size:14px;color:var(--muted);line-height:1.5}
+.fil .c a{margin-top:auto;font-size:15px;align-self:flex-start}
+.fil .c.sede{background:var(--noite);color:#fff}
+.fil .c.sede small{color:var(--amarelo)}
+.fil .c.sede p{color:#B4C9C5}
+@media (max-width:1000px){
+  .contact{grid-template-columns:1fr}
+  .fil{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .form{padding:28px 20px}
+  .fields{grid-template-columns:1fr}.f.full{grid-column:auto}
+  .fil{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body data-page="fale-conosco">
+
+<header class="phero dark" style="min-height:480px">
+  <div class="bg" style="background-image:url(assets/marcas/6690a2d664a5db1148be3180c84e103eccb50f55.png)"></div>
+  <div class="wrap">
+    <div class="crumbs" data-reveal data-intro><a href="index.html">Home</a><span>Fale conosco</span></div>
+    <h1 class="lines" data-intro><span>Surgiu alguma</span><span><em>dúvida?</em></span></h1>
+    <div data-reveal data-intro><p class="lead">Fale com um especialista do Grupo Ludfor ou encontre a filial mais perto de você.</p></div>
+    <div class="jump" data-reveal data-intro><a class="chip" href="#contato">Formulário de contato</a><a class="chip" href="#filiais">Filiais e contatos</a></div>
+  </div>
+</header>
+<div class="steps" data-steps><div></div><div class="v"></div></div>
+
+<!-- FORMULÁRIO DE CONTATO (fluxos no RD Station) -->
+<section class="sec" id="contato">
+  <div class="wrap contact">
+    <!-- integrar ao RD Station: o campo "assunto" define o fluxo de automação -->
+    <form class="form" id="form" novalidate data-reveal>
+      <div class="eyebrow">Contate-nos</div>
+      <h2>Formulário de contato</h2>
+      <p class="sub">Campos com (*) são obrigatórios.</p>
+      <div class="fields">
+        <div class="f"><label for="nome">Nome completo *</label><input id="nome" name="nome" autocomplete="name" required><span class="err"></span></div>
+        <div class="f"><label for="email">E-mail *</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err"></span></div>
+        <div class="f"><label for="tel">Telefone *</label><input id="tel" name="telefone" type="tel" autocomplete="tel" required><span class="err"></span></div>
+        <div class="f"><label for="assunto">Assunto</label><select id="assunto" name="assunto"><option>Quero economizar na conta de luz</option><option>Sou gerador de energia</option><option>Já sou cliente</option><option>Imprensa</option><option>Outro assunto</option></select><span class="err"></span></div>
+        <div class="f full"><label for="msg">Mensagem *</label><textarea id="msg" name="mensagem" required></textarea><span class="err"></span></div>
+      </div>
+      <label class="lgpd"><input type="checkbox" id="aceite" required><span>Para seu conhecimento e segurança: as informações acima envolvem dados pessoais, os quais serão utilizados exclusivamente para procedimentos preliminares próprios das relações negociais B2C ou B2B, nos termos da LGPD 7º, V. Li e aceito o aviso acima, bem como a <a href="#">Política de Privacidade</a> do website da Ludfor. *</span></label>
+      <span class="err" id="aceiteErr" style="font-size:12px;color:#B3261E;display:block;margin-top:6px"></span>
+      <div class="send"><button class="btn verde" type="submit"><span>Enviar formulário</span><i>→</i></button><span class="ok">Recebemos sua mensagem. Em breve um especialista entra em contato.</span></div>
+    </form>
+
+    <div class="aside" data-reveal>
+      <div class="box dark">
+        <small>Matriz</small>
+        <h3>Bento Gonçalves · RS</h3>
+        <p>Alameda Fenavinho, 214 · B. Fenavinho<br>CEP 95703-364</p>
+        <a class="tel" href="tel:+555434511413">(54) 3451.1413</a>
+      </div>
+      <div class="box light">
+        <small>Já é cliente?</small>
+        <h3>Área do Cliente</h3>
+        <p>Acompanhe seus dados de consumo e documentos no Haus.</p>
+        <div class="row"><a href="https://haus.ludfor.com.br/login" class="btn verde"><span>Acessar</span><i>→</i></a></div>
+      </div>
+      <div class="box light">
+        <small>Carreiras</small>
+        <h3>Trabalhe conosco</h3>
+        <p>Veja as vagas abertas no Grupo Ludfor.</p>
+        <div class="row"><a href="https://ludfor.vagas.solides.com.br/" class="link">Ver vagas</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILIAIS E CONTATOS -->
+<section class="sec" id="filiais" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow">Filiais e contatos</div><h2 class="lines"><span>Perto de você</span><span>em todo o Brasil</span></h2></div>
+      <div data-reveal><p>Uma matriz e 14 filiais com o mesmo compromisso em resultados e foco no cliente.</p></div>
+    </div>
+    <div class="regs" id="regs" data-reveal>
+      <button class="chip on" data-r="">Todas</button><button class="chip" data-r="Sul">Sul</button><button class="chip" data-r="Sudeste">Sudeste</button>
+      <button class="chip" data-r="Centro-Oeste">Centro-Oeste</button><button class="chip" data-r="Nordeste">Nordeste</button><button class="chip" data-r="Norte">Norte</button>
+    </div>
+    <div class="fil" id="fil"></div>
+  </div>
+</section>
+
+<script src="js/base.js"></script>
+<script>
+/* filiais (dados do site atual) */
+const FILIAIS = [
+  ['Bento Gonçalves', 'RS', 'Sul', 'Alameda Fenavinho, 214 · B. Fenavinho · CEP 95703-364', '(54) 3451.1413', true],
+  ['Belo Horizonte', 'MG', 'Sudeste', 'Rua Antônio de Albuquerque, 330 · Savassi · 30112-010', '(54) 3451.1413'],
+  ['Curitiba', 'PR', 'Sul', 'Av. Marechal Floriano Peixoto, 720, Sala Mississipi · Centro · 80.010-130', '(41) 3797-0560'],
+  ['Florianópolis', 'SC', 'Sul', 'Av. Madre Benvenuta, nº 1.168, Sala 201-A · Santa Mônica · 88.035-000', '(48) 3037-7001'],
+  ['Fortaleza', 'CE', 'Nordeste', 'Rua Desembargador Leite Albuquerque, 635, sala 404 · Aldeota · 60.150-150', '(54) 3451.1413'],
+  ['Goiânia', 'GO', 'Centro-Oeste', 'Av. 136, 638, Ed. Ângelo Roncalle, 5º andar · Setor Marista · 74180-040', '(62) 3416-6552'],
+  ['Maceió', 'AL', 'Nordeste', 'Av. Fernandes Lima, 08, Ed. Centenário Office, sala 102 · Farol · 57.050-000', '(82) 3432-3230'],
+  ['Maringá', 'PR', 'Sul', 'Rua Néo Alves Martins, 1632, sala 09 · Zona 01 · 87013-060', '(54) 3451.1413'],
+  ['Porto Alegre', 'RS', 'Sul', 'Rua 24 de Outubro, 388, Sala 401 · Moinhos de Vento · 95.510-000', '(51) 3209-9426'],
+  ['Recife', 'PE', 'Nordeste', 'Rua Barão de Souza Leão, 425, sala 1403, Ed. Pontes Corporate Center · Boa Viagem · 51030-300', '(54) 3451.1413'],
+  ['Rio de Janeiro', 'RJ', 'Sudeste', 'Praça 15 de Novembro, 200, 5º andar, sala 536 · Centro · 20010-010', '(54) 3451-1413'],
+  ['Salvador', 'BA', 'Nordeste', 'Av. Luís Viana Filho, 6462, Torre East (A), Ed. Wall Street East, sala 2023 · Paralela · 41.730-101', '(71) 3190-7814'],
+  ['Santarém', 'PA', 'Norte', 'Avenida Curuá-Una, 4 · Urumari · 68020-650', '(54) 3451.1413'],
+  ['São Paulo', 'SP', 'Sudeste', 'Av. Doutor Cardoso de Melo, 1450, 3º andar, sala 301-C · Vila Olímpia · 04.548-005', '(11) 3614-9009'],
+  ['Uberlândia', 'MG', 'Sudeste', 'Av. João Naves de Ávila, 1331, Shopping Regus, sala 604 · Tibery · 38408-902', '(54) 3451-1413'],
+];
+const fil = document.getElementById('fil'), regs = [...document.querySelectorAll('#regs button')];
+const tel = t => 'tel:+55' + t.replace(/\D/g, '');
+function render(r) {
+  fil.innerHTML = FILIAIS.filter(f => !r || f[2] === r).map((f, i) => `
+    <div class="c${f[5] ? ' sede' : ''}" style="--i:${i}">
+      <small>${f[5] ? 'Matriz' : 'Filial'} · ${f[2]}</small>
+      <h3>${f[0]} · ${f[1]}</h3>
+      <p>${f[3]}</p>
+      <a href="${tel(f[4])}" class="link">${f[4]}</a>
+    </div>`).join('');
+}
+regs.forEach(b => b.onclick = () => { regs.forEach(x => x.classList.toggle('on', x === b)); render(b.dataset.r); });
+render('');
+
+/* validação do formulário, com erro ao lado de cada campo */
+const form = document.getElementById('form');
+const msgs = { nome: 'Informe seu nome', email: 'Informe um e-mail válido', tel: 'Informe seu telefone', msg: 'Escreva sua mensagem' };
+const errOf = el => el.closest('.f').querySelector('.err');
+form.querySelectorAll('input,textarea').forEach(el => el.addEventListener('input', () => { if (el.closest('.f')) errOf(el).textContent = ''; }));
+document.getElementById('aceite').addEventListener('change', () => document.getElementById('aceiteErr').textContent = '');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  let ok = true;
+  Object.keys(msgs).forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.checkValidity() || !el.value.trim()) { errOf(el).textContent = msgs[id]; ok = false; }
+  });
+  if (!document.getElementById('aceite').checked) { document.getElementById('aceiteErr').textContent = 'É preciso aceitar o aviso para enviar'; ok = false; }
+  if (ok) form.classList.add('sent');
+});
+</script>
+</body>
+</html>

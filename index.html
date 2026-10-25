@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ludfor — Gestão de energia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+/* 1. MANIFESTO (GIF / vídeo) */
+.manifesto{position:relative;height:100vh;min-height:640px;max-height:980px;overflow:hidden;display:flex;align-items:flex-end}
+.manifesto .media{position:absolute;inset:-6% 0;will-change:transform}
+.manifesto video,.manifesto .poster{width:100%;height:100%;object-fit:cover;animation:zoom 2.4s var(--ease) both}
+.manifesto .media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,43,40,.92) 0%,rgba(6,43,40,.55) 50%,rgba(6,43,40,.15) 100%),linear-gradient(0deg,rgba(6,43,40,.9) 0%,transparent 45%)}
+.manifesto .wrap{position:relative;width:100%;padding-bottom:80px}
+.manifesto h1{font-size:clamp(46px,7.4vw,112px);max-width:11ch}
+.manifesto h1 em{font-style:normal;color:var(--amarelo)}
+.manifesto p{max-width:500px;font-size:18px;line-height:1.55;color:#C9D8D5;margin-top:28px}
+.scrollcue{position:absolute;left:50%;bottom:22px;width:1px;height:44px;background:rgba(255,255,255,.25);overflow:hidden}
+.scrollcue::after{content:"";position:absolute;left:0;top:-50%;width:100%;height:50%;background:var(--amarelo);animation:cue 1.8s var(--ease) infinite}
+@keyframes cue{to{top:100%}}
+
+/* 2. BIG NUMBERS */
+.numbers{padding:110px 0 40px}
+.numbers .grid{display:grid;grid-template-columns:repeat(5,1fr);margin-top:56px;position:relative}
+.numbers .grid::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--linha);transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease)}
+.numbers .grid.in::before{transform:scaleX(1)}
+.numbers .n{padding:30px 24px 8px;border-right:1px solid var(--linha)}
+.numbers .n:first-child{padding-left:0}
+.numbers .n:last-child{border-right:0}
+.numbers strong{display:block;font-size:clamp(36px,4vw,62px);font-weight:300;letter-spacing:-.04em;color:var(--verde);font-variant-numeric:tabular-nums}
+.numbers .n span{font-size:14px;color:var(--muted);line-height:1.4;display:block;margin-top:8px}
+
+/* DESTAQUES (logo abaixo dos big numbers) */
+.banner{padding:40px 0 0}
+.banner .frame{position:relative;margin-top:24px;aspect-ratio:1810/774;max-height:560px;width:100%;overflow:hidden;background:var(--noite)}
+.banner .slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1.15fr;clip-path:inset(0 0 0 100%);transition:clip-path 1.1s var(--ease)}
+.banner .slide.on{clip-path:inset(0 0 0 0);z-index:2}
+.banner .slide.out{clip-path:inset(0 100% 0 0);z-index:1;transition-delay:.1s}
+.banner .txt{background:var(--noite);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between}
+.banner .txt small{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9DB8B3}
+.banner .txt h3{font-size:clamp(30px,3.4vw,52px);max-width:12ch}
+.banner .txt h3 em{font-style:normal;color:var(--amarelo)}
+.banner .img{background-size:cover;background-position:center;transform:scale(1.12);transition:transform 6s linear}
+.banner .slide.on .img{transform:scale(1)}
+.banner .tabs{display:grid;grid-template-columns:repeat(var(--n,2),1fr);border:1px solid var(--linha);border-top:0;background:#fff}
+.banner .tabs button{font:inherit;text-align:left;padding:18px 22px;border:0;background:none;border-right:1px solid var(--linha);cursor:pointer;color:var(--muted);font-size:14px;position:relative;display:flex;gap:14px}
+.banner .tabs button:last-child{border-right:0}
+.banner .tabs button b{font-weight:500;color:var(--texto)}
+.banner .tabs button.on{color:var(--texto)}
+.banner .tabs i{position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--verde);transform:scaleX(0);transform-origin:left}
+
+/* 3. TRAJETÓRIA (scroll horizontal fixado) */
+.hist{position:relative}
+.hist .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:80px}
+.hist .pin>.wrap{width:100%}
+.hist .bar{position:relative;height:1px;background:var(--linha);margin-top:56px}
+.hist .bar i{position:absolute;inset:0;background:var(--verde);transform:scaleX(0);transform-origin:left}
+.hist .bar span{position:absolute;right:0;top:-34px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.hist .track{display:flex;will-change:transform}
+.hist .y{flex:0 0 360px;padding:40px 40px 0 0;position:relative}
+/* marcador: quadradinho com o raio dentro; acende em verde e amarelo quando o ano é alcançado */
+.hist .y::before,.hist .y::after{content:"";position:absolute;top:-13px;left:0;width:26px;height:26px;transition:background-color .4s,border-color .4s,transform .5s var(--ease)}
+.hist .y::before{background:var(--off);border:1px solid var(--linha)}
+.hist .y::after{background:#B9C4C1;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.5 2 5 13.5h5.5L9.5 22 19 9.5h-5.5z'/%3E%3C/svg%3E") center/13px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.5 2 5 13.5h5.5L9.5 22 19 9.5h-5.5z'/%3E%3C/svg%3E") center/13px no-repeat}
+.hist .y.on::before{background:var(--verde);border-color:var(--verde);transform:scale(1.08)}
+.hist .y.on::after{background:var(--amarelo);transform:scale(1.08)}
+.hist .y strong{font-size:64px;font-weight:300;letter-spacing:-.05em;color:#B9C4C1;transition:color .5s}
+.hist .y.on strong{color:var(--verde)}
+.hist .y .ph{aspect-ratio:4/3;background-size:cover;background-position:center;margin:18px 0 16px;filter:grayscale(1);transition:filter .8s}
+.hist .y.on .ph{filter:none}
+.hist .y p{font-size:15px;line-height:1.5;color:var(--muted);max-width:300px}
+
+/* 4. CLIENTES */
+.cli{padding:120px 0}
+.cli .seg{display:grid;grid-template-columns:repeat(5,1fr);margin-top:56px;border:1px solid var(--linha);border-bottom:0;background:#fff}
+.cli .seg button{font:inherit;font-size:14px;text-align:left;padding:18px 20px;border:0;border-right:1px solid var(--linha);background:none;cursor:pointer;color:var(--muted);position:relative}
+.cli .seg button:last-child{border-right:0}
+.cli .seg button.on{color:var(--texto)}
+.cli .seg i{position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--verde);transform:scaleX(0);transform-origin:left}
+.cli .logos{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--linha);border-left:1px solid var(--linha)}
+.cli .logos div{height:130px;border-right:1px solid var(--linha);border-bottom:1px solid var(--linha);display:grid;place-items:center;font-size:13px;color:#A3AEAB;background:#fff;transition:background .3s}
+.cli .logos div:hover{background:var(--off)}
+.cli .logos.swap div{animation:swap .7s var(--ease) both;animation-delay:calc(var(--i)*40ms)}
+@keyframes swap{from{opacity:0;transform:translateY(14px)}}
+
+/* 5. DEPOIMENTOS */
+.dep{padding:120px 0;background:#fff}
+.dep .slider{display:grid;grid-auto-flow:column;grid-auto-columns:min(760px,88%);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:56px;padding-bottom:4px;scrollbar-width:none}
+.dep .slider::-webkit-scrollbar{display:none}
+.dep .item{scroll-snap-align:start;display:grid;grid-template-columns:240px 1fr;background:var(--off);border:1px solid var(--linha)}
+.dep .item .ph{background:var(--verde) url(assets/logo_branco.svg) center/58% no-repeat;position:relative;min-height:280px;overflow:hidden}
+.dep .item .ph em{position:absolute;left:12px;top:12px;font-style:normal;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.4);padding:4px 8px}
+.dep .item .ph b{position:absolute;right:12px;bottom:12px;width:44px;height:44px;background:var(--amarelo);color:var(--noite);display:grid;place-items:center;font-size:14px;transition:transform .4s var(--ease)}
+.dep .item:hover .ph b{transform:scale(1.15)}
+.dep .item .t{padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.dep .item q{font-size:21px;line-height:1.4;letter-spacing:-.01em;font-weight:300}
+.dep .item b.n{font-weight:600;font-size:15px}
+.dep .item small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.dep .ctrl{display:flex;align-items:center;gap:20px;margin-top:28px}
+.dep .prog{flex:1;height:1px;background:var(--linha);position:relative}
+.dep .prog i{position:absolute;left:0;top:-1px;height:3px;background:var(--verde);width:25%;transition:transform .6s var(--ease),width .6s var(--ease)}
+
+@media (max-width:1000px){
+  .banner .slide{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .banner .frame{aspect-ratio:auto;height:560px;max-height:none}
+  .banner .txt{padding:28px}
+  .numbers .grid{grid-template-columns:repeat(2,1fr)}
+  .numbers .n,.numbers .n:first-child{padding:24px 16px 16px 0;border-bottom:1px solid var(--linha)}
+  .numbers .n:nth-child(2n){padding-left:16px;border-right:0}
+  .hist .pin{position:static;height:auto;padding:110px 0 80px}
+  .hist{height:auto!important}
+  .hist .track{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;transform:none!important}
+  .hist .y{flex:none;padding-right:0}
+  .hist .bar{display:none}
+  .cli .seg{grid-template-columns:repeat(3,1fr)}
+  .cli .seg button{border-bottom:1px solid var(--linha)}
+  .cli .logos{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:640px){
+  .banner .tabs{grid-template-columns:1fr}
+  .banner .tabs button{border-right:0;border-bottom:1px solid var(--linha)}
+  .hist .track{grid-template-columns:1fr}
+  .hist .y strong{font-size:48px}
+  .cli .seg{grid-template-columns:1fr 1fr}
+  .cli .logos{grid-template-columns:repeat(2,1fr)}
+  .dep .item{grid-template-columns:1fr}.dep .item .ph{min-height:160px}
+}
+</style>
+</head>
+<body data-page="home" data-foot="#fff">
+
+<!-- 1. GIF / VÍDEO MANIFESTO -->
+<header class="manifesto dark">
+  <div class="media" id="heroMedia">
+    <!-- trocar pelo vídeo/GIF manifesto: <video autoplay muted loop playsinline poster="..."><source src="manifesto.mp4"></video> -->
+    <img class="poster" src="assets/usinas/c9d3ddca088cfb2a33b236af40ba149e60fe346f.jpg" alt="">
+  </div>
+  <div class="wrap">
+    <h1 class="lines" data-intro><span>Energia que</span><span>move quem</span><span><em>não para.</em></span></h1>
+    <div data-reveal data-intro><p>Há mais de 30 anos o Grupo Ludfor gera, comercializa e faz a gestão de energia para empresas de todo o Brasil.</p></div>
+    <div data-reveal data-intro style="margin-top:36px"><a href="a-ludfor.html" class="btn"><span>Saiba mais</span><i>→</i></a></div>
+  </div>
+  <div class="scrollcue"></div>
+</header>
+<div class="steps" data-steps><div></div><div class="v"></div></div>
+
+<!-- 2. BIG NUMBERS -->
+<section class="numbers">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow">Ludfor em números</div><h2 class="lines"><span>Resultados que se</span><span>medem em energia</span></h2></div>
+      <div data-reveal><p>Uma das maiores e mais tradicionais empresas do Sul do Brasil, com investimentos próprios em geração de energia.</p></div>
+    </div>
+    <div class="grid" data-reveal>
+      <div class="n"><strong data-count="3000" data-pre="+">+3.000</strong><span>grupos econômicos atendidos</span></div>
+      <div class="n"><strong data-count="300" data-pre="+">+300</strong><span>especialistas em energia</span></div>
+      <div class="n"><strong data-count="30" data-pre="+">+30</strong><span>anos de experiência</span></div>
+      <div class="n"><strong data-count="700" data-pre="+">+700</strong><span>novas empresas escolheram a Ludfor em 2025</span></div>
+      <div class="n"><strong data-count="509" data-pre="R$" data-suf="mi">R$509mi</strong><span>em investimentos em geração</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUES, logo abaixo dos big numbers -->
+<section class="banner">
+  <div class="wrap">
+    <div class="eyebrow">Destaques</div>
+    <div class="frame wipe" id="bannerFrame">
+      <div class="slide on">
+        <div class="txt"><small>Mercado Livre de Energia</small><h3>Em média até <em>30% de economia</em> na conta de luz da sua empresa</h3><a href="solucoes.html#gestao" class="btn"><span>Saiba mais</span><i>→</i></a></div>
+        <div class="img" style="background-image:url(assets/5870ab8c19cae382b5ad26727ea064108bf9c16b.jpg)"></div>
+      </div>
+      <div class="slide">
+        <div class="txt"><small>Gestão e comercialização</small><h3>Gestão e operações de <em>compra e venda</em> de energia</h3><a href="solucoes.html#comercializacao" class="btn"><span>Saiba mais</span><i>→</i></a></div>
+        <div class="img" style="background-image:url(assets/4716e56051ee94e661395a56a7b7d806dcb5da83.jpg)"></div>
+      </div>
+    </div>
+    <div class="tabs" id="bannerTabs" style="--n:2">
+      <button class="on"><span>01</span><b>Gestão no Mercado Livre</b><i></i></button>
+      <button><span>02</span><b>Geração e Comercialização</b><i></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TRAJETÓRIA — 30 ANOS DE HISTÓRIA -->
+<section class="hist" id="hist">
+  <div class="pin">
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">30 anos de história</div><h2 class="lines"><span>Uma trajetória com</span><span>muita energia</span></h2></div>
+      </div>
+      <div class="bar"><i id="histBar"></i><span id="histYear">1995</span></div>
+    </div>
+    <div class="wrap" style="max-width:none;padding-right:0">
+      <div class="track" id="histTrack" style="padding-left:max(0px,calc((100vw - 1320px)/2))">
+        <div class="y" data-y="1995"><strong>1995</strong><div class="ph" style="background-image:url(assets/sobre/af459dd34fd1caa670aa3e53e92180cc21dda61f.jpg)"></div><p>Fundação da Ludfor em Bento Gonçalves (RS).</p></div>
+        <div class="y" data-y="2009"><strong>2009</strong><div class="ph" style="background-image:url(assets/usinas/0f0da7dc07720a862bd277ceec047ea84a2167a2.jpg)"></div><p>Criação do selo EcoLudfor de energia renovável.</p></div>
+        <div class="y" data-y="2020"><strong>2020</strong><div class="ph" style="background-image:url(assets/usinas/28a8c013a3ec01ef520b8df43e5e936fd0d8bfa0.jpg)"></div><p>PCH Âmbar e CGH Laje de Pedra entram em operação. Filial em Florianópolis.</p></div>
+        <div class="y" data-y="2021"><strong>2021</strong><div class="ph" style="background-image:url(assets/usinas/e123ed951a945bab3813b91d4a13b5df93b51cb2.jpg)"></div><p>CGH Jacutinga inicia operação com 5 MW.</p></div>
+        <div class="y" data-y="2022"><strong>2022</strong><div class="ph" style="background-image:url(assets/usinas/5a24d438024a60f39b5f23440d4f32282f8a786e.jpg)"></div><p>CGHs Bandiera Ronfim e Pedra Branca.</p></div>
+        <div class="y" data-y="2023"><strong>2023</strong><div class="ph" style="background-image:url(assets/marcas/736094c1699b6a36972604c77ee9cc2516fd8ee2.png)"></div><p>Chegada ao Nordeste e Centro-Oeste: Maceió e Goiânia.</p></div>
+        <div class="y" data-y="2024"><strong>2024</strong><div class="ph" style="background-image:url(assets/marcas/6690a2d664a5db1148be3180c84e103eccb50f55.png)"></div><p>+1.900 certificados de energia limpa. Filial em Curitiba.</p></div>
+        <div class="y" data-y="2026"><strong>2026</strong><div class="ph" style="background-image:url(assets/sobre/46859c5fc057ced5eecb93ad317e1d40a06b171c.jpg)"></div><p>Grupo Ludfor entre os destaques do Ranking EXAME.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CLIENTES -->
+<section class="cli">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow">Clientes</div><h2 class="lines"><span>Quem confia</span><span>na Ludfor</span></h2></div>
+      <div data-reveal><p>Principais clientes de cada segmento atendido pelo Grupo Ludfor.</p></div>
+    </div>
+    <div class="seg" id="segTabs"><button class="on">Indústria<i></i></button><button>Varejo<i></i></button><button>Agronegócio<i></i></button><button>Saúde<i></i></button><button>Serviços<i></i></button></div>
+    <div class="logos" id="logos" data-reveal></div>
+  </div>
+</section>
+
+<!-- 5. DEPOIMENTOS — ENERGIA QUE CONECTA -->
+<section class="dep">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow">Energia que conecta</div><h2 class="lines"><span>Depoimentos</span><span>de clientes</span></h2></div>
+    </div>
+    <div class="slider" id="depSlider" data-reveal>
+      <div class="item"><div class="ph"><em>Vídeo</em><b>▶</b></div><div class="t"><q>Desde que iniciamos a nossa parceria com a Ludfor, temos nos surpreendido dia após dia, pela eficiência e qualidade do trabalho e soluções oferecidas.</q><div><b class="n">Maristela Cusin Longhi</b><small>Diretora Executiva</small></div></div></div>
+      <div class="item"><div class="ph"><em>Vídeo</em><b>▶</b></div><div class="t"><q>A Ludfor tem atendimento próximo e ágil. O time é extremamente profissional e está sempre pronto para resolver as burocracias do dia a dia do mercado livre.</q><div><b class="n">Djalma Aquino Azevedo</b><small>Diretor Geral</small></div></div></div>
+      <div class="item"><div class="ph"><em>Vídeo</em><b>▶</b></div><div class="t"><q>Além da compra por preços inferiores aos praticados pelo mercado cativo, 25% em média, paralisamos o uso de geradores a óleo diesel nos horários de ponta.</q><div><b class="n">Vitor Friedrich</b><small>Diretor de Controladoria</small></div></div></div>
+      <div class="item"><div class="ph"><em>Vídeo</em><b>▶</b></div><div class="t"><q>As respostas instantâneas e os esclarecimentos sobre nossos questionamentos fizeram com que eles conquistassem um espaço de parceria dentro da UltraCheese.</q><div><b class="n">Renan Marangoni</b><small>Gerente Corporativo de Manutenção · UltraCheese</small></div></div></div>
+    </div>
+    <div class="ctrl"><div class="prog"><i id="depProg"></i></div><div class="arrows"><button data-d="-1" aria-label="Anterior">←</button><button data-d="1" aria-label="Próximo">→</button></div></div>
+  </div>
+</section>
+
+<script src="js/base.js"></script>
+<script>
+const { autoTabs, reduce, onScroll } = window.Ludfor;
+
+/* destaques */
+const slides = document.querySelectorAll('#bannerFrame .slide');
+autoTabs([...document.querySelectorAll('#bannerTabs button')], 7000, i => slides.forEach((s, j) => {
+  const was = s.classList.contains('on');
+  s.classList.toggle('on', j === i);
+  s.classList.toggle('out', was && j !== i);
+}), document.getElementById('bannerFrame'));
+
+/* clientes por segmento */
+const logos = document.getElementById('logos'), segs = [...document.querySelectorAll('#segTabs button')];
+autoTabs(segs, 6000, i => {
+  logos.innerHTML = Array.from({ length: 12 }, (_, k) => `<div style="--i:${k}">logo · ${segs[i].textContent}</div>`).join('');
+  logos.classList.remove('swap'); void logos.offsetWidth; logos.classList.add('swap');
+}, logos);
+
+/* depoimentos */
+const sl = document.getElementById('depSlider'), prog = document.getElementById('depProg');
+document.querySelectorAll('.dep .arrows button').forEach(b => b.onclick = () => sl.scrollBy({ left: b.dataset.d * sl.clientWidth * .8, behavior: 'smooth' }));
+sl.addEventListener('scroll', () => {
+  const max = sl.scrollWidth - sl.clientWidth, w = sl.clientWidth / sl.scrollWidth;
+  prog.style.width = (w * 100) + '%';
+  prog.style.transform = `translateX(${(max ? sl.scrollLeft / max : 0) * (1 / w - 1) * 100}%)`;
+}, { passive: true });
+sl.dispatchEvent(new Event('scroll'));
+
+/* parallax do manifesto e trajetória fixada com rolagem horizontal */
+const heroMedia = document.getElementById('heroMedia');
+const hist = document.getElementById('hist'), track = document.getElementById('histTrack');
+const histBar = document.getElementById('histBar'), histYear = document.getElementById('histYear'), years = [...track.children];
+const wide = matchMedia('(min-width: 1001px)');
+function sizeHist() {
+  if (!wide.matches) { hist.style.height = ''; return; }
+  hist.style.height = (innerHeight + Math.max(0, track.scrollWidth - innerWidth + 80)) + 'px';
+}
+sizeHist();
+addEventListener('resize', sizeHist);
+addEventListener('load', sizeHist);
+onScroll(y => {
+  if (!reduce && y < innerHeight) heroMedia.style.transform = `translateY(${y * 0.25}px)`;
+  if (wide.matches) {
+    const r = hist.getBoundingClientRect(), span = hist.offsetHeight - innerHeight;
+    const p = Math.min(1, Math.max(0, -r.top / span));
+    track.style.transform = `translateX(${-p * Math.max(0, track.scrollWidth - innerWidth + 80)}px)`;
+    histBar.style.transform = `scaleX(${p})`;
+    /* o ano aceso acompanha o progresso da barra: 1995 no início, 2026 ao final da seção */
+    const cur = Math.min(years.length - 1, Math.floor(p * (years.length - 1) + 0.2));
+    years.forEach((el, i) => el.classList.toggle('on', i <= cur));
+    histYear.textContent = years[cur].dataset.y;
+  } else {
+    years.forEach(el => el.classList.toggle('on', el.getBoundingClientRect().top < innerHeight * 0.7));
+  }
+});
+</script>
+</body>
+</html>

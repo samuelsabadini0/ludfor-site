@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Ludfor — Grupo Ludfor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+.sec{padding:120px 0;scroll-margin-top:80px}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px}
+.intro p{color:var(--muted);line-height:1.65;font-size:17px}
+.intro p+p{margin-top:14px}
+.dark .intro p{color:#B4C9C5}
+/* estrutura: mosaico de fotos */
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:16px}
+.mosaic div{background-size:cover;background-position:center}
+.mosaic div:first-child{grid-row:span 2}
+.mosaic div:nth-child(4){grid-column:span 2}
+.addr{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;border:1px solid var(--linha);background:#fff;padding:24px 28px;margin-top:16px}
+.addr b{font-weight:500}
+.addr span{color:var(--muted);font-size:15px}
+/* LudforU */
+.u{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.u .card{border:1px solid rgba(255,255,255,.15);padding:32px;min-height:220px;display:flex;flex-direction:column;position:relative;overflow:hidden;isolation:isolate}
+.u .card::before{content:"";position:absolute;inset:0;background:var(--verde);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
+.u .card:hover::before{transform:none}
+.u .card small{font-size:12px;color:#9DB8B3}
+.u .card h3{font-size:28px;margin-top:auto}
+.u .card p{color:#B4C9C5;font-size:15px;line-height:1.5;margin-top:10px}
+.pend{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--amarelo);border:1px dashed var(--amarelo);padding:6px 10px;margin-top:20px}
+/* marca empregadora */
+.emp{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.video{position:relative;min-height:520px;background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:32px;color:#fff}
+.video::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,43,40,.9),rgba(6,43,40,0) 60%)}
+.video div{position:relative;z-index:1;display:flex;align-items:center;gap:18px}
+.video b{width:72px;height:72px;background:var(--amarelo);color:var(--noite);display:grid;place-items:center;font-size:20px}
+.pil{display:grid;gap:16px;grid-template-rows:auto 1fr}
+.pil .ph{min-height:240px;background-size:cover;background-position:center}
+.pil ul{list-style:none;background:#fff;border:1px solid var(--linha)}
+.pil li{padding:22px 26px;border-bottom:1px solid var(--linha);display:grid;grid-template-columns:36px 1fr;gap:6px}
+.pil li:last-child{border-bottom:0}
+.pil li small{font-size:12px;color:var(--muted);padding-top:4px}
+.pil li b{font-size:20px;font-weight:400;letter-spacing:-.01em}
+/* trabalhe conosco */
+.jobs{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap;border-top:1px solid var(--linha);padding-top:56px}
+.jobs h2{max-width:12ch}
+.jobs p{max-width:440px;color:var(--muted);line-height:1.6;margin-bottom:28px}
+@media (max-width:1000px){
+  .intro,.u,.emp{grid-template-columns:1fr}
+  .intro{gap:24px}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 180px 180px}
+  .mosaic div:first-child{grid-row:auto;grid-column:span 2}
+  .mosaic div:nth-child(4){grid-column:auto}
+  .video{min-height:360px}
+}
+@media (max-width:640px){
+  .mosaic{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:220px}
+  .mosaic div:first-child{grid-column:auto}
+}
+</style>
+</head>
+<body data-page="a-ludfor">
+
+<header class="phero dark">
+  <div class="bg" style="background-image:url(assets/sobre/05e9b2990e358668bb7dc2cdd6b7435a4341b05a.jpg)"></div>
+  <div class="wrap">
+    <div class="crumbs" data-reveal data-intro><a href="index.html">Home</a><span>A Ludfor</span></div>
+    <h1 class="lines" data-intro><span>Conheça</span><span><em>a Ludfor</em></span></h1>
+    <div data-reveal data-intro><p class="lead">Somos uma das líderes no mercado livre de energia. Sabemos que é preciso entender a necessidade dos nossos clientes para buscar as melhores soluções no mercado.</p></div>
+    <div class="jump" data-reveal data-intro>
+      <a class="chip" href="#estrutura">Estrutura</a><a class="chip" href="#ludforu">LudforU</a><a class="chip" href="#marca-empregadora">Marca empregadora</a><a class="chip" href="#trabalhe-conosco">Trabalhe conosco</a>
+    </div>
+  </div>
+</header>
+<div class="steps" data-steps><div></div><div class="v"></div></div>
+
+<!-- ESTRUTURA (MATRIZ) -->
+<section class="sec" id="estrutura">
+  <div class="wrap">
+    <div class="intro">
+      <div><div class="eyebrow">Estrutura · Matriz</div><h2 class="lines" style="margin-top:20px"><span>Nossa sede em</span><span>Bento Gonçalves</span></h2></div>
+      <div data-reveal>
+        <p>Nossa sede fica em Bento Gonçalves (RS), em um ambiente agradável para nossos colaboradores e estrategicamente disposta para bem receber nossos clientes.</p>
+        <p>A partir dela, o grupo se expandiu para as regiões Sul, Sudeste, Centro-Oeste, Nordeste e Norte do país, com equipes atuando com o mesmo comprometimento em resultados e foco no cliente.</p>
+      </div>
+    </div>
+    <div class="mosaic">
+      <div class="wipe" style="background-image:url(assets/4716e56051ee94e661395a56a7b7d806dcb5da83.jpg)"></div>
+      <div class="wipe" style="background-image:url(assets/marcas/6690a2d664a5db1148be3180c84e103eccb50f55.png)"></div>
+      <div class="wipe" style="background-image:url(assets/sobre/05e9b2990e358668bb7dc2cdd6b7435a4341b05a.jpg)"></div>
+      <div class="wipe" style="background-image:url(assets/marcas/ee63c140279c4e03ae583afa944377446831b757.png)"></div>
+    </div>
+    <div class="addr" data-reveal><div><b>Matriz · Bento Gonçalves, RS</b><br><span>Alameda Fenavinho, 214 · B. Fenavinho · CEP 95703-364 · (54) 3451.1413</span></div><a href="fale-conosco.html#filiais" class="link">Ver todas as filiais</a></div>
+  </div>
+</section>
+
+<!-- LUDFORU -->
+<section class="sec dark" id="ludforu">
+  <div class="wrap">
+    <div class="intro">
+      <div><div class="eyebrow">LudforU</div><h2 class="lines" style="margin-top:20px"><span>Conhecimento que</span><span>gera energia</span></h2></div>
+      <div data-reveal>
+        <p>A LudforU é a universidade corporativa do Grupo Ludfor, com trilhas de desenvolvimento para quem faz a energia do grupo acontecer.</p>
+        <span class="pend">Texto e trilhas a receber do cliente</span>
+      </div>
+    </div>
+    <div class="u" data-reveal>
+      <div class="card"><small>01</small><h3>Trilha de desenvolvimento</h3><p>Nome e descrição a receber do cliente.</p></div>
+      <div class="card"><small>02</small><h3>Trilha de desenvolvimento</h3><p>Nome e descrição a receber do cliente.</p></div>
+    </div>
+  </div>
+</section>
+<div class="steps" data-steps style="background:var(--off)"><div class="v"></div><div></div></div>
+
+<!-- MARCA EMPREGADORA -->
+<section class="sec" id="marca-empregadora">
+  <div class="wrap">
+    <div class="intro">
+      <div><div class="eyebrow">Marca empregadora</div><h2 class="lines" style="margin-top:20px"><span>Compartilhamos da</span><span>mesma energia</span></h2></div>
+      <div data-reveal><p>Atuamos de forma estratégica, eficiente e eficaz, fornecendo produtos e serviços de excelência, com uma equipe qualificada e comprometida com a qualidade total do nosso trabalho.</p></div>
+    </div>
+    <div class="emp">
+      <a href="#" class="video wipe" style="background-image:url(assets/sobre/af459dd34fd1caa670aa3e53e92180cc21dda61f.jpg)"><div><b>▶</b><span>Assista ao vídeo<br><small style="color:#B4C9C5">Vídeo da marca empregadora a receber</small></span></div></a>
+      <div class="pil">
+        <div class="ph wipe" style="background-image:url(assets/sobre/46859c5fc057ced5eecb93ad317e1d40a06b171c.jpg)"></div>
+        <ul data-reveal>
+          <li><small>01</small><b>Transparência</b></li>
+          <li><small>02</small><b>Foco no cliente</b></li>
+          <li><small>03</small><b>Inteligência de mercado</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRABALHE CONOSCO -->
+<section class="sec" id="trabalhe-conosco" style="padding-top:0">
+  <div class="wrap">
+    <div class="jobs">
+      <div><div class="eyebrow">Trabalhe conosco</div><h2 class="lines" style="margin-top:20px"><span>Venha fazer parte</span><span>do time</span></h2></div>
+      <div data-reveal>
+        <p>Confira as vagas abertas no Grupo Ludfor e cadastre seu currículo.</p>
+        <a href="https://ludfor.vagas.solides.com.br/" class="btn verde"><span>Ver vagas abertas</span><i>→</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/base.js"></script>
+</body>
+</html>

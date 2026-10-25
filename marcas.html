@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marcas do Grupo — Ludfor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+.list{padding:100px 0 120px}
+.mk{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--linha);scroll-margin-top:90px}
+.mk:last-child{border-bottom:1px solid var(--linha)}
+.mk .panel{background:var(--noite);min-height:440px;display:grid;place-items:center;position:relative;overflow:hidden}
+.mk .panel img{max-width:62%;max-height:120px;object-fit:contain;transition:transform .8s var(--ease)}
+.mk .panel b{color:#fff;font-size:clamp(40px,4.4vw,64px);font-weight:600;letter-spacing:-.03em}
+.mk .panel::before{content:"";position:absolute;left:0;bottom:0;width:50%;height:40px;background:var(--off);transform:scaleY(0);transform-origin:bottom;transition:transform .9s var(--ease) .4s}
+.mk .panel.in::before{transform:scaleY(1)}
+.mk:hover .panel img{transform:scale(1.05)}
+.mk .txt{padding:56px;display:flex;flex-direction:column;background:#fff}
+.mk:nth-child(even) .panel{order:2}
+.mk:nth-child(even) .panel::before{left:auto;right:0}
+.mk .num{font-size:13px;color:var(--muted)}
+.mk h2{font-size:clamp(34px,3.6vw,54px);margin:18px 0 22px}
+.mk .lead{font-size:19px;line-height:1.5;font-weight:300}
+.mk p.t{color:var(--muted);line-height:1.65;margin-top:14px}
+.mk .foot{margin-top:auto;padding-top:36px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--linha)}
+.mk .foot small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mk .pend{display:inline-block;margin-top:14px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde);border:1px dashed var(--verde);padding:6px 10px;align-self:flex-start}
+@media (max-width:1000px){
+  .mk{grid-template-columns:1fr}
+  .mk:nth-child(even) .panel{order:0}
+  .mk .panel{min-height:300px}
+  .mk .txt{padding:36px 24px}
+}
+</style>
+</head>
+<body data-page="marcas">
+
+<header class="phero dark">
+  <div class="bg" style="background-image:url(assets/4716e56051ee94e661395a56a7b7d806dcb5da83.jpg)"></div>
+  <div class="wrap">
+    <div class="crumbs" data-reveal data-intro><a href="index.html">Home</a><span>Marcas</span></div>
+    <h1 class="lines" data-intro><span>Um grupo,</span><span><em>seis marcas</em></span></h1>
+    <div data-reveal data-intro><p class="lead">Cada marca do Grupo Ludfor é especialista em uma etapa da energia do seu negócio.</p></div>
+    <div class="jump" data-reveal data-intro>
+      <a class="chip" href="#ludfor-gestao">Ludfor Gestão</a><a class="chip" href="#ludfor-comercializacao">Ludfor Comercialização</a><a class="chip" href="#simplifica">Simplifica</a>
+      <a class="chip" href="#trifase">Trifase</a><a class="chip" href="#enertrex">Enertrex</a><a class="chip" href="#origem">Origem Energia</a>
+    </div>
+  </div>
+</header>
+<div class="steps" data-steps><div></div><div class="v"></div></div>
+
+<div class="wrap list">
+  <article class="mk" id="ludfor-gestao">
+    <div class="panel wipe"><img src="assets/marcas/be4224f5dfc696aaf6a7fe91535cbf9b93391d25.png" alt="Ludfor Gestão"></div>
+    <div class="txt" data-reveal>
+      <span class="num">01</span>
+      <h2>Ludfor Gestão</h2>
+      <p class="lead">Gestão de consumidores e geradores.</p>
+      <p class="t">Ampla expertise para maximizar os resultados no gerenciamento de gestão para consumidores e usinas no Mercado Livre de Energia.</p>
+      <div class="foot"><small>Solução</small><a href="solucoes.html#gestao" class="btn verde"><span>Gestão</span><i>→</i></a></div>
+    </div>
+  </article>
+
+  <article class="mk" id="ludfor-comercializacao">
+    <div class="panel wipe"><img src="assets/marcas/d6af68ffe1553b5c5ab84e4b01faff4b28cb9a7f.png" alt="Ludfor Comercialização"></div>
+    <div class="txt" data-reveal>
+      <span class="num">02</span>
+      <h2>Ludfor Comercialização</h2>
+      <p class="lead">Comercialização de energia.</p>
+      <p class="t">Acompanhamento diário do mercado e apoio na definição de estratégia dos nossos clientes. Atuando com liquidez, gerando assim segurança para o seu negócio.</p>
+      <div class="foot"><small>Solução</small><a href="solucoes.html#comercializacao" class="btn verde"><span>Comercialização</span><i>→</i></a></div>
+    </div>
+  </article>
+
+  <article class="mk" id="simplifica">
+    <div class="panel wipe"><img src="assets/marcas/0d5ce42bc0728ac08a186e725fafac7db6421507.png" alt="Simplifica Energia"></div>
+    <div class="txt" data-reveal>
+      <span class="num">03</span>
+      <h2>Simplifica Energia</h2>
+      <p class="lead">Simplificamos a energia do seu negócio.</p>
+      <p class="t">Oferece soluções personalizadas para reduzir o custo de energia da sua empresa ou residência, atuando nos segmentos de geração distribuída de energia (GD) e mercado livre varejista.</p>
+      <div class="foot"><small>Solução</small><a href="solucoes.html#gd" class="btn verde"><span>Geração Distribuída</span><i>→</i></a></div>
+    </div>
+  </article>
+
+  <article class="mk" id="trifase">
+    <div class="panel wipe"><img src="assets/marcas/8a5166f7aaf01941a82af601f299c17dd9d34fc9.png" alt="Trifase Energia"></div>
+    <div class="txt" data-reveal>
+      <span class="num">04</span>
+      <h2>Trifase Energia</h2>
+      <p class="lead">Soluções completas em engenharia e energia.</p>
+      <p class="t">Especialistas em prover soluções estruturadas com foco na eficiência e rentabilidade dos recursos energéticos.</p>
+      <div class="foot"><small>Solução</small><a href="solucoes.html#engenharia" class="btn verde"><span>Engenharia</span><i>→</i></a></div>
+    </div>
+  </article>
+
+  <article class="mk" id="enertrex">
+    <div class="panel wipe"><b>Enertrex</b></div>
+    <div class="txt" data-reveal>
+      <span class="num">05</span>
+      <h2>Enertrex</h2>
+      <p class="lead">Descrição da marca.</p>
+      <span class="pend">Logo e texto a receber do cliente</span>
+      <div class="foot"><small>Saiba mais</small><a href="fale-conosco.html" class="btn verde"><span>Fale conosco</span><i>→</i></a></div>
+    </div>
+  </article>
+
+  <article class="mk" id="origem">
+    <div class="panel wipe"><img src="assets/marcas/902b3254383d06ee26833ef96dc3617fbbe78406.png" alt="Origem Energia"></div>
+    <div class="txt" data-reveal>
+      <span class="num">06</span>
+      <h2>Origem Energia</h2>
+      <p class="lead">Investimentos em geração hídrica e solar.</p>
+      <p class="t">Investimentos em geração de energia, possibilitando uma visão completa do mercado e solidez. O grupo investe em ativos de energia limpa e sustentável para o seu negócio.</p>
+      <div class="foot"><small>Solução</small><a href="solucoes.html#geracao" class="btn verde"><span>Geração</span><i>→</i></a></div>
+    </div>
+  </article>
+</div>
+
+<script src="js/base.js"></script>
+</body>
+</html>
