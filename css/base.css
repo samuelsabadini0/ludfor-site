@@ -95,7 +95,6 @@ h2{font-size:clamp(40px,5.6vw,80px)}
 .crumbs{display:flex;gap:10px;font-size:13px;color:#9DB8B3;flex-wrap:wrap}
 .crumbs a:hover{color:var(--amarelo)}
 .crumbs span::before{content:"/";margin-right:10px;opacity:.5}
-.phero .jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
 
 /* ---------- RODAPÉ ---------- */
 footer{background:var(--noite);color:#fff;border-top:1px solid rgba(255,255,255,.1)}

@@ -13,7 +13,7 @@
 .mk:last-child{border-bottom:1px solid var(--linha)}
 .mk .panel{background:var(--noite);min-height:440px;display:grid;place-items:center;position:relative;overflow:hidden}
 .mk .panel img{max-width:62%;max-height:120px;object-fit:contain;transition:transform .8s var(--ease)}
-.mk .panel b{color:#fff;font-size:clamp(40px,4.4vw,64px);font-weight:600;letter-spacing:-.03em}
+.mk .panel .ph-logo{color:#9DB8B3;font-size:14px;letter-spacing:.08em;text-transform:uppercase;border:1px dashed rgba(255,255,255,.35);padding:28px 40px}
 .mk .panel::before{content:"";position:absolute;left:0;bottom:0;width:50%;height:40px;background:var(--off);transform:scaleY(0);transform-origin:bottom;transition:transform .9s var(--ease) .4s}
 .mk .panel.in::before{transform:scaleY(1)}
 .mk:hover .panel img{transform:scale(1.05)}
@@ -43,10 +43,6 @@
     <div class="crumbs" data-reveal data-intro><a href="index.html">Home</a><span>Marcas</span></div>
     <h1 class="lines" data-intro><span>Um grupo,</span><span><em>seis marcas</em></span></h1>
     <div data-reveal data-intro><p class="lead">Cada marca do Grupo Ludfor é especialista em uma etapa da energia do seu negócio.</p></div>
-    <div class="jump" data-reveal data-intro>
-      <a class="chip" href="#ludfor-gestao">Ludfor Gestão</a><a class="chip" href="#ludfor-comercializacao">Ludfor Comercialização</a><a class="chip" href="#simplifica">Simplifica</a>
-      <a class="chip" href="#trifase">Trifase</a><a class="chip" href="#enertrex">Enertrex</a><a class="chip" href="#origem">Origem Energia</a>
-    </div>
   </div>
 </header>
 <div class="steps" data-steps><div></div><div class="v"></div></div>
@@ -96,11 +92,11 @@
     </div>
   </article>
 
-  <article class="mk" id="enertrex">
-    <div class="panel wipe"><b>Enertrex</b></div>
+  <article class="mk" id="enerbrax">
+    <div class="panel wipe"><span class="ph-logo">Logo Enerbrax</span></div>
     <div class="txt" data-reveal>
       <span class="num">05</span>
-      <h2>Enertrex</h2>
+      <h2>Enerbrax</h2>
       <p class="lead">Descrição da marca.</p>
       <span class="pend">Logo e texto a receber do cliente</span>
       <div class="foot"><small>Saiba mais</small><a href="fale-conosco.html" class="btn verde"><span>Fale conosco</span><i>→</i></a></div>
