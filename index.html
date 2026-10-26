@@ -91,7 +91,7 @@
 .dep .slider::-webkit-scrollbar{display:none}
 .dep .item{scroll-snap-align:start;display:grid;grid-template-columns:240px 1fr;background:var(--off);border:1px solid var(--linha)}
 .dep .item .ph{background:var(--verde) url(assets/logo_branco.svg) center/58% no-repeat;position:relative;min-height:280px;overflow:hidden}
-.dep .item .ph em{position:absolute;left:12px;top:12px;font-style:normal;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.4);padding:4px 8px}
+.dep .item .ph em{position:absolute;left:12px;top:12px;font-style:normal;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.4);padding:4px 8px}
 .dep .item .ph b{position:absolute;right:12px;bottom:12px;width:44px;height:44px;background:var(--amarelo);color:var(--noite);display:grid;place-items:center;font-size:14px;transition:transform .4s var(--ease)}
 .dep .item:hover .ph b{transform:scale(1.15)}
 .dep .item .t{padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
@@ -111,9 +111,13 @@
   .numbers .n:nth-child(2n){padding-left:16px;border-right:0}
   .hist .pin{position:static;height:auto;padding:110px 0 80px}
   .hist{height:auto!important}
-  .hist .track{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;transform:none!important}
-  .hist .y{flex:none;padding-right:0}
+  .hist .track{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;transform:none!important;padding:0 32px!important;margin-top:48px}
+  /* sem a barra horizontal: linha vertical à esquerda, com o marcador ao lado de cada ano */
+  .hist .y{flex:none;margin-left:13px;padding:4px 0 44px 32px;border-left:1px solid var(--linha);transition:border-color .5s}
+  .hist .y.on{border-left-color:var(--verde)}
+  .hist .y::before,.hist .y::after{left:-14px;top:18px}
   .hist .bar{display:none}
+  .hist .pin>.wrap:last-child{padding:0}
   .cli .seg{grid-template-columns:repeat(3,1fr)}
   .cli .seg button{border-bottom:1px solid var(--linha)}
   .cli .logos{grid-template-columns:repeat(3,1fr)}
@@ -121,9 +125,11 @@
 @media (max-width:640px){
   .banner .tabs{grid-template-columns:1fr}
   .banner .tabs button{border-right:0;border-bottom:1px solid var(--linha)}
-  .hist .track{grid-template-columns:1fr}
+  .hist .track{grid-template-columns:1fr;padding:0 16px!important}
   .hist .y strong{font-size:48px}
+  .hist .y::before,.hist .y::after{top:12px}
   .cli .seg{grid-template-columns:1fr 1fr}
+  .cli .seg button:last-child:nth-child(odd){grid-column:1/-1}
   .cli .logos{grid-template-columns:repeat(2,1fr)}
   .dep .item{grid-template-columns:1fr}.dep .item .ph{min-height:160px}
 }

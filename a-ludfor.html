@@ -52,12 +52,13 @@
   .intro{gap:24px}
   .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 180px 180px}
   .mosaic div:first-child{grid-row:auto;grid-column:span 2}
-  .mosaic div:nth-child(4){grid-column:auto}
+  .mosaic div:nth-child(4){grid-column:span 2}
+  .mosaic{grid-template-rows:260px 200px 220px}
   .video{min-height:360px}
 }
 @media (max-width:640px){
   .mosaic{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:220px}
-  .mosaic div:first-child{grid-column:auto}
+  .mosaic div:first-child,.mosaic div:nth-child(4){grid-column:auto}
 }
 </style>
 </head>

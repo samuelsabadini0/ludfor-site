@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
-.lay{display:grid;grid-template-columns:280px 1fr;gap:72px;padding:100px 0 120px}
+.lay{display:grid;grid-template-columns:280px 1fr;gap:72px;padding-top:100px;padding-bottom:120px}
 .idx{position:sticky;top:110px;align-self:start;border-top:1px solid var(--linha)}
 .idx>a{display:grid;grid-template-columns:32px 1fr;padding:16px 0;border-bottom:1px solid var(--linha);font-size:15px;color:var(--muted);position:relative;transition:color .3s}
 .idx>a small{font-size:12px;padding-top:2px}
@@ -47,6 +47,9 @@
   .lay{grid-template-columns:1fr;gap:0;padding-top:70px}
   .idx{display:none}
   .sol .cols{grid-template-columns:1fr}
+  .sol{padding-bottom:72px;margin-bottom:72px}
+  .sol .img{margin:32px 0}
+  .marca{margin-top:32px}
 }
 @media (max-width:640px){
   .sol .stats{grid-template-columns:1fr}
