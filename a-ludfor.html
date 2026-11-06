@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Ludfor — Grupo Ludfor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 .sec{padding:120px 0;scroll-margin-top:80px}
@@ -13,32 +13,122 @@
 .intro p{color:var(--muted);line-height:1.65;font-size:17px}
 .intro p+p{margin-top:14px}
 .dark .intro p{color:#B4C9C5}
-/* estrutura: mosaico de fotos */
-.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:16px}
-.mosaic div{background-size:cover;background-position:center}
-.mosaic div:first-child{grid-row:span 2}
-.mosaic div:nth-child(4){grid-column:span 2}
-.addr{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;border:1px solid var(--linha);background:#fff;padding:24px 28px;margin-top:16px}
+.tour-v{width:min(1100px,calc(100vw - 32px),calc((100vh - 140px) * 16 / 9));max-width:none;margin:auto;padding:0;border:0;border-radius:var(--r);background:#000;overflow:visible}
+.tour-v::backdrop{background:rgba(3,22,20,.86)}
+.tour-v .tela{aspect-ratio:16/9;border-radius:inherit;overflow:hidden}
+.tour-v iframe{width:100%;height:100%;display:block;border:0}
+.tour-v .fechar{position:absolute;right:0;top:-54px;width:44px;height:44px;border:0;border-radius:50%;background:var(--amarelo);color:var(--noite);font-size:24px;line-height:1;cursor:pointer}
+/* verde de "Compartilhamos" que termina atrás da metade do bloco amarelo */
+#marca-empregadora{background:radial-gradient(52% 40% at 0% 8%,rgba(92,222,186,.42),transparent 72%),linear-gradient(180deg,var(--verde),var(--noite))}
+#marca-empregadora .intro p{color:#D8EBE7}
+#marca-empregadora .pil ul{color:var(--texto)}
+#marca-empregadora{padding-bottom:64px}
+#trabalhe-conosco{--pb:120px;padding-top:0;padding-bottom:var(--pb);background:linear-gradient(var(--noite),var(--noite)) top/100% calc(50% - var(--pb) / 2) no-repeat}
+@media (max-width:1000px){#trabalhe-conosco{--pb:72px}}
+/* LudforU: texto e certificado à esquerda, foto no centro, logo e números à direita */
+#ludforu{background:#fff}
+.lu{display:grid;grid-template-columns:minmax(0,1fr) 400px 310px;grid-template-rows:auto 1fr;grid-template-areas:"tx foto dir" "cert foto dir";column-gap:44px}
+.lu-tx{grid-area:tx}
+.lu-tx h2{margin-bottom:18px;font-size:clamp(36px,3.3vw,48px)}
+.lu-tx h2 span:last-child{color:var(--verde)}
+.lu-tx p{color:var(--muted);line-height:1.6}
+.lu-tx p+p{margin-top:14px}
+.lu-cert{grid-area:cert;position:relative;z-index:2;align-self:end;justify-self:end;width:min(100%,370px);max-width:none;height:auto;margin:6px -56px 0 0;filter:drop-shadow(0 22px 26px rgba(6,43,40,.24));transition:transform .7s var(--ease)}
+.lu-cert:hover{transform:rotate(-2deg) scale(1.03)}
+.lu-foto{grid-area:foto;position:relative;border-radius:44px;overflow:hidden;min-height:560px}
+.lu-foto img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.lu-dir{grid-area:dir;position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:28px;margin-left:-86px}
+.lu-logo{display:block;width:170px;height:auto;margin-left:112px}
+.lu-nums{width:100%;list-style:none;padding:10px 26px;border-radius:40px;color:#fff;background:radial-gradient(90% 70% at 100% 100%,rgba(92,222,186,.5),transparent 72%),linear-gradient(160deg,var(--verde),var(--noite));box-shadow:0 28px 54px rgba(6,43,40,.28)}
+.lu-nums li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.lu-nums li:last-child{border-bottom:0}
+.lu-nums .ic2{display:block;width:46px;height:46px;overflow:visible;fill:none;stroke:var(--amarelo);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.lu-nums strong{display:inline-block;font-size:40px;font-weight:300;letter-spacing:-.03em;line-height:1;margin-right:8px;font-variant-numeric:tabular-nums}
+.lu-nums b{font-size:12px;font-weight:600;letter-spacing:.06em}
+.lu-nums span{display:block;margin-top:5px;font-size:14px;line-height:1.3;color:#D8EBE7}
+.ic2 .gira,.ic2 .balanca{transform-box:view-box;transform-origin:12px 12px}
+.ic2 .gira{animation:luGira 6s linear infinite}
+@keyframes luGira{to{transform:rotate(360deg)}}
+.ic2 .cabeca{animation:luCabeca 2.4s ease-in-out infinite}
+@keyframes luCabeca{50%{transform:translateY(-1.1px)}}
+.ic2 .chapeu{animation:luChapeu 2.6s ease-in-out infinite}
+@keyframes luChapeu{50%{transform:translateY(-1.5px)}}
+.ic2 .balanca{transform-origin:18.5px 11px;animation:luBorla 2.6s ease-in-out infinite}
+@keyframes luBorla{25%{transform:rotate(10deg)}75%{transform:rotate(-10deg)}}
+.ic2 .marca{stroke-dasharray:100;animation:drawLoop 3s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.ic2 *{animation:none!important;stroke-dasharray:none!important}}
+@media (max-width:1180px){
+  .lu{grid-template-columns:minmax(0,1fr) 300px 290px;column-gap:28px}
+  .lu-dir{margin-left:-64px}
+  .lu-logo{margin-left:84px;width:140px}
+}
+@media (max-width:1000px){
+  .lu{display:flex;flex-direction:column;gap:28px}
+  .lu-dir{display:contents}
+  .lu-logo{order:-1;margin:0;width:150px}
+  .lu-foto{min-height:0;height:420px;border-radius:32px}
+  .lu-nums{position:relative;z-index:2;margin-top:-84px;width:auto;margin-left:16px;margin-right:16px}
+  .lu-cert{order:5;align-self:center;justify-self:auto;width:min(100%,420px);margin:0}
+}
+/* sede: quadro grande com o vídeo, depois fotos e textos */
+.quadro-w{border-radius:var(--r-l);overflow:hidden}
+.quadro{position:relative;display:block;width:100%;aspect-ratio:1256/620;min-height:440px;padding:0;border:0;overflow:hidden;background:var(--noite);color:#fff;font:inherit;text-align:left;cursor:pointer}
+.quadro>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.quadro:hover>img{transform:scale(1.03)}
+.quadro::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,43,40,.86) 0%,rgba(6,43,40,.48) 38%,rgba(6,43,40,0) 72%),linear-gradient(0deg,rgba(6,43,40,.55),transparent 45%)}
+.quadro:focus-visible{outline:3px solid var(--amarelo);outline-offset:-6px}
+.quadro .tx{position:absolute;z-index:1;left:clamp(24px,5vw,72px);top:clamp(24px,4vw,56px);bottom:clamp(24px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:24px;width:min(460px,calc(100% - 48px))}
+.quadro .lg{display:block;width:clamp(120px,12vw,170px);height:auto}
+.quadro .frase{font-size:clamp(16px,1.45vw,20px);line-height:1.45}
+.quadro .play{position:absolute;z-index:1;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--amarelo);color:var(--noite);display:grid;place-items:center;font-size:24px;box-shadow:0 0 0 12px rgba(249,181,25,.22),0 14px 34px rgba(6,43,40,.4);transition:scale .4s var(--ease)}
+.quadro:hover .play{scale:1.12}
+.quadro .ver{position:absolute;z-index:1;right:clamp(24px,4vw,56px);bottom:clamp(24px,4vw,56px);font-size:15px;font-weight:500;color:var(--amarelo)}
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:280px;gap:16px;margin-top:16px}
+.bento>div{border-radius:var(--r-l);overflow:hidden}
+.bento .ft{background-size:cover;background-position:center}
+.bento .a{grid-column:span 2;grid-row:span 2}
+.bento .b,.bento .l2{grid-column:span 2}
+.bento .ct{display:flex;align-items:flex-end;padding:28px;font-size:15.5px;line-height:1.5}
+.bento .br{background:#fff;border:1px solid var(--linha);color:var(--muted)}
+.bento .am{background:var(--amarelo);color:var(--noite);font-size:clamp(17px,1.5vw,21px);line-height:1.4}
+.escr{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:32px;align-items:center;margin-top:16px;padding:clamp(28px,4vw,52px);border-radius:var(--r-l);color:#D8EBE7;background:radial-gradient(60% 90% at 0% 0%,rgba(92,222,186,.34),transparent 72%),var(--noite)}
+.escr h3{font-size:clamp(28px,2.8vw,40px);font-weight:300;color:#fff;margin-bottom:14px}
+.escr p{line-height:1.55;max-width:600px}
+.escr ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.escr li{padding:7px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.2);font-size:13.5px;color:#fff}
+.escr li.mt{background:var(--amarelo);border-color:var(--amarelo);color:var(--noite);font-weight:500}
+.escr img{display:block;width:100%;max-width:400px;height:auto;margin:0 auto}
+@media (max-width:1000px){
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:220px}
+  .bento .a{grid-row:span 1}
+  .bento .ct{grid-column:span 2;height:auto}
+  .bento{grid-auto-rows:auto}
+  .bento .ft{min-height:220px}
+  .bento .ft:nth-child(4){grid-column:span 2}
+  .escr{grid-template-columns:1fr}
+  .escr img{max-width:300px}
+}
+@media (max-width:640px){
+  .quadro{aspect-ratio:auto;height:520px}
+  .quadro::after{background:linear-gradient(0deg,rgba(6,43,40,.95) 12%,rgba(6,43,40,.35) 62%,rgba(6,43,40,.6) 100%)}
+  .quadro .tx{bottom:68px}
+  .quadro .ver{left:24px;right:auto;bottom:28px}
+  .bento .ft,.bento .l2{grid-column:span 2}
+}
+.addr{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;border-radius:var(--r);border:1px solid var(--linha);background:#fff;padding:24px 28px;margin-top:16px}
 .addr b{font-weight:500}
 .addr span{color:var(--muted);font-size:15px}
 /* LudforU */
-.u{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.u .card{border:1px solid rgba(255,255,255,.15);padding:32px;min-height:220px;display:flex;flex-direction:column;position:relative;overflow:hidden;isolation:isolate}
-.u .card::before{content:"";position:absolute;inset:0;background:var(--verde);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
-.u .card:hover::before{transform:none}
-.u .card small{font-size:12px;color:#9DB8B3}
-.u .card h3{font-size:28px;margin-top:auto}
-.u .card p{color:#B4C9C5;font-size:15px;line-height:1.5;margin-top:10px}
-.pend{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--amarelo);border:1px dashed var(--amarelo);padding:6px 10px;margin-top:20px}
+.pend{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--amarelo);border:1px dashed var(--amarelo);border-radius:99px;padding:6px 14px;margin-top:20px}
 /* marca empregadora */
 .emp{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
-.video{position:relative;min-height:520px;background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:32px;color:#fff}
+.video{position:relative;border-radius:var(--r-l);overflow:hidden;min-height:520px;background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:32px;color:#fff}
 .video::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,43,40,.9),rgba(6,43,40,0) 60%)}
 .video div{position:relative;z-index:1;display:flex;align-items:center;gap:18px}
-.video b{width:72px;height:72px;background:var(--amarelo);color:var(--noite);display:grid;place-items:center;font-size:20px}
+.video b{width:72px;height:72px;border-radius:50%;background:var(--amarelo);color:var(--noite);display:grid;place-items:center;font-size:20px}
 .pil{display:grid;gap:16px;grid-template-rows:auto 1fr}
-.pil .ph{min-height:240px;background-size:cover;background-position:center}
-.pil ul{list-style:none;background:#fff;border:1px solid var(--linha)}
+.pil .ph{border-radius:var(--r-l);min-height:240px;background-size:cover;background-position:center}
+.pil ul{list-style:none;border-radius:var(--r-l);overflow:hidden;background:#fff;border:1px solid var(--linha)}
 .pil li{padding:22px 26px;border-bottom:1px solid var(--linha);display:grid;grid-template-columns:36px 1fr;gap:6px}
 .pil li:last-child{border-bottom:0}
 .pil li small{font-size:12px;color:var(--muted);padding-top:4px}
@@ -48,17 +138,55 @@
 .jobs h2{max-width:12ch}
 .jobs p{max-width:440px;color:var(--muted);line-height:1.6;margin-bottom:28px}
 @media (max-width:1000px){
-  .intro,.u,.emp{grid-template-columns:1fr}
+  .intro,.emp{grid-template-columns:1fr}
   .intro{gap:24px}
-  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 180px 180px}
-  .mosaic div:first-child{grid-row:auto;grid-column:span 2}
-  .mosaic div:nth-child(4){grid-column:span 2}
-  .mosaic{grid-template-rows:260px 200px 220px}
   .video{min-height:360px}
 }
 @media (max-width:640px){
-  .mosaic{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:220px}
-  .mosaic div:first-child,.mosaic div:nth-child(4){grid-column:auto}
+}
+/* linguagem da home */
+.intro h2{font-size:clamp(36px,4.6vw,66px)}
+.addr{justify-content:flex-start;gap:18px}
+.addr .bolha{width:52px;height:52px}
+.addr-t{flex:1;min-width:220px}
+.video b{transition:transform .4s var(--ease)}
+.video:hover b{transform:scale(1.14)}
+.pil li{grid-template-columns:48px 1fr;gap:16px;align-items:center;padding:16px 22px;transition:background .3s}
+.pil li:hover{background:var(--off)}
+.pil li .bolha{width:48px;height:48px}
+.jobs{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,46%) 1fr;gap:48px;align-items:center;min-height:540px;border-top:0;padding:64px;background:var(--amarelo);border-radius:40px}
+.jobs h2{max-width:none;font-size:clamp(38px,3.8vw,56px)}
+.jobs .txt{position:relative;z-index:1}
+.jobs .txt p{margin-top:24px}
+/* mosaico do time: três colunas desencontradas que deslizam com a rolagem */
+.time{position:absolute;top:0;bottom:0;right:28px;width:48%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-content:start}
+.time .col{position:relative;display:grid;gap:14px;will-change:transform}
+.time .col:nth-child(1){top:24px}
+.time .col:nth-child(2){top:-24px}
+.time .col:nth-child(3){top:60px}
+.time .t{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:var(--r)}
+.time .t img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.time .t:hover img{transform:scale(1.07)}
+.time .num{display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:radial-gradient(90% 80% at 0% 0%,rgba(92,222,186,.42),transparent 72%),linear-gradient(180deg,var(--verde),var(--verde-2));color:#D8EBE7;font-size:14px;line-height:1.3}
+.time .num strong{display:block;margin-bottom:6px;font-size:clamp(30px,3vw,44px);font-weight:300;letter-spacing:-.04em;line-height:1;color:var(--amarelo)}
+.jobs h2{color:var(--verde);font-weight:400}
+.jobs p{color:var(--noite)}
+.jobs .btn{background:var(--verde);color:#fff}
+.jobs .btn:hover{background:var(--verde-2)}
+.jobs .btn i{background:var(--amarelo);color:var(--noite)}
+@media (max-width:1000px){
+  .jobs{grid-template-columns:1fr;gap:32px;min-height:0;padding-bottom:0}
+  .time{position:relative;right:auto;width:auto;height:440px;margin:0 -32px;padding:0 16px;overflow:hidden}
+}
+@media (max-width:640px){
+  .jobs{padding:36px 24px 0;border-radius:28px}
+  .time{height:320px;margin:0 -24px;padding:0 12px;gap:10px}
+  .time .col{gap:10px}
+  .time .col:nth-child(1){top:14px}
+  .time .col:nth-child(2){top:-8px}
+  .time .col:nth-child(3){top:36px}
+  .time .num{padding:12px;font-size:12px}
+  .time .num strong{font-size:26px}
 }
 </style>
 </head>
@@ -72,61 +200,84 @@
     <div data-reveal data-intro><p class="lead">Somos uma das líderes no mercado livre de energia. Sabemos que é preciso entender a necessidade dos nossos clientes para buscar as melhores soluções no mercado.</p></div>
   </div>
 </header>
-<div class="steps" data-steps><div></div><div class="v"></div></div>
 
 <!-- ESTRUTURA (MATRIZ) -->
 <section class="sec" id="estrutura">
   <div class="wrap">
     <div class="intro">
-      <div><div class="eyebrow">Estrutura · Matriz</div><h2 class="lines" style="margin-top:20px"><span>Nossa sede em</span><span>Bento Gonçalves</span></h2></div>
+      <div><h2 class="lines"><span>Nossa sede em</span><span>Bento Gonçalves</span></h2></div>
       <div data-reveal>
         <p>Nossa sede fica em Bento Gonçalves (RS), em um ambiente agradável para nossos colaboradores e estrategicamente disposta para bem receber nossos clientes.</p>
-        <p>A partir dela, o grupo se expandiu para as regiões Sul, Sudeste, Centro-Oeste, Nordeste e Norte do país, com equipes atuando com o mesmo comprometimento em resultados e foco no cliente.</p>
       </div>
     </div>
-    <div class="mosaic">
-      <div class="wipe" style="background-image:url(assets/4716e56051ee94e661395a56a7b7d806dcb5da83.jpg)"></div>
-      <div class="wipe" style="background-image:url(assets/marcas/6690a2d664a5db1148be3180c84e103eccb50f55.png)"></div>
-      <div class="wipe" style="background-image:url(assets/sobre/05e9b2990e358668bb7dc2cdd6b7435a4341b05a.jpg)"></div>
-      <div class="wipe" style="background-image:url(assets/marcas/ee63c140279c4e03ae583afa944377446831b757.png)"></div>
+    <div class="quadro-w wipe">
+      <button type="button" class="quadro" id="tourAbre" aria-label="Assistir ao tour pela estrutura da Ludfor">
+        <img src="assets/sobre/sede-quadro.webp" alt="" width="2200" height="928">
+        <span class="tx"><img class="lg" src="assets/logo_branco.svg" alt=""><span class="frase">Faça um tour pela estrutura da Ludfor e compartilhe da nossa energia.</span></span>
+        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:1.3em;height:1.3em;display:block"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></span>
+        <span class="ver">Assistir ao vídeo</span>
+      </button>
     </div>
-    <div class="addr" data-reveal><div><b>Matriz · Bento Gonçalves, RS</b><br><span>Alameda Fenavinho, 214 · B. Fenavinho · CEP 95703-364 · (54) 3451.1413</span></div><a href="fale-conosco.html#filiais" class="link">Ver todas as filiais</a></div>
+    <div class="bento">
+      <div class="ft a wipe" style="background-image:url(assets/4716e56051ee94e661395a56a7b7d806dcb5da83.jpg)"></div>
+      <div class="ft b wipe" style="background-image:url(assets/sobre/sede-jardim.webp)"></div>
+      <div class="ct br" data-reveal><p>A partir dela, o grupo se expandiu para as regiões Sul, Sudeste, Centro-Oeste, Nordeste e Norte do país, com equipes atuando com o mesmo comprometimento em resultados e foco no cliente.</p></div>
+      <div class="ft wipe" style="background-image:url(assets/sobre/sede-escritorio.webp)"></div>
+      <div class="ft wipe" style="background-image:url(assets/marcas/6690a2d664a5db1148be3180c84e103eccb50f55.png)"></div>
+      <div class="ft wipe" style="background-image:url(assets/sobre/05e9b2990e358668bb7dc2cdd6b7435a4341b05a.jpg)"></div>
+      <div class="ct am l2" data-reveal><p>O Grupo conta com uma estrutura própria de geração de energia, em diversos submercados, fortalecendo sua atuação em toda a cadeia do setor elétrico.</p></div>
+    </div>
+    <div class="escr" data-reveal>
+      <div>
+        <h3>Escritórios pelo Brasil</h3>
+        <p>A Ludfor está presente em todas as regiões do Brasil, com escritórios estrategicamente localizados nos principais polos para garantir proximidade e celeridade no atendimento aos clientes.</p>
+        <ul><li class="mt">Matriz: Bento Gonçalves - RS</li><li>Porto Alegre - RS</li><li>Florianópolis - SC</li><li>Curitiba - PR</li><li>São Paulo - SP</li><li>Uberlândia - MG</li><li>Rio de Janeiro - RJ</li><li>Belo Horizonte - MG</li><li>Goiânia - GO</li><li>Salvador - BA</li><li>Maceió - AL</li><li>Recife - PE</li><li>Fortaleza - CE</li><li>Santarém - PA</li></ul>
+      </div>
+      <img src="assets/sobre/mapa-brasil.webp" width="900" height="905" alt="Mapa do Brasil com a presença da Ludfor" loading="lazy">
+    </div>
+    <div class="addr" data-reveal><i class="bolha" data-ic="pin"></i><div class="addr-t"><b>Matriz · Bento Gonçalves, RS</b><br><span>Alameda Fenavinho, 214 · B. Fenavinho · CEP 95703-364 · (54) 3451.1413</span></div><a href="fale-conosco.html#filiais" class="link">Ver todas as filiais</a></div>
   </div>
 </section>
 
 <!-- LUDFORU -->
-<section class="sec dark" id="ludforu">
-  <div class="wrap">
-    <div class="intro">
-      <div><div class="eyebrow">LudforU</div><h2 class="lines" style="margin-top:20px"><span>Conhecimento que</span><span>gera energia</span></h2></div>
+<section class="sec" id="ludforu">
+  <div class="wrap lu">
+    <div class="lu-tx">
+      <h2 class="lines"><span>LudforU</span><span>educação corporativa</span></h2>
       <div data-reveal>
-        <p>A LudforU é a universidade corporativa do Grupo Ludfor, com trilhas de desenvolvimento para quem faz a energia do grupo acontecer.</p>
-        <span class="pend">Texto e trilhas a receber do cliente</span>
+        <p>A LudforU é uma iniciativa estratégica de educação corporativa do Grupo, criada para impulsionar o desenvolvimento contínuo das pessoas, fortalecer nossa cultura e garantir a disseminação de conhecimento técnico, boas práticas e diretrizes institucionais.</p>
+        <p>Mais do que treinamentos, é um espaço de aprendizado que conecta colaboradores, clientes, parceiros, escolas e comunidade, compartilhando conhecimento sobre energia, sustentabilidade e inovação.</p>
       </div>
     </div>
-    <div class="u" data-reveal>
-      <div class="card"><small>01</small><h3>Trilha de desenvolvimento</h3><p>Nome e descrição a receber do cliente.</p></div>
-      <div class="card"><small>02</small><h3>Trilha de desenvolvimento</h3><p>Nome e descrição a receber do cliente.</p></div>
+    <img class="lu-cert" src="assets/ludforu/certificado.webp" width="1000" height="737" alt="Certificado de participação LudforU" loading="lazy">
+    <div class="lu-foto wipe"><img src="assets/ludforu/foto.webp" width="1800" height="1012" alt="Treinamento da LudforU com colaboradores do Grupo" loading="lazy"></div>
+    <div class="lu-dir">
+      <img class="lu-logo" src="assets/ludforu/logo.svg" width="282" height="202" alt="LudforU">
+      <ul class="lu-nums" data-reveal>
+        <li><svg class="ic2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><path d="M12 12h4.500"/><path class="gira" d="M12 12V5.500"/></svg><div><strong data-count="342">342</strong><b>HORAS</b><span>ofertadas por colaborador</span></div></li>
+        <li><svg class="ic2" viewBox="0 0 24 24" aria-hidden="true"><circle class="cabeca" cx="12" cy="7" r="4.800"/><path d="M2.500 22.500v-3.200a4.500 4.500 0 0 1 4.500-4.500h10a4.500 4.500 0 0 1 4.500 4.500v3.200"/><path d="m10.300 14.800 1.700 4.700 1.700-4.700"/></svg><div><strong data-count="8.5" data-dec="1">8,5</strong><b>HORAS</b><span>realizadas por colaborador</span></div></li>
+        <li><svg class="ic2" viewBox="0 0 24 24" aria-hidden="true"><g class="chapeu"><path d="m12 4 10.500 5L12 14 1.500 9z"/><path d="M6 11.200V17c0 1.300 2.700 3 6 3s6-1.700 6-3v-5.800"/></g><g class="balanca"><path d="M18.500 11v6"/><path d="M17.600 17h1.800l.5 2.800h-2.800z"/></g></svg><div><strong data-count="3286">3.286</strong><b>HORAS</b><span>totais realizadas</span></div></li>
+        <li><svg class="ic2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.500" width="18" height="17" rx="2.500"/><path d="M3 9.500h18M8 2.500v4M16 2.500v4"/><path class="marca" pathLength="100" d="m8 15 2.800 2.800L16 12.800"/></svg><div><strong data-count="39">39</strong><b>TREINAMENTOS E EVENTOS</b><span>ofertados</span></div></li>
+      </ul>
     </div>
   </div>
 </section>
-<div class="steps" data-steps style="background:var(--off)"><div class="v"></div><div></div></div>
 
 <!-- MARCA EMPREGADORA -->
-<section class="sec" id="marca-empregadora">
+<section class="sec dark" id="marca-empregadora">
   <div class="wrap">
     <div class="intro">
-      <div><div class="eyebrow">Marca empregadora</div><h2 class="lines" style="margin-top:20px"><span>Compartilhamos da</span><span>mesma energia</span></h2></div>
+      <div><h2 class="lines"><span>Compartilhamos da</span><span>mesma energia</span></h2></div>
       <div data-reveal><p>Atuamos de forma estratégica, eficiente e eficaz, fornecendo produtos e serviços de excelência, com uma equipe qualificada e comprometida com a qualidade total do nosso trabalho.</p></div>
     </div>
     <div class="emp">
-      <a href="#" class="video wipe" style="background-image:url(assets/sobre/af459dd34fd1caa670aa3e53e92180cc21dda61f.jpg)"><div><b>▶</b><span>Assista ao vídeo<br><small style="color:#B4C9C5">Vídeo da marca empregadora a receber</small></span></div></a>
+      <a href="#" class="video wipe" style="background-image:url(assets/sobre/af459dd34fd1caa670aa3e53e92180cc21dda61f.jpg)"><div><b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:1.3em;height:1.3em;display:block"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></b><span>Assista ao vídeo<br><small style="color:#B4C9C5">Vídeo da marca empregadora a receber</small></span></div></a>
       <div class="pil">
         <div class="ph wipe" style="background-image:url(assets/sobre/46859c5fc057ced5eecb93ad317e1d40a06b171c.jpg)"></div>
         <ul data-reveal>
-          <li><small>01</small><b>Transparência</b></li>
-          <li><small>02</small><b>Foco no cliente</b></li>
-          <li><small>03</small><b>Inteligência de mercado</b></li>
+          <li><i class="bolha" data-ic="olho"></i><b>Transparência</b></li>
+          <li><i class="bolha" data-ic="alvo"></i><b>Foco no cliente</b></li>
+          <li><i class="bolha" data-ic="grafico"></i><b>Inteligência de mercado</b></li>
         </ul>
       </div>
     </div>
@@ -134,18 +285,56 @@
 </section>
 
 <!-- TRABALHE CONOSCO -->
-<section class="sec" id="trabalhe-conosco" style="padding-top:0">
+<section class="sec" id="trabalhe-conosco">
   <div class="wrap">
     <div class="jobs">
-      <div><div class="eyebrow">Trabalhe conosco</div><h2 class="lines" style="margin-top:20px"><span>Venha fazer parte</span><span>do time</span></h2></div>
-      <div data-reveal>
+      <div class="txt">
+        <h2 class="lines"><span>Venha fazer parte</span><span>do time</span></h2>
+        <div data-reveal>
         <p>Confira as vagas abertas no Grupo Ludfor e cadastre seu currículo.</p>
         <a href="https://ludfor.vagas.solides.com.br/" class="btn verde"><span>Ver vagas abertas</span><i>→</i></a>
+      </div>
+      </div>
+      <div class="time" id="time" aria-hidden="true">
+        <div class="col"><div class="t"><img src="assets/time/1.webp" width="480" height="600" alt="" loading="lazy"></div><div class="t"><img src="assets/time/2.webp" width="480" height="600" alt="" loading="lazy"></div><div class="t"><img src="assets/time/3.webp" width="480" height="600" alt="" loading="lazy"></div></div>
+        <div class="col"><div class="t"><img src="assets/time/4.webp" width="480" height="600" alt="" loading="lazy"></div><div class="t num"><strong data-count="30" data-pre="+">+30</strong>anos de história</div><div class="t"><img src="assets/time/5.webp" width="480" height="600" alt="" loading="lazy"></div></div>
+        <div class="col"><div class="t"><img src="assets/time/6.webp" width="480" height="600" alt="" loading="lazy"></div><div class="t"><img src="assets/time/7.webp" width="480" height="600" alt="" loading="lazy"></div><div class="t"><img src="assets/time/8.webp" width="480" height="600" alt="" loading="lazy"></div></div>
       </div>
     </div>
   </div>
 </section>
 
+<dialog class="tour-v" id="tourV" aria-label="Tour pela estrutura da Ludfor">
+  <button type="button" class="fechar" id="tourFecha" aria-label="Fechar vídeo">×</button>
+  <div class="tela" id="tourTela"></div>
+</dialog>
 <script src="js/base.js"></script>
+<script>
+/* mosaico do time: as colunas deslizam em sentidos opostos com a rolagem */
+(() => {
+  const area = document.getElementById('time');
+  if (Ludfor.reduce) return;
+  const cols = [...area.children], vel = [-46, 46, -30];
+  Ludfor.onScroll(() => {
+    const r = area.getBoundingClientRect();
+    if (r.bottom < -80 || r.top > innerHeight + 80) return;
+    const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+    cols.forEach((c, i) => { c.style.transform = `translateY(${(vel[i] * p).toFixed(1)}px)`; });
+  });
+})();
+</script>
+<script>
+/* tour pela estrutura: o player do YouTube só carrega ao clicar */
+(() => {
+  const dlg = document.getElementById('tourV'), tela = document.getElementById('tourTela');
+  document.getElementById('tourAbre').onclick = () => {
+    tela.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/66EcOa73WlA?autoplay=1&rel=0" title="Faça um tour pela estrutura da Ludfor" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    dlg.showModal();
+  };
+  document.getElementById('tourFecha').onclick = () => dlg.close();
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', () => { tela.innerHTML = ''; });
+})();
+</script>
 </body>
 </html>

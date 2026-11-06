@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercado Livre de Energia — Blog da Energia — Ludfor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/blog.css">
+</head>
+<body data-page="blog">
+
+<header class="bhero dark">
+  <div class="wrap">
+    <div class="crumbs" data-reveal data-intro><a href="index.html">Home</a><span><a href="blog.html">Blog da Energia</a></span><span>Categoria</span></div>
+    <h1 class="lines" data-intro><span>Mercado Livre</span><span><em>de Energia</em></span></h1>
+    <div data-reveal data-intro><p class="lead">Regras, oportunidades e novidades do ambiente de contratação livre de energia.</p></div>
+  </div>
+</header>
+
+<nav class="catbar" aria-label="Categorias do blog"><div class="wrap"><div class="catrow">
+  <a href="blog.html">Todos</a>
+  <a href="#">Clima</a>
+  <a href="#">Energia</a>
+  <a href="#">Geral</a>
+  <a href="#">Economia</a>
+  <a href="#">Feiras</a>
+  <a href="#">Filiais</a>
+  <a href="#">Geração</a>
+  <a href="blog-categoria.html" class="on" aria-current="page">Mercado Livre de Energia</a>
+  <a href="#">Varejista</a>
+  <a href="#">Sustentabilidade</a>
+</div></div></nav>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="head">
+      <div><h2 class="lines"><span>Mercado Livre</span><span>de Energia</span></h2></div>
+      <div data-reveal>
+        <form class="search" onsubmit="return false" style="border-color:var(--linha);margin-top:0;min-width:280px"><input placeholder="Buscar nesta categoria" aria-label="Buscar nesta categoria" style="color:var(--texto)"><button style="color:var(--verde)">→</button></form>
+      </div>
+    </div>
+    <div class="posts" data-reveal>
+      <a class="post" href="blog-post.html"><div class="im" style="background-image:url(assets/5870ab8c19cae382b5ad26727ea064108bf9c16b.jpg)"></div><div class="b"><span class="meta">Mercado Livre de Energia</span><h3>Mercado livre na baixa tensão ainda depende de regras tarifárias</h3><span class="more"><span>15/10/2026</span><span>Ler →</span></span></div></a>
+      <a class="post" href="blog-post.html"><div class="im" style="background-image:url(assets/991bf769f05efe46ec658588168d471de96b754b.jpg)"></div><div class="b"><span class="meta">Geração · Mercado Livre</span><h3>Como o Middle Office maximiza a gestão e a rentabilidade de usinas no mercado elétrico</h3><span class="more"><span>06/10/2026</span><span>Ler →</span></span></div></a>
+    </div>
+    <div class="pager" data-reveal><a class="on" href="#">1</a></div>
+  </div>
+</section>
+
+<script src="js/base.js"></script>
+<script>
+/* no celular, a barra de categorias abre já mostrando a categoria atual */
+(() => { const r = document.querySelector('.catrow'), a = r.querySelector('.on'); if (a) r.scrollLeft = a.offsetLeft - r.offsetLeft - 16; })();
+</script>
+</body>
+</html>

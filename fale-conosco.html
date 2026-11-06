@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fale conosco — Ludfor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 .sec{padding:110px 0;scroll-margin-top:80px}
 .contact{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
-.form{background:#fff;border:1px solid var(--linha);padding:44px}
+.form{background:#fff;border:1px solid var(--linha);border-radius:var(--r-l);padding:44px}
 .form h2{font-size:clamp(34px,3.4vw,50px);margin:18px 0 10px}
 .form .sub{color:var(--muted);font-size:15px;margin-bottom:32px}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -29,7 +29,7 @@
 .form .ok{font-size:14px;color:var(--verde);display:none}
 .form.sent .ok{display:block}
 .aside{display:grid;gap:20px}
-.box{padding:32px}
+.box{padding:32px;border-radius:var(--r-l)}
 .box small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9DB8B3}
 .box h3{font-size:28px;margin:12px 0 16px}
 .box p{line-height:1.6;color:#C9D8D5;font-size:15px}
@@ -41,8 +41,8 @@
 /* filiais */
 .regs{display:flex;gap:8px;flex-wrap:wrap;margin:40px 0 24px}
 .regs button{font:inherit;cursor:pointer}
-.fil{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--linha);border-left:1px solid var(--linha)}
-.fil .c{border-right:1px solid var(--linha);border-bottom:1px solid var(--linha);background:#fff;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:200px;animation:swap .6s var(--ease) both;animation-delay:calc(var(--i)*35ms)}
+.fil{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fil .c{border:1px solid var(--linha);border-radius:var(--r);background:#fff;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:200px;animation:swap .6s var(--ease) both;animation-delay:calc(var(--i)*35ms)}
 @keyframes swap{from{opacity:0;transform:translateY(14px)}}
 .fil .c small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde)}
 .fil .c h3{font-size:26px}
@@ -63,6 +63,22 @@
   .fil{grid-template-columns:1fr}
   .aside{grid-template-columns:1fr}
 }
+/* linguagem da home */
+.f input,.f select,.f textarea{background:var(--off);border:1px solid transparent;border-radius:14px;padding:13px 16px;transition:border-color .3s,background .3s}
+.f input:focus,.f select:focus,.f textarea:focus{background:#fff;border-color:var(--verde)}
+.f::after{display:none}
+.box .bolha{width:52px;height:52px;margin-bottom:16px}
+.box.dark{background:radial-gradient(80% 90% at 0% 0%,rgba(92,222,186,.4),transparent 72%),var(--verde)}
+.box.dark .bolha{background:var(--amarelo);color:var(--noite)}
+.box.light{transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.box.light:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(6,43,40,.12)}
+.fil .c{position:relative;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s}
+.fil .c:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(6,43,40,.12);border-color:transparent}
+.fil .pino{position:absolute;right:20px;top:20px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#E6F1EF;color:var(--verde)}
+.fil .pino .ic{width:20px;height:20px}
+.fil .c.sede{background:radial-gradient(90% 100% at 0% 0%,rgba(92,222,186,.4),transparent 72%),var(--verde)}
+.fil .c.sede .pino{background:var(--amarelo);color:var(--noite)}
+.fil .c small{padding-right:48px}
 </style>
 </head>
 <body data-page="fale-conosco">
@@ -75,14 +91,13 @@
     <div data-reveal data-intro><p class="lead">Fale com um especialista do Grupo Ludfor ou encontre a filial mais perto de você.</p></div>
   </div>
 </header>
-<div class="steps" data-steps><div></div><div class="v"></div></div>
 
 <!-- FORMULÁRIO DE CONTATO (fluxos no RD Station) -->
 <section class="sec" id="contato">
   <div class="wrap contact">
     <!-- integrar ao RD Station: o campo "assunto" define o fluxo de automação -->
     <form class="form" id="form" novalidate data-reveal>
-      <div class="eyebrow">Contate-nos</div>
+      
       <h2>Formulário de contato</h2>
       <p class="sub">Campos com (*) são obrigatórios.</p>
       <div class="fields">
@@ -99,19 +114,19 @@
 
     <div class="aside" data-reveal>
       <div class="box dark">
-        <small>Matriz</small>
+        <i class="bolha" data-ic="pin"></i>
         <h3>Bento Gonçalves · RS</h3>
         <p>Alameda Fenavinho, 214 · B. Fenavinho<br>CEP 95703-364</p>
         <a class="tel" href="tel:+555434511413">(54) 3451.1413</a>
       </div>
       <div class="box light">
-        <small>Já é cliente?</small>
+        <i class="bolha" data-ic="monitor"></i>
         <h3>Área do Cliente</h3>
         <p>Acompanhe seus dados de consumo e documentos no Haus.</p>
         <div class="row"><a href="https://haus.ludfor.com.br/login" class="btn verde"><span>Acessar</span><i>→</i></a></div>
       </div>
       <div class="box light">
-        <small>Carreiras</small>
+        <i class="bolha" data-ic="pasta"></i>
         <h3>Trabalhe conosco</h3>
         <p>Veja as vagas abertas no Grupo Ludfor.</p>
         <div class="row"><a href="https://ludfor.vagas.solides.com.br/" class="link">Ver vagas</a></div>
@@ -124,7 +139,7 @@
 <section class="sec" id="filiais" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div><div class="eyebrow">Filiais e contatos</div><h2 class="lines"><span>Perto de você</span><span>em todo o Brasil</span></h2></div>
+      <div><h2 class="lines"><span>Perto de você</span><span>em todo o Brasil</span></h2></div>
       <div data-reveal><p>Uma matriz e 14 filiais com o mesmo compromisso em resultados e foco no cliente.</p></div>
     </div>
     <div class="regs" id="regs" data-reveal>
@@ -160,7 +175,7 @@ const tel = t => 'tel:+55' + t.replace(/\D/g, '');
 function render(r) {
   fil.innerHTML = FILIAIS.filter(f => !r || f[2] === r).map((f, i) => `
     <div class="c${f[5] ? ' sede' : ''}" style="--i:${i}">
-      <small>${f[5] ? 'Matriz' : 'Filial'} · ${f[2]}</small>
+      <i class="pino">${Ludfor.ic('pin')}</i><small>${f[5] ? 'Matriz' : 'Filial'} · ${f[2]}</small>
       <h3>${f[0]} · ${f[1]}</h3>
       <p>${f[3]}</p>
       <a href="${tel(f[4])}" class="link">${f[4]}</a>

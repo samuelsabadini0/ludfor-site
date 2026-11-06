@@ -5,33 +5,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marcas do Grupo — Ludfor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
-.list{padding-top:100px;padding-bottom:120px}
-.mk{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--linha);scroll-margin-top:90px}
-.mk:last-child{border-bottom:1px solid var(--linha)}
-.mk .panel{background:var(--noite);min-height:440px;display:grid;place-items:center;position:relative;overflow:hidden}
-.mk .panel img{max-width:62%;max-height:120px;object-fit:contain;transition:transform .8s var(--ease)}
-.mk .panel .ph-logo{color:#9DB8B3;font-size:14px;letter-spacing:.08em;text-transform:uppercase;border:1px dashed rgba(255,255,255,.35);padding:28px 40px}
-.mk .panel::before{content:"";position:absolute;left:0;bottom:0;width:50%;height:40px;background:var(--off);transform:scaleY(0);transform-origin:bottom;transition:transform .9s var(--ease) .4s}
-.mk .panel.in::before{transform:scaleY(1)}
-.mk:hover .panel img{transform:scale(1.05)}
-.mk .txt{padding:56px;display:flex;flex-direction:column;background:#fff}
-.mk:nth-child(even) .panel{order:2}
-.mk:nth-child(even) .panel::before{left:auto;right:0}
-.mk .num{font-size:13px;color:var(--muted)}
-.mk h2{font-size:clamp(34px,3.6vw,54px);margin:18px 0 22px}
-.mk .lead{font-size:19px;line-height:1.5;font-weight:300}
-.mk p.t{color:var(--muted);line-height:1.65;margin-top:14px}
-.mk .foot{margin-top:auto;padding-top:36px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--linha)}
-.mk .foot small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.mk .pend{display:inline-block;margin-top:14px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde);border:1px dashed var(--verde);padding:6px 10px;align-self:flex-start}
-@media (max-width:1000px){
-  .mk{grid-template-columns:1fr}
-  .mk:nth-child(even) .panel{order:0}
-  .mk .panel{min-height:300px}
-  .mk .txt{padding:36px 24px}
+.list{padding-top:90px;padding-bottom:120px}
+/* ecossistema: marcas em volta de um círculo central que mostra o resumo */
+.ecos-cab{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 40px;margin-bottom:28px}
+.ecos-cab h2{font-size:clamp(34px,3.6vw,54px)}
+.ecos-cab p{color:var(--muted);line-height:1.5}
+.ecos{container-type:inline-size;max-width:1120px;margin:0 auto}
+.pal{--u:calc(100cqw / 1200);position:relative;height:calc(780 * var(--u))}
+.pal .fios{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.fios line{stroke:#C7D0CC;stroke-width:1.5;vector-effect:non-scaling-stroke;transition:stroke .3s,stroke-width .3s}
+.fios line.on{stroke:var(--amarelo);stroke-width:3}
+.pal [role=tablist]{display:contents}
+.mc{position:absolute;left:calc((var(--x) - 92) * var(--u));top:calc((var(--y) - 92) * var(--u));width:calc(184 * var(--u));height:calc(184 * var(--u));display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:var(--noite);font:inherit;cursor:pointer;scroll-margin-top:110px;transition:scale .4s var(--ease),box-shadow .4s var(--ease),background .3s,opacity .7s var(--ease);transition-delay:0s,0s,0s,var(--d,0s)}
+.mc img{display:block;max-width:72%;max-height:42%;width:auto;height:auto;object-fit:contain}
+.mc .ph-logo{font-size:11px;line-height:1.3;letter-spacing:.06em;text-transform:uppercase;color:#9DB8B3;border:1px dashed rgba(255,255,255,.35);border-radius:var(--r-s);padding:8px 10px}
+.mc:hover{scale:1.07;box-shadow:0 20px 40px rgba(6,43,40,.24)}
+.mc:focus-visible{outline:3px solid var(--amarelo);outline-offset:4px}
+.mc[aria-selected="true"]{background:radial-gradient(90% 90% at 20% 10%,rgba(92,222,186,.42),transparent 72%),linear-gradient(180deg,var(--verde),var(--verde-2));box-shadow:0 0 0 3px var(--amarelo),0 0 0 11px rgba(249,181,25,.2),0 22px 44px rgba(6,43,40,.2)}
+.cen{position:absolute;left:calc(385 * var(--u));top:calc(175 * var(--u));width:calc(430 * var(--u));height:calc(430 * var(--u));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(16 * var(--u));padding:calc(48 * var(--u));box-sizing:border-box;border-radius:50%;text-align:center;color:#D8EBE7;background:radial-gradient(70% 70% at 20% 10%,rgba(92,222,186,.34),transparent 72%),var(--noite);box-shadow:0 30px 60px rgba(6,43,40,.22)}
+.cen img{display:block;max-width:68%;max-height:calc(70 * var(--u));width:auto;height:auto}
+.cen .ph-logo{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9DB8B3;border:1px dashed rgba(255,255,255,.35);border-radius:var(--r-s);padding:12px 18px}
+.cen hr{width:calc(48 * var(--u));height:2px;border:0;background:var(--amarelo)}
+.cen p{font-size:max(14px,calc(15.5 * var(--u)));line-height:1.42}
+.cen .troca{display:contents}
+.cen.muda>*{animation:cenEntra .45s var(--ease)}
+@keyframes cenEntra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* entrada: marcas e fios surgem quando a seção aparece */
+.ecos:not(.in) .mc{opacity:0;scale:.7}
+.ecos:not(.in) .fios{opacity:0}
+.pal .fios{transition:opacity 1s .3s}
+/* conteúdo da marca selecionada */
+.mp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:56px;align-items:stretch;margin-top:64px}
+.mp[hidden]{display:none}
+.mp.entra{animation:mpEntra .6s var(--ease)}
+@keyframes mpEntra{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.mp h2{font-size:clamp(34px,3.4vw,50px);margin:0 0 12px}
+.mp p.t{color:var(--muted);line-height:1.6;margin-top:12px}
+.mp ul{list-style:none;margin-top:24px;border-top:1px solid var(--linha)}
+.mp li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start;padding:12px 0;font-size:15.5px;line-height:1.35;border-bottom:1px solid var(--linha)}
+.mp li::before{content:"";width:24px;height:24px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F9B519' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 12.5 3.2 3.2L17 8.800'/%3E%3C/svg%3E") center/16px no-repeat}
+.mp .acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:28px}
+.mp .pend{display:inline-block;margin-top:16px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde);border:1px dashed var(--verde);border-radius:99px;padding:6px 14px}
+/* visual: foto, logo da marca e números reais */
+.vis{position:relative;min-height:500px;border-radius:var(--r-l);overflow:hidden;background:radial-gradient(70% 90% at 0% 10%,rgba(92,222,186,.42),transparent 72%),linear-gradient(180deg,var(--verde),var(--noite))}
+.vis>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vis .chip{position:absolute;left:18px;top:18px;display:flex;align-items:center;height:64px;padding:0 18px;border-radius:var(--r);background:rgba(6,43,40,.82);backdrop-filter:blur(8px)}
+.vis .chip img{display:block;max-height:42px;max-width:170px;width:auto;height:auto}
+.vis .nums{position:absolute;left:14px;right:14px;bottom:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.vis .nums div{padding:14px 16px;border-radius:var(--r);background:#fff;box-shadow:0 14px 30px rgba(6,43,40,.24);font-size:13px;line-height:1.3;color:var(--muted)}
+.vis .nums strong{display:block;margin-bottom:4px;font-size:clamp(20px,1.9vw,27px);font-weight:300;letter-spacing:-.03em;line-height:1.1;white-space:nowrap;color:var(--verde)}
+.vis.vazio{display:grid;place-items:center}
+.vis.vazio .ph-logo{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#9DB8B3;border:1px dashed rgba(255,255,255,.35);border-radius:var(--r);padding:28px 40px}
+@media (prefers-reduced-motion:reduce){.mp.entra,.cen.muda>*{animation:none}.ecos:not(.in) .mc{opacity:1;scale:1}.ecos:not(.in) .fios{opacity:1}}
+@media (max-width:1100px){
+  .pal{height:auto;display:flex;flex-direction:column;gap:24px}
+  .pal .fios{display:none}
+  .pal [role=tablist]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;justify-items:center}
+  .mc{position:static;width:100%;max-width:170px;height:auto;aspect-ratio:1}
+  .cen{position:static;width:100%;height:auto;min-height:230px;padding:28px 24px;gap:14px;border-radius:var(--r-l)}
+  .cen img{max-height:60px}
+  .cen hr{width:48px}
+  .cen p{font-size:15px;max-width:560px}
+  .mp{grid-template-columns:1fr;gap:32px;margin-top:36px;scroll-margin-top:90px}
+  .vis{min-height:440px}
+}
+@media (max-width:600px){
+  .list{padding-top:56px;padding-bottom:80px}
+  .mc .ph-logo{font-size:9px;padding:6px}
+  .vis{min-height:0;display:flex;flex-direction:column}
+  .vis>img{position:static;height:240px}
+  .vis .nums{position:static;grid-template-columns:1fr;padding:14px}
+  .vis.vazio{min-height:240px;display:grid}
 }
 </style>
 </head>
@@ -45,76 +92,140 @@
     <div data-reveal data-intro><p class="lead">Cada marca do Grupo Ludfor é especialista em uma etapa da energia do seu negócio.</p></div>
   </div>
 </header>
-<div class="steps" data-steps><div></div><div class="v"></div></div>
 
 <div class="wrap list">
-  <article class="mk" id="ludfor-gestao">
-    <div class="panel wipe"><img src="assets/marcas/be4224f5dfc696aaf6a7fe91535cbf9b93391d25.png" alt="Ludfor Gestão"></div>
-    <div class="txt" data-reveal>
-      <span class="num">01</span>
+  <div class="ecos-cab" data-reveal><h2>Nosso ecossistema</h2><p>Escolha uma marca para conhecer.</p></div>
+  <div class="ecos" id="ecos">
+    <div class="pal">
+      <svg class="fios" viewBox="0 0 1200 780" aria-hidden="true"><line data-m="ludfor-gestao" x1="600" y1="390" x2="170" y2="270"/><line data-m="ludfor-comercializacao" x1="600" y1="390" x2="420" y2="92"/><line data-m="simplifica" x1="600" y1="390" x2="830" y2="105"/><line data-m="trifase" x1="600" y1="390" x2="1040" y2="320"/><line data-m="enerbrax" x1="600" y1="390" x2="900" y2="665"/><line data-m="origem" x1="600" y1="390" x2="300" y2="640"/></svg>
+      <div class="cen" id="cen" aria-live="polite"></div>
+      <div role="tablist" aria-label="Marcas do Grupo Ludfor">
+      <button type="button" class="mc" role="tab" id="ludfor-gestao" aria-controls="p-ludfor-gestao" aria-selected="true" data-t="Ampla expertise para maximizar os resultados no gerenciamento de gestão para consumidores e usinas no Mercado Livre de Energia." data-nome="Ludfor Gestão" style="--x:170;--y:270;--d:0.00s"><img src="assets/marcas/gestao-logo.png" alt="Ludfor Gestão"></button>
+      <button type="button" class="mc" role="tab" id="ludfor-comercializacao" aria-controls="p-ludfor-comercializacao" aria-selected="false" tabindex="-1" data-t="Acompanhamento diário do mercado e apoio na definição de estratégia dos nossos clientes. Atuando com liquidez, gerando assim segurança para o seu negócio." data-nome="Ludfor Comercialização" style="--x:420;--y:92;--d:0.08s"><img src="assets/marcas/comercializacao-logo.png" alt="Ludfor Comercialização"></button>
+      <button type="button" class="mc" role="tab" id="simplifica" aria-controls="p-simplifica" aria-selected="false" tabindex="-1" data-t="Oferece soluções personalizadas para reduzir o custo de energia da sua empresa ou residência, atuando nos segmentos de geração distribuída de energia (GD) e mercado livre varejista." data-nome="Simplifica Energia" style="--x:830;--y:105;--d:0.16s"><img src="assets/marcas/0d5ce42bc0728ac08a186e725fafac7db6421507.png" alt="Simplifica Energia"></button>
+      <button type="button" class="mc" role="tab" id="trifase" aria-controls="p-trifase" aria-selected="false" tabindex="-1" data-t="Especialistas em prover soluções estruturadas com foco na eficiência e rentabilidade dos recursos energéticos." data-nome="Trifase Energia" style="--x:1040;--y:320;--d:0.24s"><img src="assets/marcas/trifase-logo.png" alt="Trifase Energia"></button>
+      <button type="button" class="mc" role="tab" id="enerbrax" aria-controls="p-enerbrax" aria-selected="false" tabindex="-1" data-t="" data-nome="Enerbrax" style="--x:900;--y:665;--d:0.32s"><span class="ph-logo">Logo Enerbrax</span></button>
+      <button type="button" class="mc" role="tab" id="origem" aria-controls="p-origem" aria-selected="false" tabindex="-1" data-t="Investimentos em geração de energia, possibilitando uma visão completa do mercado e solidez. O grupo investe em ativos de energia limpa e sustentável para o seu negócio." data-nome="Origem Energia" style="--x:300;--y:640;--d:0.40s"><img src="assets/marcas/902b3254383d06ee26833ef96dc3617fbbe78406.png" alt="Origem Energia"></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="mp" role="tabpanel" id="p-ludfor-gestao" aria-labelledby="ludfor-gestao" tabindex="0">
+    <div>
       <h2>Ludfor Gestão</h2>
-      <p class="lead">Gestão de consumidores e geradores.</p>
-      <p class="t">Ampla expertise para maximizar os resultados no gerenciamento de gestão para consumidores e usinas no Mercado Livre de Energia.</p>
-      <div class="foot"><small>Solução</small><a href="solucoes.html#gestao" class="btn verde"><span>Gestão</span><i>→</i></a></div>
+      <ul><li>Análise de Risco e Inteligência de Mercado</li><li>Gestão e Representação no Mercado Livre de Energia (CCEE)</li><li>Assessoria Jurídica</li><li>Assessoria Contábil e Tributária</li><li>Plataforma de Monitoramento online (Haus)</li><li>Certificado de Energia Renovável</li></ul>
+      <div class="acoes"><a href="solucao-gestao.html" class="btn verde"><span>Conhecer a Gestão</span><i>→</i></a><a href="fale-conosco.html" class="link">Fale com um especialista</a></div>
     </div>
-  </article>
+    <div class="vis"><img src="assets/789f2e31fd69bb40134f443bfa37a921d3c89793.png" alt="" loading="eager">
+        <span class="chip"><img src="assets/marcas/gestao-logo.png" alt=""></span>
+      </div>
+  </section>
 
-  <article class="mk" id="ludfor-comercializacao">
-    <div class="panel wipe"><img src="assets/marcas/d6af68ffe1553b5c5ab84e4b01faff4b28cb9a7f.png" alt="Ludfor Comercialização"></div>
-    <div class="txt" data-reveal>
-      <span class="num">02</span>
+  <section class="mp" role="tabpanel" id="p-ludfor-comercializacao" aria-labelledby="ludfor-comercializacao" tabindex="0" hidden>
+    <div>
       <h2>Ludfor Comercialização</h2>
-      <p class="lead">Comercialização de energia.</p>
-      <p class="t">Acompanhamento diário do mercado e apoio na definição de estratégia dos nossos clientes. Atuando com liquidez, gerando assim segurança para o seu negócio.</p>
-      <div class="foot"><small>Solução</small><a href="solucoes.html#comercializacao" class="btn verde"><span>Comercialização</span><i>→</i></a></div>
+      <ul><li>Compra e venda de energia de curto e longo prazo</li><li>Ajuste de sobras e déficits contratuais</li><li>Estruturação de contratos de curto, médio e longo prazo</li><li>Monitoramento diário do mercado</li><li>Acompanhamento de preços futuros</li><li>Inteligência regulatória</li></ul>
+      <div class="acoes"><a href="solucao-comercializacao.html" class="btn verde"><span>Conhecer a Comercialização</span><i>→</i></a><a href="fale-conosco.html" class="link">Fale com um especialista</a></div>
     </div>
-  </article>
+    <div class="vis"><img src="assets/76332fab96b1b7b77dbc4dcf1f5a8b1c18687035.png" alt="" loading="lazy">
+        <span class="chip"><img src="assets/marcas/comercializacao-logo.png" alt=""></span>
+      </div>
+  </section>
 
-  <article class="mk" id="simplifica">
-    <div class="panel wipe"><img src="assets/marcas/0d5ce42bc0728ac08a186e725fafac7db6421507.png" alt="Simplifica Energia"></div>
-    <div class="txt" data-reveal>
-      <span class="num">03</span>
+  <section class="mp" role="tabpanel" id="p-simplifica" aria-labelledby="simplifica" tabindex="0" hidden>
+    <div>
       <h2>Simplifica Energia</h2>
-      <p class="lead">Simplificamos a energia do seu negócio.</p>
-      <p class="t">Oferece soluções personalizadas para reduzir o custo de energia da sua empresa ou residência, atuando nos segmentos de geração distribuída de energia (GD) e mercado livre varejista.</p>
-      <div class="foot"><small>Solução</small><a href="solucoes.html#gd" class="btn verde"><span>Geração Distribuída</span><i>→</i></a></div>
+      <ul><li>Sem investimento</li><li>Sem obras</li><li>Sem burocracia</li></ul>
+      <div class="acoes"><a href="solucao-geracao-distribuida.html" class="btn verde"><span>Conhecer a Geração Distribuída</span><i>→</i></a><a href="fale-conosco.html" class="link">Fale com um especialista</a></div>
     </div>
-  </article>
+    <div class="vis"><img src="assets/usinas/9e405fab5b8b8a6a7ebcb36b73c0b0d58465f903.jpg" alt="" loading="lazy">
+        <span class="chip"><img src="assets/marcas/0d5ce42bc0728ac08a186e725fafac7db6421507.png" alt=""></span>
+        <div class="nums"><div><strong>R$ 9,6 mi</strong>acumulados de economia dos clientes em 2026</div><div><strong>+18 mil</strong>MWh de energia sob gestão</div><div><strong>+220</strong>usinas sob gestão</div></div>
+      </div>
+  </section>
 
-  <article class="mk" id="trifase">
-    <div class="panel wipe"><img src="assets/marcas/8a5166f7aaf01941a82af601f299c17dd9d34fc9.png" alt="Trifase Energia"></div>
-    <div class="txt" data-reveal>
-      <span class="num">04</span>
+  <section class="mp" role="tabpanel" id="p-trifase" aria-labelledby="trifase" tabindex="0" hidden>
+    <div>
       <h2>Trifase Energia</h2>
-      <p class="lead">Soluções completas em engenharia e energia.</p>
-      <p class="t">Especialistas em prover soluções estruturadas com foco na eficiência e rentabilidade dos recursos energéticos.</p>
-      <div class="foot"><small>Solução</small><a href="solucoes.html#engenharia" class="btn verde"><span>Engenharia</span><i>→</i></a></div>
+      <ul><li>Modernização e ampliação de subestações de transformação</li><li>Melhorias de instalações elétricas de baixa e média tensão</li><li>Projetos de geração com fontes renováveis, incluindo soluções Grid Zero</li><li>Estudos e implantação de sistemas de armazenamento de energia (BESS)</li></ul>
+      <div class="acoes"><a href="solucao-engenharia.html" class="btn verde"><span>Conhecer a Engenharia</span><i>→</i></a><a href="fale-conosco.html" class="link">Fale com um especialista</a></div>
     </div>
-  </article>
+    <div class="vis"><img src="assets/18035c38edf87ef42f514ce52f9deba1bd2b6c1c.jpg" alt="" loading="lazy">
+        <span class="chip"><img src="assets/marcas/trifase-logo.png" alt=""></span>
+        <div class="nums"><div><strong>R$ 1,0 bi</strong>em contratos</div><div><strong>R$ 250 mi</strong>de economia aos clientes</div><div><strong>+500</strong>projetos aprovados</div></div>
+      </div>
+  </section>
 
-  <article class="mk" id="enerbrax">
-    <div class="panel wipe"><span class="ph-logo">Logo Enerbrax</span></div>
-    <div class="txt" data-reveal>
-      <span class="num">05</span>
+  <section class="mp" role="tabpanel" id="p-enerbrax" aria-labelledby="enerbrax" tabindex="0" hidden>
+    <div>
       <h2>Enerbrax</h2>
-      <p class="lead">Descrição da marca.</p>
       <span class="pend">Logo e texto a receber do cliente</span>
-      <div class="foot"><small>Saiba mais</small><a href="fale-conosco.html" class="btn verde"><span>Fale conosco</span><i>→</i></a></div>
+      <div class="acoes"><a href="fale-conosco.html" class="btn verde"><span>Fale conosco</span><i>→</i></a></div>
     </div>
-  </article>
+    <div class="vis vazio"><span class="ph-logo">Logo Enerbrax</span></div>
+  </section>
 
-  <article class="mk" id="origem">
-    <div class="panel wipe"><img src="assets/marcas/902b3254383d06ee26833ef96dc3617fbbe78406.png" alt="Origem Energia"></div>
-    <div class="txt" data-reveal>
-      <span class="num">06</span>
+  <section class="mp" role="tabpanel" id="p-origem" aria-labelledby="origem" tabindex="0" hidden>
+    <div>
       <h2>Origem Energia</h2>
-      <p class="lead">Investimentos em geração hídrica e solar.</p>
-      <p class="t">Investimentos em geração de energia, possibilitando uma visão completa do mercado e solidez. O grupo investe em ativos de energia limpa e sustentável para o seu negócio.</p>
-      <div class="foot"><small>Solução</small><a href="solucoes.html#geracao" class="btn verde"><span>Geração</span><i>→</i></a></div>
+      <ul><li>21 usinas em operação</li><li>12 usinas em construção</li><li>Ativos de energia limpa e sustentável</li></ul>
+      <div class="acoes"><a href="solucao-geracao.html" class="btn verde"><span>Conhecer a Geração</span><i>→</i></a><a href="fale-conosco.html" class="link">Fale com um especialista</a></div>
     </div>
-  </article>
+    <div class="vis"><img src="assets/42aba2471d6ced916b59412d4f18a89e6a93d9b7.jpg" alt="" loading="lazy">
+        <span class="chip"><img src="assets/marcas/902b3254383d06ee26833ef96dc3617fbbe78406.png" alt=""></span>
+        <div class="nums"><div><strong>33</strong>usinas próprias</div><div><strong>550 MW</strong>de capacidade instalada</div><div><strong>R$ 509 mi</strong>em investimentos previstos até 2030</div></div>
+      </div>
+  </section>
 </div>
 
 <script src="js/base.js"></script>
+<script>
+/* ecossistema: o centro mostra o resumo da marca; o hover só pré-visualiza, o clique fixa e abre os detalhes */
+(() => {
+  const area = document.getElementById('ecos'), cen = document.getElementById('cen');
+  const tabs = [...document.querySelectorAll('.mc')], fios = [...document.querySelectorAll('.fios line')];
+  const painelDe = t => document.getElementById(t.getAttribute('aria-controls'));
+  let atual = tabs[0], mostrado = null;
+  const mostra = t => {
+    if (t === mostrado) return;
+    mostrado = t;
+    const logo = t.querySelector('img');
+    cen.innerHTML = (logo ? '<img src="' + logo.getAttribute('src') + '" alt="">' : '<span class="ph-logo">Logo ' + t.dataset.nome + '</span>')
+      + '<hr><p>' + (t.dataset.t || 'Texto a receber do cliente.') + '</p>';
+    cen.classList.remove('muda'); void cen.offsetWidth; cen.classList.add('muda');
+    fios.forEach(l => l.classList.toggle('on', l.dataset.m === t.id));
+  };
+  const abre = (t, foco) => {
+    atual = t;
+    tabs.forEach(o => {
+      const on = o === t;
+      o.setAttribute('aria-selected', on);
+      o.tabIndex = on ? 0 : -1;
+      const p = painelDe(o);
+      p.hidden = !on;
+      p.classList.remove('entra');
+      if (on) { void p.offsetWidth; p.classList.add('entra'); }
+    });
+    mostra(t);
+    if (foco) t.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => { abre(t); history.replaceState(null, '', '#' + t.id); });
+    t.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') mostra(t); });
+    t.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') mostra(atual); });
+    t.addEventListener('keydown', e => {
+      const passo = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!passo) return;
+      e.preventDefault();
+      abre(tabs[(i + passo + tabs.length) % tabs.length], true);
+    });
+  });
+  const peloHash = () => { const t = tabs.find(o => '#' + o.id === location.hash); if (t) abre(t); };
+  addEventListener('hashchange', peloHash);
+  mostra(tabs[0]);
+  peloHash();
+  new IntersectionObserver(([e], io) => { if (e.isIntersecting) { area.classList.add('in'); io.disconnect(); } }, { threshold: .15 }).observe(area);
+})();
+</script>
 </body>
 </html>
