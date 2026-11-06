@@ -73,7 +73,7 @@
 .tr-w{container-type:inline-size}
 .tr{--u:calc(min(100cqw,1920px) / 1440);position:relative;height:calc(1070 * var(--u));max-width:1920px;margin:0 auto}
 .tr-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.tr-svg path{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.tr-svg path{fill:none;stroke-linecap:round}
 .tr-svg .base{stroke:#E8ECE9;stroke-width:2}
 .tr-svg .anda{stroke:var(--amarelo);stroke-width:2.5;stroke-dasharray:1;stroke-dashoffset:1}
 .tr-h,.tr-int,.tr .pill,.tr .tx{position:absolute;left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u))}
