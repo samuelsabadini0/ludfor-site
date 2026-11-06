@@ -11,6 +11,21 @@
   let lenis = null;
   const paraTopo = () => { if (lenis) lenis.scrollTo(0, { immediate: true }); else scrollTo(0, 0); };
 
+  /* ---------- ícones: <i data-ic="nome"></i>; só animam enquanto estão na tela ---------- */
+  const ICONES = window.SIMPLIFICA_ICONES || {};
+  const vivos = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('vivo', e.isIntersecting && !reduce)), { rootMargin: '40px' });
+  document.querySelectorAll('[data-ic]').forEach((el, i) => {
+    const d = ICONES[el.dataset.ic];
+    if (!d) return;
+    el.innerHTML = `<svg class="ic" viewBox="0 0 100 100" aria-hidden="true"><path d="${d}"/></svg>`;
+    el.style.setProperty('--d', i % 6);
+    vivos.observe(el);
+  });
+
+  /* seta dupla dos botões */
+  const SETA = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M15 5H7M15 5v8"/></svg>';
+  document.querySelectorAll('.btn i').forEach(el => { el.innerHTML = SETA + SETA; });
+
   /* ---------- revelar ao entrar na tela ---------- */
   document.querySelectorAll('.lines').forEach(h => [...h.children].forEach((line, i) => {
     line.innerHTML = `<span>${line.innerHTML}</span>`;
@@ -36,7 +51,7 @@
     e.target.querySelectorAll('[data-count]').forEach(contar);
     io.unobserve(e.target);
   }), { rootMargin: '0px 0px -12% 0px' });
-  const ANIM = '[data-reveal],.lines,.wipe,[data-steps],.etapas';
+  const ANIM = '[data-reveal],.lines,.wipe';
   const armar = root => root.querySelectorAll(ANIM).forEach(el => { el.classList.remove('in'); io.observe(el); });
   document.querySelectorAll('footer ' + ANIM).forEach(el => io.observe(el));
 
