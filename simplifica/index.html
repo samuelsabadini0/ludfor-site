@@ -40,8 +40,8 @@
       <div>
         <h1 class="lines"><span>Sua conta de luz</span><span>pode <em>custar menos.</em></span></h1>
         <div data-reveal>
-          <p class="lead">Energia renovável, sem placas, sem obras e sem investimento. Contratou, já começa a economizar.</p>
-          <div class="acoes"><a class="btn" href="#simule" data-simular><span>Simule sua economia</span><i></i></a></div>
+          <p class="lead">Energia renovável, sem placas, sem obras e sem investimento.</p>
+          <div class="acoes"><a class="btn" href="#simule" data-simular><span>Fazer simulação gratuita</span><i></i></a></div>
         </div>
       </div>
       <div data-reveal>
@@ -57,10 +57,10 @@
             <label>Estado<select name="uf" required><option value="">Selecione</option><option>Goiás</option><option>Minas Gerais</option><option>Paraná</option><option>Rio Grande do Sul</option><option>Santa Catarina</option><option>São Paulo</option></select></label>
             <label>Distribuidora<select name="dist" required><option value="">Selecione</option><option>CELESC</option><option>CEMIG</option><option>COPEL</option><option>CPFL Paulista</option><option>Elektro</option><option>Equatorial CEEE</option><option>Equatorial Goiás</option><option>RGE</option></select></label>
           </div>
-          <label>Quanto você gasta com energia por mês? (R$)<input name="gasto" type="number" min="1" step="any" required></label>
+          <label>Quanto você gasta com energia elétrica por mês?<select name="gasto" required><option value="">Selecione</option><option>Mais de R$ 400</option><option>De R$ 500 a R$ 15.000</option><option>Mais de R$ 15.000</option></select></label>
           <label>Como você gostaria de simular?<select name="como" required><option value="">Selecione</option><option>Pelo WhatsApp</option><option>Por e-mail</option><option>Por telefone</option></select></label>
           <button class="btn"><span>Simular economia</span><i></i></button>
-          <div class="ok" role="status">Sua economia pode chegar a<b>R$ 0 por ano</b></div>
+          <div class="ok" role="status">Com a sua distribuidora, a economia pode chegar a<b>até 0% na conta</b></div>
           <small>Ao enviar, você declara estar ciente do tratamento de seus dados para a simulação, conforme a nossa <a href="https://simplificaenergia.com.br/wp-content/themes/simplificaenergia/assets/neoplan/documents/Acta%20LGPD%20-%20Simplifica%20Pol%C3%ADtica%20de%20Privacidade%20Completa.3v.pdf">Política de Privacidade</a>.</small>
         </form>
       </div>
@@ -85,20 +85,6 @@
     </div>
   </div></section>
 
-  <section class="sec sobre branco"><div class="wrap">
-    <div class="fotos" data-reveal>
-      <img src="https://simplificaenergia.com.br/wp-content/themes/simplificaenergia/assets/neoplan/home-sobre-nos-424x562.jpg" alt="Equipe conversando em um escritório" loading="lazy">
-      <img src="https://simplificaenergia.com.br/wp-content/themes/simplificaenergia/assets/neoplan/home-sobre-nos-316x229.jpg" alt="Profissionais analisando um projeto em um tablet" loading="lazy">
-    </div>
-    <div data-reveal>
-      <h2>Somos uma empresa do Grupo Ludfor</h2>
-      <p class="t">Nosso objetivo é ajudar você a reduzir sua conta de energia em até 25%, sem a necessidade de investimentos, instalações ou reformas. O Grupo Ludfor tem 30 anos de experiência no mercado.</p>
-      <ul>
-        <li><i class="bolha" data-ic="wind-turbine"></i><div><b>Economia a curto prazo</b><span>Em breve sua fatura virá com desconto.</span></div></li>
-        <li><i class="bolha" data-ic="jumping-man"></i><div><b>Sem instalações ou reformas</b><span>Você não precisa investir em equipamentos.</span></div></li>
-      </ul>
-    </div>
-  </div></section>
   <section class="sec nums dark"><div class="wrap">
     <div class="head"><div><h2 class="lines"><span>Simplifica</span><span>em números</span></h2></div></div>
     <div class="hl">
@@ -113,11 +99,13 @@
     <div class="esc-lado">
       <div class="mapa-esc wipe" data-svg="assets/mapa-escritorios.svg"><img src="assets/mapa-escritorios.svg" alt="Mapa do Brasil com Rio Grande do Sul, Santa Catarina, Paraná, Goiás e Pernambuco em destaque"></div>
       <ul class="esc-lista" data-reveal>
-        <li><b>Rio Grande do Sul</b>Porto Alegre e Bento Gonçalves</li>
-        <li><b>Santa Catarina</b>Florianópolis</li>
-        <li><b>Paraná</b>Curitiba e Maringá</li>
-        <li><b>Goiás</b>Goiânia</li>
-        <li><b>Pernambuco</b>Recife</li>
+        <li><b>Porto Alegre, RS</b>Rua 24 de Outubro, 388, 4º andar, Moinhos de Vento</li>
+        <li><b>Bento Gonçalves, RS</b>Alameda Fenavinho, 214, Fenavinho</li>
+        <li><b>Florianópolis, SC</b>Av. Me. Benvenuta, 1168, sala 201, Santa Mônica</li>
+        <li><b>Curitiba, PR</b>Av. Marechal Floriano Peixoto, 720, Sala Mississipi, Centro</li>
+        <li><b>Maringá, PR</b>R. Néo Alves Martins, 1632, sala 10, Zona 01</li>
+        <li><b>Goiânia, GO</b>R. 252, nº 441, Qd. A3 Lt. 07, Setor Leste Universitário</li>
+        <li><b>Recife, PE</b>Rua Barão de Souza Leão, 425, sala 1403, Boa Viagem</li>
       </ul>
     </div>
     </div>
@@ -129,19 +117,6 @@
       <h2>Conheça as regiões que atendemos</h2>
       <p>Goiás, Minas Gerais, São Paulo, Paraná, Santa Catarina e Rio Grande do Sul. Você continua recebendo energia por meio da distribuidora que já atende a sua região.</p>
       <div class="dist"><h4>Distribuidoras atendidas</h4><div class="dist-grade"><div><img src="assets/dist-cemig.png" alt="Cemig"></div><div><img src="assets/dist-ceee.png" alt="CEEE"></div><div><img src="assets/dist-equatorial.png" alt="Equatorial"></div><div><img src="assets/dist-cpfl.png" alt="CPFL Paulista"></div><div><img src="assets/dist-rge.png" alt="RGE"></div><div><img src="assets/dist-copel.png" alt="Copel"></div><div><img src="assets/dist-celesc.png" alt="Celesc"></div><div><img src="assets/dist-elektro.png" alt="Elektro"></div></div></div>
-    </div>
-  </div></section>
-
-  <section class="sec"><div class="wrap">
-    <div class="head"><div><h2 class="lines"><span>Onde estamos</span></h2></div></div>
-    <div class="escr" data-reveal>
-      <div><i class="bolha mini" data-ic="location"></i><b>Porto Alegre</b><span>Rua 24 de Outubro, 388, 4º andar, Moinhos de Vento, RS</span></div>
-      <div><i class="bolha mini" data-ic="location"></i><b>Bento Gonçalves</b><span>Alameda Fenavinho, 214, Fenavinho, RS</span></div>
-      <div><i class="bolha mini" data-ic="location"></i><b>Florianópolis</b><span>Av. Me. Benvenuta, 1168, sala 201, Santa Mônica, SC</span></div>
-      <div><i class="bolha mini" data-ic="location"></i><b>Curitiba</b><span>Av. Marechal Floriano Peixoto, 720, Sala Mississipi, Centro, PR</span></div>
-      <div><i class="bolha mini" data-ic="location"></i><b>Maringá</b><span>R. Néo Alves Martins, 1632, sala 10, Zona 01, PR</span></div>
-      <div><i class="bolha mini" data-ic="location"></i><b>Goiânia</b><span>R. 252, nº 441, Qd. A3 Lt. 07, Setor Leste Universitário, GO</span></div>
-      <div><i class="bolha mini" data-ic="location"></i><b>Pernambuco</b><span>Rua Barão de Souza Leão, 425, sala 1403, Boa Viagem, Recife, PE</span></div>
     </div>
   </div></section>
 
@@ -166,11 +141,11 @@
   </div></section>
 
   <section class="sec sem branco"><div class="wrap">
-    <div class="foto wipe" role="img" aria-label="Profissional em frente a painéis solares" style="background-image:url(https://simplificaenergia.com.br/wp-content/themes/simplificaenergia/assets/neoplan/energia-compartilhada1.jpg)"></div>
+    <div class="foto wipe" role="img" aria-label="Homem sorrindo com a fatura de energia na mão" style="background-image:url(assets/fatura-feliz.jpg)"></div>
     <div data-reveal>
       <h2><span>Sem obras.</span><span>Sem placas solares.</span><span>Sem investimento.</span></h2>
       <p class="t">A energia continua chegando normalmente. A diferença está na forma como os créditos de energia renovável são utilizados para gerar economia na sua conta.</p>
-      <a class="btn" href="#simule" data-simular><span>Simule sua economia aqui</span><i></i></a>
+      <a class="btn" href="#simule" data-simular><span>Fazer simulação gratuita</span><i></i></a>
     </div>
   </div></section>
   <section class="sec dark"><div class="wrap">
@@ -181,7 +156,7 @@
     <div class="etapas" data-reveal>
       <div class="e"><div class="topo-e"><i class="bolha" data-ic="reliability"></i><div class="n">01</div></div><h3>Contratação simples e rápida</h3><p>Você contrata energia para sua casa ou empresa de forma fácil e rápida.</p></div>
       <div class="e"><div class="topo-e"><i class="bolha" data-ic="wind-energy"></i><div class="n">02</div></div><h3>Muito mais transparência</h3><p>Você acompanha o seu consumo de energia através de relatórios mensais.</p></div>
-      <div class="e"><div class="topo-e"><i class="bolha" data-ic="customize"></i><div class="n">03</div></div><h3>Economia garantida na fatura</h3><p>Reduza seus custos com energia, economizando até 25% todos os meses.</p></div>
+      <div class="e"><div class="topo-e"><i class="bolha" data-ic="customize"></i><div class="n">03</div></div><h3>Economia garantida na fatura</h3><p>Reduza seus custos com energia, economizando todos os meses.</p></div>
       <div class="e"><div class="topo-e"><i class="bolha" data-ic="green-power"></i><div class="n">04</div></div><h3>Acesse a energia 100% renovável</h3><p>Ajudamos você na transição para energia limpa, preservando o meio ambiente.</p></div>
     </div>
   </div></section>
@@ -385,24 +360,24 @@
 
   <section class="cta-sec"><div class="wrap"><div class="cta lima" data-reveal>
     <h2>Quer maximizar os lucros da sua usina com uma gestão eficiente?</h2>
-    <p>Fale com a nossa equipe de usinas: (51) 2165-4876.</p>
-    <div class="acoes"><a class="btn escuro" href="https://wa.me/555121654876"><span>Seja um usineiro</span><i></i></a><a class="link" href="https://wa.me/555121654876">Quero arrendar minha usina</a></div>
+    <div class="acoes"><a class="btn escuro" href="https://wa.me/555121654876"><span>Quero arrendar minha usina</span><i></i></a></div>
   </div></div></section>
 </div>
 </main>
 
 <!-- barra de simulação: sempre presente no perfil Cliente -->
-<aside class="eco" id="eco" aria-label="Simule sua economia">
+<aside class="eco" id="eco" aria-label="Fazer simulação gratuita">
   <div class="tit">Simule sua<b>economia aqui</b></div>
+  <label class="dis"><small>Sua distribuidora</small><select name="eco-dist" aria-label="Sua distribuidora"><option value="">Selecione</option><option>CELESC</option><option>CEMIG</option><option>COPEL</option><option>CPFL Paulista</option><option>Elektro</option><option>Equatorial CEEE</option><option>Equatorial Goiás</option><option>RGE</option></select></label>
   <div class="conta"><small>Valor médio da sua conta de luz</small>
     <div class="step"><button type="button" data-d="-50" aria-label="Diminuir R$ 50">−</button><output aria-live="polite">R$ 500</output><button type="button" data-d="50" aria-label="Aumentar R$ 50">+</button></div>
   </div>
   <div class="res"><small>Você pode economizar até</small><strong>R$ 1.500/ano</strong></div>
   <div class="fim">
-    <a class="btn" href="#simule" data-simular><span>Simule sua economia</span><i></i></a>
+    <a class="btn" href="#simule" data-simular><span>Fazer simulação gratuita</span><i></i></a>
     <button class="fechar" type="button" aria-label="Recolher barra">✕</button>
   </div>
-  <button class="btn abrir" type="button"><span>Simule sua economia aqui</span><i></i></button>
+  <button class="btn abrir" type="button"><span>Fazer simulação gratuita</span><i></i></button>
 </aside>
 
 <!-- barras fixas dos demais perfis -->

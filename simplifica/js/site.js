@@ -7,6 +7,9 @@
   const thumb = document.querySelector('.perfis .thumb');
   const cortina = document.getElementById('cortina');
   const nav = document.getElementById('nav');
+  const portal = nav.querySelector('.portal');
+  /* botão do topo muda conforme o perfil; os portais de parceiro e usineiro ainda não têm endereço */
+  const PORTAL = { cliente: ['Portal do cliente', 'https://cliente.simplificaenergia.com.br/'], parceiro: ['Portal do parceiro/indicador', '#'], usinas: ['Portal do usineiro', '#'] };
   const reais = n => 'R$ ' + Math.round(n).toLocaleString('pt-BR');
   let lenis = null;
   const paraTopo = () => { if (lenis) lenis.scrollTo(0, { immediate: true }); else scrollTo(0, 0); };
@@ -76,6 +79,7 @@
     });
     moverThumb();
     body.dataset.perfil = nome;
+    const pt = PORTAL[nome]; portal.textContent = pt[0]; portal.href = pt[1];
     document.title = paineis[nome].dataset.titulo;
     paraTopo();
     armar(paineis[nome]);
@@ -138,28 +142,27 @@
   });
 
   /* ---------- simulador: barra fixa + formulário ---------- */
+  /* desconto máximo por distribuidora */
+  const DESCONTO = { 'RGE': .31, 'COPEL': .33, 'Equatorial CEEE': .24, 'CELESC': .30, 'CEMIG': .30, 'Equatorial Goiás': .33, 'CPFL Paulista': .28, 'Elektro': .32 };
   const eco = document.getElementById('eco');
-  const out = eco.querySelector('output'), res = eco.querySelector('.res strong');
-  const form = document.getElementById('simule'), gasto = form.querySelector('[name=gasto]');
-  const TETO = .25; /* até 25% de economia na conta */
+  const out = eco.querySelector('output'), res = eco.querySelector('.res strong'), resTxt = eco.querySelector('.res small');
+  const ecoDist = eco.querySelector('[name=eco-dist]');
+  const form = document.getElementById('simule'), formDist = form.querySelector('[name=dist]');
   const MIN = 500, MAX = 15000;
   let conta = MIN;
-  const anual = v => v * TETO * 12;
-  function pintar(deOnde) {
+  function pintar() {
     out.textContent = reais(conta);
-    res.textContent = reais(anual(conta)) + '/ano';
-    if (deOnde !== 'form') gasto.value = conta;
+    const pct = DESCONTO[ecoDist.value];
+    eco.classList.toggle('sem-dist', !pct);
+    resTxt.textContent = pct ? `Você pode economizar até ${Math.round(pct * 100)}%` : 'Selecione a distribuidora';
+    res.textContent = pct ? reais(conta * pct * 12) + '/ano' : 'R$ —/ano';
   }
   eco.querySelectorAll('.step button').forEach(b => b.onclick = () => {
     conta = Math.min(MAX, Math.max(MIN, conta + (+b.dataset.d)));
     pintar();
   });
-  gasto.oninput = () => {
-    const v = +gasto.value;
-    if (!v) return;
-    conta = Math.min(MAX, Math.max(MIN, v));
-    pintar('form');
-  };
+  ecoDist.onchange = () => { formDist.value = ecoDist.value; pintar(); };
+  formDist.addEventListener('change', () => { ecoDist.value = formDist.value; pintar(); });
   document.querySelectorAll('[data-simular]').forEach(a => a.addEventListener('click', e => {
     e.preventDefault();
     if (lenis) lenis.scrollTo(0); else scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
@@ -172,7 +175,7 @@
   form.onsubmit = e => {
     e.preventDefault();
     form.classList.add('feito');
-    form.querySelector('.ok b').textContent = reais(anual(conta)) + ' por ano';
+    form.querySelector('.ok b').textContent = 'até ' + Math.round((DESCONTO[formDist.value] || 0) * 100) + '% na conta';
   };
   pintar();
 
