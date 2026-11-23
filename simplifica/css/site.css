@@ -239,6 +239,9 @@ h2 em,h1 em{font-style:normal;color:var(--verde)}
 
 .sem .wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .sem .foto{min-height:520px;background-size:cover;background-position:center;border-radius:var(--r-l)}
+.sem .ph-foto{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;background:var(--menta);border:1px dashed var(--verde);color:var(--verde-texto)}
+.sem .ph-foto span{font:400 22px "Outfit",sans-serif}
+.sem .ph-foto small{font-size:13px;color:var(--muted)}
 .sem h2 span{display:block}
 .sem h2 span:nth-child(2){color:var(--verde)}
 .sem .t{margin-top:24px;font-size:15.5px;line-height:1.7;color:var(--muted);max-width:34em}
