@@ -4,7 +4,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const page = document.body.dataset.page || '';
   const menu = [
-    ['solucoes', 'Soluções', '', [['Gestão', 'solucao-gestao.html'], ['Autoprodução', 'solucao-autoproducao.html'], ['Geração', 'solucao-geracao.html'], ['Comercialização', 'solucao-comercializacao.html'], ['Geração Distribuída', 'solucao-geracao-distribuida.html'], ['Engenharia', 'solucao-engenharia.html'], ['Marcas', 'marcas.html', 'sep']]],
+    ['solucoes', 'Soluções', '', [['Gestão', 'solucoes.html#gestao'], ['Autoprodução', 'solucoes.html#autoproducao'], ['Geração', 'solucoes.html#geracao'], ['Comercialização', 'solucoes.html#comercializacao'], ['Geração Distribuída', 'solucoes.html#geracao-distribuida'], ['Engenharia', 'solucoes.html#engenharia'], ['Bess e Grid Zero', 'solucoes.html#bess'], ['Marcas', 'marcas.html', 'sep']]],
     ['a-ludfor', 'A Ludfor', 'a-ludfor.html'],
     ['blog', 'Blog', 'blog.html'],
     ['fale-conosco', 'Fale conosco', 'fale-conosco.html'],
@@ -56,10 +56,15 @@
     balanca: '<path d="M12 3v18M7.5 21h9M5 6.5h14"/><path d="m5 6.5-3 7a3 3 0 0 0 6 0zM19 6.5l-3 7a3 3 0 0 0 6 0z"/>',
     alvo: `<circle cx="12" cy="12" r="9.500"/><circle cx="12" cy="12" r="5.500"/><circle cx="12" cy="12" r="1.500"/>`,
     grafico: `<path d="M3 3v18h18"/><path ${DRAW} d="m7 15 4-4 3 3 6-7"/>`,
+    todos: '<rect x="3" y="3" width="7.500" height="7.500" rx="2"/><rect x="13.500" y="3" width="7.500" height="7.500" rx="2"/><rect x="3" y="13.500" width="7.500" height="7.500" rx="2"/><rect x="13.500" y="13.500" width="7.500" height="7.500" rx="2"/>',
     pessoas: '<circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c0-3.600 2.900-6 6.500-6s6.500 2.400 6.500 6"/><path d="M16 4.800a3.500 3.500 0 0 1 0 6.400M18 14.500c2 .8 3.500 2.800 3.500 5.500"/>',
   };
   const ic = n => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
   document.querySelectorAll('[data-ic]').forEach(el => { el.innerHTML = ic(el.dataset.ic); });
+
+  /* data da última atualização dos números do site: trocar aqui e vale para todas as páginas */
+  const ATUALIZACAO = 'xx/xx/xxxx';
+  document.querySelectorAll('.atualiz').forEach(el => { el.textContent = 'Última atualização em ' + ATUALIZACAO; });
 
   /* seta dupla dos botões */
   const SETA = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M15 5H7M15 5v8"/></svg>';
@@ -84,21 +89,13 @@
 
   document.body.insertAdjacentHTML('beforeend', `
 <footer><div class="wrap">
-  <div class="news" data-reveal>
-    <div class="news-tx"><h3>Novidades do mercado de energia no seu <span>e-mail</span></h3><p>Inscreva-se e receba análises e tendências do setor elétrico.</p></div>
-    <form class="news-form" id="newsForm" novalidate>
-      <div class="campo"><input type="email" id="newsEmail" placeholder="Seu melhor e-mail" aria-label="Seu e-mail" autocomplete="email" required><button class="btn"><span>Inscrever-se</span><i>${SETA}${SETA}</i></button></div>
-      <small id="newsMsg" role="status"></small>
-    </form>
-  </div>
   <div class="cols" data-reveal>
     <div class="redes"><h4>Redes sociais</h4>
-      <div class="social"><a href="https://br.linkedin.com/company/ludforenergia" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.450 20.450h-3.550v-5.570c0-1.330-.03-3.040-1.850-3.040-1.850 0-2.140 1.450-2.140 2.940v5.670H9.350V9h3.410v1.560h.05c.48-.9 1.640-1.850 3.370-1.850 3.600 0 4.270 2.370 4.270 5.460v6.280ZM5.340 7.430a2.060 2.060 0 1 1 0-4.120 2.060 2.060 0 0 1 0 4.120Zm1.780 13.020H3.560V9h3.560v11.450Z"/></svg></a><a href="https://www.instagram.com/LudforEnergia/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.500"/><circle cx="12" cy="12" r="4.200"/><circle cx="17.300" cy="6.700" r="1.100" fill="currentColor" stroke="none"/></svg></a><a href="https://www.youtube.com/@ludforenergia9713" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.500 6.190a3.020 3.020 0 0 0-2.120-2.140C19.500 3.550 12 3.550 12 3.550s-7.500 0-9.380.5A3.020 3.020 0 0 0 .5 6.190C0 8.070 0 12 0 12s0 3.930.5 5.810a3.020 3.020 0 0 0 2.120 2.140c1.880.5 9.380.5 9.380.5s7.500 0 9.380-.5a3.020 3.020 0 0 0 2.120-2.140C24 15.930 24 12 24 12s0-3.930-.5-5.810ZM9.550 15.570V8.430L15.820 12l-6.270 3.570Z"/></svg></a><a href="https://www.facebook.com/LudforEnergia/" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.500V6.600c0-.9.600-1.100 1-1.100h2.600V2H14c-3.500 0-4.300 2.600-4.300 4.300v2.200H7.400V12h2.300v10H14V12h3.100l.5-3.500H14Z"/></svg></a></div>
+      <div class="social"><a href="https://br.linkedin.com/company/ludforenergia" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.450 20.450h-3.550v-5.570c0-1.330-.03-3.040-1.850-3.040-1.850 0-2.140 1.450-2.140 2.940v5.670H9.350V9h3.410v1.560h.05c.48-.9 1.640-1.850 3.370-1.850 3.600 0 4.270 2.370 4.270 5.460v6.280ZM5.340 7.430a2.060 2.060 0 1 1 0-4.120 2.060 2.060 0 0 1 0 4.120Zm1.780 13.020H3.560V9h3.560v11.450Z"/></svg></a><a href="https://www.instagram.com/LudforEnergia/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.500"/><circle cx="12" cy="12" r="4.200"/><circle cx="17.300" cy="6.700" r="1.100" fill="currentColor" stroke="none"/></svg></a><a href="https://www.youtube.com/@ludforenergia9713" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.500 6.190a3.020 3.020 0 0 0-2.120-2.140C19.500 3.550 12 3.550 12 3.550s-7.500 0-9.380.5A3.020 3.020 0 0 0 .5 6.190C0 8.070 0 12 0 12s0 3.930.5 5.810a3.020 3.020 0 0 0 2.120 2.140c1.880.5 9.380.5 9.380.5s7.500 0 9.380-.5a3.020 3.020 0 0 0 2.120-2.140C24 15.930 24 12 24 12s0-3.930-.5-5.810ZM9.550 15.570V8.430L15.820 12l-6.270 3.570Z"/></svg></a><a href="https://www.facebook.com/LudforEnergia/" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.500V6.600c0-.9.600-1.100 1-1.100h2.600V2H14c-3.500 0-4.300 2.600-4.300 4.300v2.200H7.400V12h2.300v10H14V12h3.100l.5-3.500H14Z"/></svg></a><a href="https://open.spotify.com/show/6CMw6QK5NfVB9ylUjSpipZ" aria-label="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.500" fill="currentColor"/><path d="M6.600 9.300c3.700-1.100 7.900-.7 11 1.100M7.100 12.700c3.100-.9 6.400-.5 9 1M7.700 15.900c2.400-.6 4.900-.4 6.900.8" fill="none" style="stroke:var(--sbg)" stroke-width="1.700" stroke-linecap="round"/></svg></a></div>
     </div>
     <div><h4>Navegação</h4><ul><li><a href="marcas.html">Marcas</a></li><li><a href="a-ludfor.html">A Ludfor</a></li><li><a href="blog.html">Blog da Energia</a></li><li><a href="https://ludfor.vagas.solides.com.br/">Trabalhe conosco</a></li></ul></div>
     <div><h4>Soluções</h4><ul>
-      <li><a href="solucao-gestao.html">Gestão</a></li><li><a href="solucao-autoproducao.html">Autoprodução</a></li><li><a href="solucao-geracao.html">Geração</a></li>
-      <li><a href="solucao-comercializacao.html">Comercialização</a></li><li><a href="solucao-geracao-distribuida.html">Geração Distribuída</a></li><li><a href="solucao-engenharia.html">Engenharia</a></li>
+      <li><a href="solucoes.html#gestao">Gestão</a></li><li><a href="solucoes.html#autoproducao">Autoprodução</a></li><li><a href="solucoes.html#geracao">Geração</a></li><li><a href="solucoes.html#comercializacao">Comercialização</a></li><li><a href="solucoes.html#geracao-distribuida">Geração Distribuída</a></li><li><a href="solucoes.html#engenharia">Engenharia</a></li><li><a href="solucoes.html#bess">Bess e Grid Zero</a></li>
     </ul></div>
     <div><h4>Contato</h4><ul><li>(54) 3451.1413</li><li>Alameda Fenavinho, 214<br>Bento Gonçalves · RS</li><li><a href="fale-conosco.html#filiais">Filiais</a></li><li><a href="fale-conosco.html">Fale conosco</a></li></ul>
       <div class="wa">
@@ -184,13 +181,6 @@
     burger.setAttribute('aria-expanded', open);
     burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
   };
-  const newsForm = document.getElementById('newsForm'), newsEmail = document.getElementById('newsEmail'), newsMsg = document.getElementById('newsMsg');
-  newsForm.addEventListener('submit', e => {
-    e.preventDefault(); /* falta ligar à ferramenta de e-mail do cliente: por enquanto nada é gravado */
-    const ok = newsEmail.value.trim() && newsEmail.checkValidity();
-    newsMsg.textContent = ok ? 'Obrigado! Em breve você recebe nossas novidades.' : 'Digite um e-mail válido.';
-    if (ok) newsForm.reset();
-  });
   const wa = document.querySelector('footer .wa'), waBtn = wa.querySelector('.wa-btn');
   waBtn.onclick = () => waBtn.setAttribute('aria-expanded', wa.classList.toggle('open'));
   const ia = document.getElementById('ia'), iaToggle = ia.querySelector('.toggle');

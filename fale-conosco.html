@@ -47,8 +47,18 @@
 .fil .c small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde)}
 .fil .c h3{font-size:26px}
 .fil .c p{font-size:14px;color:var(--muted);line-height:1.5}
-.fil .c a{margin-top:auto;font-size:15px;align-self:flex-start}
-.fil .c.sede{background:var(--noite);color:#fff}
+.fil .c{position:relative;transition:border-color .3s,box-shadow .4s var(--ease),translate .4s var(--ease)}
+.fil .c:hover{border-color:var(--verde);box-shadow:0 18px 40px rgba(6,43,40,.1);translate:0 -3px}
+.fil .c .acao{margin-top:auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px}
+.fil .c .acao a{font-size:15px}
+.fil .c .link{position:relative;z-index:1}
+/* o link do mapa cobre o cartão inteiro; o telefone fica clicável por cima */
+.fil .c .mapa{font-size:14px;font-weight:500;color:var(--verde)}
+.fil .c .mapa::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.fil .c.sede .mapa{color:var(--amarelo)}
+.fil .c .mapa:focus-visible{outline:0}
+.fil .c:has(.mapa:focus-visible){outline:3px solid var(--amarelo);outline-offset:3px}
+.fil .c.sede{--tt:currentColor;background:var(--noite);color:#fff}
 .fil .c.sede small{color:var(--amarelo)}
 .fil .c.sede p{color:#B4C9C5}
 @media (max-width:1000px){
@@ -170,6 +180,24 @@ const FILIAIS = [
   ['São Paulo', 'SP', 'Sudeste', 'Av. Doutor Cardoso de Melo, 1450, 3º andar, sala 301-C · Vila Olímpia · 04.548-005', '(11) 3614-9009'],
   ['Uberlândia', 'MG', 'Sudeste', 'Av. João Naves de Ávila, 1331, Shopping Regus, sala 604 · Tibery · 38408-902', '(54) 3451-1413'],
 ];
+/* endereço de cada escritório no Google Maps (links do rodapé do site atual) */
+const MAPAS = {
+  'Bento Gonçalves': 'https://goo.gl/maps/CagSD8UW27Zy5tp67',
+  'Belo Horizonte': 'https://maps.app.goo.gl/NtZwKNp7JeNJ9Jv48',
+  'Curitiba': 'https://maps.app.goo.gl/VDT9A7wD5HyAJoZL9',
+  'Florianópolis': 'https://maps.app.goo.gl/8eXUm2TeFCUrUuXR8',
+  'Fortaleza': 'https://maps.app.goo.gl/Yt99JS7HRJ3a6qJK9',
+  'Goiânia': 'https://maps.app.goo.gl/DygYiYYBm1aYZP178',
+  'Maceió': 'https://goo.gl/maps/mhRQ7fEdnbTgaces5',
+  'Maringá': 'https://maps.app.goo.gl/zoqisKGkH5Cri4u26',
+  'Porto Alegre': 'https://maps.app.goo.gl/V6Dyf2iwat7VM6VW7',
+  'Recife': 'https://maps.app.goo.gl/xzQb9PyW6qcj6jNc8',
+  'Rio de Janeiro': 'https://maps.app.goo.gl/qafboBJvDFP9mC2TA',
+  'Salvador': 'https://maps.app.goo.gl/eyVSLC375yru476v9',
+  'Santarém': 'https://maps.app.goo.gl/VJ13WCEUYVNLnv3N7',
+  'São Paulo': 'https://maps.app.goo.gl/aoJxGRPowTCgZWWm6',
+  'Uberlândia': 'https://maps.app.goo.gl/CQL9hXwdLdxKgqGPA',
+};
 const fil = document.getElementById('fil'), regs = [...document.querySelectorAll('#regs button')];
 const tel = t => 'tel:+55' + t.replace(/\D/g, '');
 function render(r) {
@@ -178,7 +206,7 @@ function render(r) {
       <i class="pino">${Ludfor.ic('pin')}</i><small>${f[5] ? 'Matriz' : 'Filial'} · ${f[2]}</small>
       <h3>${f[0]} · ${f[1]}</h3>
       <p>${f[3]}</p>
-      <a href="${tel(f[4])}" class="link">${f[4]}</a>
+      <div class="acao"><a href="${tel(f[4])}" class="link">${f[4]}</a><a href="${MAPAS[f[0]]}" class="mapa" target="_blank" rel="noopener" aria-label="Abrir ${f[0]} no Google Maps">Abrir no mapa ↗</a></div>
     </div>`).join('');
 }
 regs.forEach(b => b.onclick = () => { regs.forEach(x => x.classList.toggle('on', x === b)); render(b.dataset.r); });

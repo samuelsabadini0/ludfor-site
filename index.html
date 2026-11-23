@@ -12,7 +12,7 @@
 .manifesto{position:relative;height:100vh;min-height:640px;max-height:980px;overflow:hidden;display:flex;align-items:flex-end;background:var(--verde)}
 .manifesto .gif{position:absolute;right:6%;top:50%;transform:translateY(-50%);font-size:clamp(90px,20vw,320px);font-weight:300;letter-spacing:-.04em;line-height:1;color:rgba(255,255,255,.14);user-select:none}
 .manifesto .wrap{position:relative;width:100%;padding-bottom:80px}
-.manifesto h1{font-size:clamp(46px,7.4vw,112px);max-width:11ch}
+.manifesto h1{font-size:clamp(46px,7.4vw,112px);max-width:11ch;margin-left:-.06em}
 .manifesto h1 em{font-style:normal;color:var(--amarelo)}
 .manifesto p{max-width:500px;font-size:18px;line-height:1.55;color:#D8EBE7;margin-top:28px}
 
@@ -59,14 +59,15 @@
 .st{width:calc(350 * var(--u));margin-left:calc(-175 * var(--u));text-align:center}
 .st.largo{width:calc(460 * var(--u));margin-left:calc(-230 * var(--u))}
 .st .ic{width:calc(96 * var(--u));height:calc(96 * var(--u));display:block;margin:0 auto calc(14 * var(--u));stroke:var(--amarelo);stroke-width:.8}
-.st strong{display:block;font-size:calc(66 * var(--u));font-weight:300;line-height:1.05;letter-spacing:-.04em;color:var(--verde);font-variant-numeric:tabular-nums;white-space:nowrap}
+.st strong{display:block;font-size:calc(66 * var(--u));font-weight:600;line-height:1.05;letter-spacing:-.04em;color:var(--verde);font-variant-numeric:tabular-nums;white-space:nowrap}
 .st span{display:block;font-size:calc(18 * var(--u));line-height:1.3;margin-top:calc(6 * var(--u));color:var(--muted)}
 .srs{position:absolute;left:calc(1240 * var(--u));top:calc(1139 * var(--u));width:calc(368 * var(--u));height:calc(734 * var(--u));display:flex;flex-direction:column;padding:calc(10 * var(--u)) calc(30 * var(--u));box-sizing:border-box;border-radius:var(--r-l);background:#F3F5F3}
 .sr{flex:1;display:grid;grid-template-columns:calc(48 * var(--u)) minmax(0,1fr);column-gap:calc(18 * var(--u));align-items:center;border-bottom:1px solid #DDE2DF}
 .sr .ic{width:calc(46 * var(--u));height:calc(46 * var(--u));stroke:var(--verde);stroke-width:1.05}
 .sr>div{font-size:calc(15 * var(--u));line-height:1.25;color:var(--muted)}
-.sr strong{display:block;font-size:calc(38 * var(--u));font-weight:300;letter-spacing:-.03em;line-height:1.1;margin-bottom:calc(2 * var(--u));color:var(--verde);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sr strong{display:block;font-size:calc(38 * var(--u));font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:calc(2 * var(--u));color:var(--verde);font-variant-numeric:tabular-nums;white-space:nowrap}
 .sr.fim{border-bottom:0}
+.srs .atualiz{margin:0;padding:calc(12 * var(--u)) 0 calc(14 * var(--u));font-size:max(11px,calc(13 * var(--u)))}
 
 /* animações dos ícones */
 .a-pulse,.a-spin,.a-turn{transform-box:fill-box;transform-origin:center}
@@ -91,10 +92,10 @@
 @keyframes slideR{50%{transform:translateX(1.6px)}}
 
 /* CLIENTES: luz à esquerda, fundo que se revela sob o mouse */
-.ent{color:#fff;overflow:hidden;background:radial-gradient(58% 70% at 0% 18%,rgba(92,222,186,.42),transparent 72%),radial-gradient(34% 44% at 26% 4%,rgba(249,181,25,.12),transparent 70%),linear-gradient(180deg,var(--verde) 0%,var(--verde) 38%,var(--noite) 100%)}
+.ent{--tt:currentColor;color:#fff;overflow:hidden;background:radial-gradient(58% 70% at 0% 18%,rgba(92,222,186,.42),transparent 72%),radial-gradient(34% 44% at 26% 4%,rgba(249,181,25,.12),transparent 70%),linear-gradient(180deg,var(--verde) 0%,var(--verde) 38%,var(--noite) 100%)}
 .ent .top{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;padding-top:88px}
-.ent .cab{display:flex;gap:22px;align-items:flex-start}
-.aspas{flex:none;display:block;width:62px;height:62px;background:var(--amarelo);-webkit-mask:url(assets/aspas.svg) left center/contain no-repeat;mask:url(assets/aspas.svg) left center/contain no-repeat}
+.ent .cab{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.aspas{flex:none;display:block;width:56px;height:44px;background:var(--amarelo);-webkit-mask:url(assets/aspas.svg) left center/contain no-repeat;mask:url(assets/aspas.svg) left center/contain no-repeat}
 .ent h2{font-size:clamp(34px,3.7vw,54px)}
 .ent .who{font-size:14px;line-height:1.4;margin-top:10px}
 .ent .who b{font-weight:600}
@@ -122,15 +123,15 @@
 .faixa{position:relative;overflow:hidden;height:84px;display:flex;align-items:center;border-radius:99px;background:#02201c;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 50px rgba(0,0,0,.28)}
 .faixa::before{content:"";position:absolute;inset:-60% -30%;background:radial-gradient(38% 60% at 42% 42%,rgba(0,178,140,.7),transparent 72%),radial-gradient(30% 48% at 56% 30%,rgba(150,214,110,.35),transparent 72%),radial-gradient(34% 62% at 76% 62%,rgba(0,120,84,.65),transparent 74%),radial-gradient(26% 52% at 18% 62%,rgba(0,96,88,.6),transparent 74%);animation:deriva 16s ease-in-out infinite alternate}
 @keyframes deriva{to{transform:translateX(9%)}}
-.faixa .janela{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.faixa .janela{position:relative;width:100%;overflow:hidden;padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
 .faixa .trilho{display:flex;align-items:center;gap:64px;width:max-content;padding-right:64px;animation:passa var(--dur,60s) linear infinite}
 .faixa .trilho img{height:26px;width:auto;max-width:112px;object-fit:contain;flex:none;opacity:.8;transition:opacity .3s,transform .4s var(--ease)}
-.faixa .trilho img:hover{opacity:1;transform:scale(1.12)}
+.faixa .trilho img:hover{opacity:1;transform:scale(1.15)}
 @keyframes passa{to{transform:translateX(-50%)}}
 
 /* DEPOIMENTOS: raio do logo se desenha ao rolar */
 .dep{padding:100px 0 110px;background:radial-gradient(50% 60% at 90% 30%,rgba(92,222,186,.3),transparent 72%),radial-gradient(40% 50% at 8% 90%,rgba(0,0,0,.22),transparent 75%),var(--verde)}
-.dep .raio{height:128%;right:2%}
+.dep .raio{height:128%;right:2%;opacity:.75}
 .dep .head{flex-direction:column;align-items:flex-start;gap:16px}
 .dep .head p{color:#D8EBE7;font-size:18px}
 .dep .logo-eqc{width:min(360px,100%);height:auto}
@@ -163,7 +164,7 @@
 .eco .top p{color:#B4C9C5;line-height:1.6}
 /* blocos: Certificado alto à esquerda, Panorama e I-REC à direita, Relatório largo embaixo */
 .eco-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px;margin-top:56px}
-.ec{position:relative;overflow:hidden;border-radius:var(--r-l);padding:36px;color:var(--texto);background:linear-gradient(140deg,rgba(255,255,255,0) 20%,#fff 125%),#DCEFE9}
+.ec{--tt:var(--verde);position:relative;overflow:hidden;border-radius:var(--r-l);padding:36px;color:var(--texto);background:linear-gradient(140deg,rgba(255,255,255,0) 20%,#fff 125%),#DCEFE9}
 .ec>.ic,.ec>div>.ic{width:48px;height:48px;stroke:var(--verde);stroke-width:1.1;margin-bottom:20px}
 .ec h3{font-size:clamp(26px,2.3vw,34px);font-weight:400;margin-bottom:12px}
 .ec p{font-size:15px;line-height:1.5;color:#3F4F4C}
@@ -179,14 +180,19 @@
 .ec.cert:hover .selo{transform:rotate(-6deg) scale(1.06)}
 .ec.pan{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:24px;align-items:center}
 .ec.pan .mock{width:118%;max-width:none}
-.ec.irec{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:28px;background:linear-gradient(140deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.35) 125%),var(--amarelo);padding-bottom:36px}
+.ec.irec{--tt:currentColor;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:28px;background:linear-gradient(140deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.35) 125%),var(--amarelo);padding-bottom:36px}
 .ec.irec>div>.ic{width:48px;height:48px;stroke:var(--noite);stroke-width:1.1;margin-bottom:20px}
 .ec.irec p{color:var(--noite)}
 .ec.irec .mock{position:absolute;right:36px;top:32px;width:190px;border-radius:10px;box-shadow:0 18px 34px rgba(6,43,40,.3);rotate:4deg}
-.ec.rel{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;align-items:center;color:#fff;background:radial-gradient(60% 90% at 0% 0%,rgba(92,222,186,.38),transparent 72%),linear-gradient(180deg,var(--verde),var(--verde-2));padding:44px}
+.ec.rel{--tt:currentColor;grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;align-items:center;color:#fff;background:radial-gradient(60% 90% at 0% 0%,rgba(92,222,186,.38),transparent 72%),linear-gradient(180deg,var(--verde),var(--verde-2));padding:44px}
 .ec.rel>div>.ic{width:48px;height:48px;stroke:var(--amarelo);stroke-width:1.1;margin-bottom:20px}
 .ec.rel p{color:#D8EBE7;max-width:480px}
-.ec.rel .fim{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:24px}
+.downs{list-style:none;display:grid;gap:10px;margin-top:26px;max-width:480px}
+.downs a{display:flex;align-items:center;gap:14px;padding:14px 18px 14px 14px;border-radius:var(--r);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:15px;line-height:1.3;transition:background .3s,border-color .3s,color .3s}
+.downs svg{flex:none;width:40px;height:40px;padding:9px;border-radius:50%;background:var(--amarelo);color:var(--noite);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s var(--ease)}
+.downs b{font-weight:600}
+.downs a:hover{background:var(--amarelo);border-color:var(--amarelo);color:var(--noite)}
+.downs a:hover svg{background:var(--noite);color:var(--amarelo);transform:translateY(2px)}
 .ods-faixa{grid-column:1/-1;margin-top:8px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)}
 .ods-faixa h4{margin-bottom:14px;font-size:14px;font-weight:500;color:#D8EBE7}
 .ods{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
@@ -199,7 +205,7 @@
 .ec.rel .mock{width:112%;max-width:none;filter:drop-shadow(0 24px 30px rgba(0,0,0,.3))}
 
 /* LUDI: logo oficial, texto e QR Code sobre o amarelo; palco verde onde ele caminha até o celular */
-.ludi-sec{background:var(--amarelo);color:var(--noite);padding:90px 0 96px;overflow:hidden}
+.ludi-sec{--tt:currentColor;background:var(--amarelo);color:var(--noite);padding:90px 0 96px;overflow:hidden}
 .ludi-top{display:grid;grid-template-columns:280px minmax(0,1fr);gap:40px;align-items:stretch}
 .ludi-sec h2{display:grid;place-items:center;padding:28px;border-radius:var(--r-l);background:var(--verde)}
 .ludi-sec h2 img{width:100%;height:auto;display:block}
@@ -251,6 +257,7 @@
   .st strong{font-size:clamp(34px,5vw,48px)}
   .st span{font-size:14px}
   .srs{position:static;width:auto;height:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 24px;margin-left:28px;padding:26px}
+  .srs .atualiz{grid-column:1/-1;padding:0;font-size:12px}
   .sr{grid-template-columns:40px minmax(0,1fr);column-gap:12px;border-bottom:0}
   .sr .ic{width:38px;height:38px}
   .sr>div{font-size:13px}
@@ -355,7 +362,7 @@
       <g class="ponta" id="ponta" style="display:none"><circle class="halo" r="15"/><circle r="6.5"/></g>
     </svg>
 
-    <h2 class="big-h at rv" style="--x:267;--y:96"><span>+30 anos</span><span>de história</span></h2>
+    <h2 class="big-h at rv" style="--x:267;--y:96"><span><b>+30 anos</b></span><span>de história</span></h2>
 
     <div class="anos" id="anos">
     <article class="nd"><span class="pill at" style="--x:308;--y:379">1995</span>
@@ -385,7 +392,7 @@
     </div>
     <div class="anos-prog" aria-hidden="true"><i id="anosProg"></i></div>
 
-    <h2 class="big-h dois at rv" style="--x:267;--y:1046"><span>Grupo Ludfor</span><span>em números</span></h2>
+    <h2 class="big-h dois at rv" style="--x:267;--y:1046"><span><b>Grupo Ludfor</b></span><span>em números</span></h2>
 
     <div class="sts">
       <div class="st at" data-reveal style="--x:380;--y:1246"><div>
@@ -412,6 +419,7 @@
       <div class="sr rv"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 14c.2-1 .7-1.700 1.500-2.500 1-.9 1.500-2.200 1.500-3.500A6 6 0 0 0 6 8c0 1 .2 2.200 1.500 3.500.7.7 1.300 1.500 1.500 2.500M9 18h6M10 22h4"/><path class="a-pulse" d="M12.600 5 10 9h3.400L11 12.400"/></svg><div><strong data-count="550" data-suf=" MW">550 MW</strong>de capacidade instalada</div></div>
       <div class="sr rv"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g class="a-sl"><path d="M8 3 4 7l4 4M4 7h16"/></g><g class="a-sr"><path d="m16 21 4-4-4-4M20 17H4"/></g></svg><div><strong data-count="6.1" data-dec="1" data-suf=" TWh">6,1 TWh</strong>de energia comercializada</div></div>
       <div class="sr fim rv"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="a-draw" pathLength="100" d="M2 17l6.500-6.500 5 5L22 7M16 7h6v6"/></svg><div><strong data-count="509" data-pre="R$ " data-suf=" mi">R$ 509 mi</strong>em investimentos previstos até 2030</div></div>
+      <p class="atualiz"></p>
     </div>
   </div>
   </div></div>
@@ -425,7 +433,7 @@
         <div class="cab">
           <span class="aspas" aria-hidden="true"></span>
           <div>
-            <h2>Entender para atender</h2>
+            <h2><b>Entender</b> para <b>atender</b></h2>
             <div class="who"><b>Engº Douglas Ludwig</b><span>Diretor Executivo do Grupo Ludfor</span></div>
           </div>
         </div>
@@ -466,7 +474,7 @@
     </div>
     <div class="eco-grid" data-reveal>
       <article class="ec cert">
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.500" r="6.500"/><path d="M15.500 14 17 22.500l-5-3-5 3L8.500 14"/><path class="a-draw" pathLength="100" d="m9.300 8.600 2 2 3.600-3.800"/></svg>
+        <svg class="ic" viewBox="5.500 0 24 24" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><circle cx="12" cy="8.500" r="6.500"/><path d="M15.500 14 17 22.500l-5-3-5 3L8.500 14"/><path class="a-draw" pathLength="100" d="m9.300 8.600 2 2 3.600-3.800"/></svg>
         <h3>Certificado de Energia Renovável</h3>
         <p>O Certificado Eco Ludfor valoriza o compromisso com a energia renovável, apresentando indicadores de redução estimada das emissões de gases de efeito estufa (GEE). Uma forma clara de comunicar resultados ambientais e fortalecer iniciativas de sustentabilidade.</p>
         <ul class="ind">
@@ -480,7 +488,7 @@
       </article>
       <article class="ec pan">
         <div>
-          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 22.500h20"/><rect x="4" y="16" width="4" height="6.500" rx="1"/><rect x="10" y="12.500" width="4" height="10" rx="1"/><rect x="16" y="9" width="4" height="13.500" rx="1"/><path class="a-draw" pathLength="100" d="M3.500 11.500 9.500 7l4 2 7-7"/></svg>
+          <svg class="ic" viewBox="2 0 24 24" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M2 22.500h20"/><rect x="4" y="16" width="4" height="6.500" rx="1"/><rect x="10" y="12.500" width="4" height="10" rx="1"/><rect x="16" y="9" width="4" height="13.500" rx="1"/><path class="a-draw" pathLength="100" d="M3.500 11.500 9.500 7l4 2 7-7"/></svg>
           <h3>Panorama Sustentável</h3>
           <p>O Panorama Sustentável traduz a redução estimada de emissões em comparações fáceis de entender, tornando os benefícios da energia renovável mais claros e valorizando o compromisso com a sustentabilidade.</p>
           <ul class="ind">
@@ -493,7 +501,7 @@
       </article>
       <article class="ec irec">
         <div>
-          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.500"/><ellipse cx="12" cy="12" rx="4.800" ry="10.500"/><path class="a-draw" pathLength="100" d="M3 6.800h18"/><path class="a-draw" pathLength="100" d="M1.500 12h21" style="animation-delay:.3s"/><path class="a-draw" pathLength="100" d="M3 17.200h18" style="animation-delay:.6s"/></svg>
+          <svg class="ic" viewBox="1.500 0 24 24" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><circle cx="12" cy="12" r="10.500"/><ellipse cx="12" cy="12" rx="4.800" ry="10.500"/><path class="a-draw" pathLength="100" d="M3 6.800h18"/><path class="a-draw" pathLength="100" d="M1.500 12h21" style="animation-delay:.3s"/><path class="a-draw" pathLength="100" d="M3 17.200h18" style="animation-delay:.6s"/></svg>
           <h3>I-REC</h3>
           <p>O I-REC é um certificado internacional que comprova a origem renovável da energia atribuída ao consumo da empresa, com rastreabilidade e transparência. Uma forma global de dar credibilidade ao seu compromisso ambiental.</p>
         </div>
@@ -501,12 +509,13 @@
       </article>
       <article class="ec rel">
         <div>
-          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 1.500H5.500a1 1 0 0 0-1 1v19a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V6z"/><path d="M14.500 1.500V6.500h5"/><path class="a-draw" pathLength="100" d="M8 11.500h8"/><path class="a-draw" pathLength="100" d="M8 15h8" style="animation-delay:.3s"/><path class="a-draw" pathLength="100" d="M8 18.500h5" style="animation-delay:.6s"/></svg>
+          <svg class="ic" viewBox="4.500 0 24 24" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M15 1.500H5.500a1 1 0 0 0-1 1v19a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V6z"/><path d="M14.500 1.500V6.500h5"/><path class="a-draw" pathLength="100" d="M8 11.500h8"/><path class="a-draw" pathLength="100" d="M8 15h8" style="animation-delay:.3s"/><path class="a-draw" pathLength="100" d="M8 18.500h5" style="animation-delay:.6s"/></svg>
           <h3>Relatório de Sustentabilidade</h3>
           <p>O Relatório de Sustentabilidade do Grupo apresenta indicadores, iniciativas e compromissos que refletem nossa atuação responsável e o papel que desempenhamos na construção de um futuro energético mais sustentável.</p>
-          <div class="fim">
-            <a href="https://www.ludfor.com.br/eco-ludfor/relatorio" class="btn"><span>Ver relatório</span><i>→</i></a>
-          </div>
+          <ul class="downs">
+            <li><a href="https://www.ludfor.com.br/download/arquivo/19/52e28c1713c6569def67149fe3349a79f8c06f8db23f7bd31ae17dfe55a24da3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10.500l5 5 5-5"/><path d="M3.500 15.500v3a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-3"/></svg><span>Relatório de Sustentabilidade <b>2025 / 2026</b></span></a></li>
+            <li><a href="https://www.ludfor.com.br/download/arquivo/17/cec202128a30d4e80e82d531579d9a2d8df247cc7d6cc00e0d6180a4e16800e6" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10.500l5 5 5-5"/><path d="M3.500 15.500v3a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-3"/></svg><span>Relatório de Sustentabilidade <b>2024 / 2025</b></span></a></li>
+          </ul>
         </div>
         <img class="mock" src="assets/eco/relatorio.webp" width="2000" height="1082" alt="Relatório de Sustentabilidade 2026 do Grupo Ludfor" loading="lazy">
         <div class="ods-faixa">
@@ -601,7 +610,7 @@ function mede() {
   vh = innerHeight;
   pin = !reduce && desktop.matches;
   story.classList.toggle('pin', pin);
-  if (!pin) { canvas.style.transform = ''; track.style.height = ''; }
+  if (!pin) { canvas.style.transform = ''; track.style.height = ''; cam = camAlvo = 0; }
   if (!desktop.matches) { marcos = null; return; }
   if (!marcos) calcMarcos();
   if (!pin) return;
@@ -612,10 +621,21 @@ function mede() {
   track.style.height = sFim + vh + 'px';
 }
 let alvo = 0, p = 0, last = 0, rodando = false;
+/* câmera: enquanto a linha percorre os anos, a tela acompanha a ponta (sobe e desce com ela),
+   para que os anos do alto (Fusão, Geração distribuída) fiquem inteiros quando acendem */
+let cam = 0, camAlvo = 0, sAtual = 0;
+function alvoCam(q) {
+  if (!pin) return 0;
+  const H = canvas.offsetHeight, u = H / 2000;
+  if (sAtual < sA) return Math.max(0, Math.min(tA, (q.y + 106) * u - vh * .6));
+  return tA + Math.min(sAtual, sFim) - sA;
+}
 function pinta() {
   if (desktop.matches) {
     trilha.style.strokeDashoffset = 1 - p;
     const q = trilha.getPointAtLength(p * TOTAL);
+    camAlvo = alvoCam(q);
+    canvas.style.transform = `translateY(${-cam}px)`;
     ponta.style.display = p > .002 && p < .998 ? '' : 'none';
     ponta.setAttribute('transform', `translate(${q.x} ${q.y})`);
     nodes.forEach((n, i) => n.classList.toggle('on', p >= marcos[i] - .002));
@@ -631,22 +651,24 @@ function anda(t) {
   const v = Math.max(-lim * 3, Math.min(lim, (alvo - p) * 3.5));
   p += v * dt;
   if (Math.abs(alvo - p) < .0004) p = alvo;
+  cam += (camAlvo - cam) * Math.min(1, dt * 6);
+  if (Math.abs(camAlvo - cam) < .5) cam = camAlvo;
   pinta();
-  if (p !== alvo) requestAnimationFrame(anda); else rodando = false;
+  if (p !== alvo || cam !== camAlvo) requestAnimationFrame(anda); else rodando = false;
 }
 function rolagem() {
   if (reduce) { alvo = p = 1; return pinta(); }
   if (pin) {
     const s = -track.getBoundingClientRect().top, ini = -vh * .5;
-    const t = s <= 0 ? 0 : s < sA ? s / sA * tA : tA + Math.min(s, sFim) - sA;
-    canvas.style.transform = `translateY(${-t}px)`;
+    sAtual = s;
     const fimAnos = sA * .85;  /* os anos terminam antes de a tela voltar a andar */
     alvo = s <= ini ? 0 : s < fimAnos ? (s - ini) / (fimAnos - ini) * meio : s < sA ? meio : meio + Math.min(1, (s - sA) / (sFim - sA)) * (1 - meio);
   } else {
     const r = canvas.getBoundingClientRect();
     alvo = Math.min(1, Math.max(0, (innerHeight * .72 - r.top) / r.height));
   }
-  if (!rodando && alvo !== p) { rodando = true; last = performance.now(); requestAnimationFrame(anda); }
+  if (pin) camAlvo = alvoCam(trilha.getPointAtLength(p * TOTAL));
+  if (!rodando && (alvo !== p || camAlvo !== cam)) { rodando = true; last = performance.now(); requestAnimationFrame(anda); }
 }
 mede();
 addEventListener('resize', () => { mede(); rolagem(); });
@@ -704,16 +726,18 @@ const ajustaVel = () => {
 const mudaVel = v => { velAlvo = v; if (!velRaf) velRaf = requestAnimationFrame(ajustaVel); };
 faixa.addEventListener('pointerenter', () => mudaVel(.25));
 faixa.addEventListener('pointerleave', () => mudaVel(1));
-segsEl.innerHTML = Object.keys(SEGMENTOS).map((s, i) => `<li style="--i:${i}"><button type="button"><i>${Ludfor.ic(SEG_IC[i])}</i>${s}</button></li>`).join('');
+/* "Todos" vem primeiro e já selecionado: mostra todas as logos cadastradas */
+segsEl.innerHTML = `<li style="--i:0"><button type="button" class="on" aria-pressed="true" data-todos><i>${Ludfor.ic('todos')}</i>Todos</button></li>` + Object.keys(SEGMENTOS).map((s, i) => `<li style="--i:${i + 1}"><button type="button"><i>${Ludfor.ic(SEG_IC[i])}</i>${s}</button></li>`).join('');
 rvIO.observe(segsEl);
 const segBtns = [...segsEl.querySelectorAll('button')];
+const todosBtn = segBtns[0];
 segBtns.forEach(b => b.onclick = () => {
-  const on = b.classList.contains('on');
+  /* clicar no segmento já ativo volta para "Todos" */
+  const alvoBtn = b.classList.contains('on') ? todosBtn : b;
   segBtns.forEach(x => { x.classList.remove('on'); x.removeAttribute('aria-pressed'); });
-  if (on) return mostraLogos(Object.keys(LOGOS));
-  b.classList.add('on'); b.setAttribute('aria-pressed', 'true');
+  alvoBtn.classList.add('on'); alvoBtn.setAttribute('aria-pressed', 'true');
   /* segmento ainda sem logos definidos mostra todos */
-  const nomes = SEGMENTOS[b.textContent];
+  const nomes = alvoBtn === todosBtn ? [] : SEGMENTOS[alvoBtn.textContent];
   mostraLogos(nomes.length ? nomes : Object.keys(LOGOS));
 });
 mostraLogos(Object.keys(LOGOS));

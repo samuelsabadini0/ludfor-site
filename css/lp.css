@@ -50,7 +50,7 @@
 .lp-lead{font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--muted)}
 
 /* 1. topo */
-.lh{position:relative;overflow:hidden;padding:150px 0 130px;color:#fff;background:radial-gradient(58% 80% at 0% 10%,rgba(92,222,186,.42),transparent 72%),radial-gradient(34% 44% at 30% 0%,rgba(249,181,25,.12),transparent 70%),linear-gradient(180deg,var(--verde) 0%,var(--noite) 100%)}
+.lh{--tt:currentColor;position:relative;overflow:hidden;padding:150px 0 130px;color:#fff;background:radial-gradient(58% 80% at 0% 10%,rgba(92,222,186,.42),transparent 72%),radial-gradient(34% 44% at 30% 0%,rgba(249,181,25,.12),transparent 70%),linear-gradient(180deg,var(--verde) 0%,var(--noite) 100%)}
 .lh .wrap{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:56px;align-items:center}
 .lh h1{font-size:clamp(42px,5.2vw,78px);margin:18px 0 22px}
 .lh h1 em{font-style:normal;color:var(--amarelo)}
@@ -61,7 +61,7 @@
 .lh-foto{aspect-ratio:1/1;max-height:560px;width:100%;border-radius:44px;overflow:hidden}
 .lh-foto img{display:block;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
 .flut{position:absolute;max-width:236px;padding:18px 20px;border-radius:var(--r);background:#fff;color:var(--muted);font-size:13.5px;line-height:1.35;box-shadow:0 22px 44px rgba(6,43,40,.32);animation:flutua 6s ease-in-out infinite}
-.flut strong{display:block;margin-bottom:4px;font-size:clamp(28px,2.6vw,38px);font-weight:300;letter-spacing:-.03em;line-height:1;color:var(--verde)}
+.flut strong{display:block;margin-bottom:4px;font-size:clamp(28px,2.6vw,38px);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--verde)}
 .flut.f1{left:-34px;bottom:44px}
 .flut.f2{right:-14px;top:34px;background:var(--amarelo);color:var(--noite);animation-delay:-3s}
 .flut.f2 strong{color:var(--verde-2)}
@@ -89,7 +89,7 @@
 .no.on .tx h3{color:var(--verde-2);border-bottom-color:var(--amarelo)}
 
 /* 3. grandes números: a foto se dissolve no verde; números em linha, com tipografia fina */
-.bn{position:relative;overflow:hidden;color:#fff;background:radial-gradient(46% 70% at 0% 100%,rgba(92,222,186,.5),transparent 72%),var(--verde-2)}
+.bn{--tt:currentColor;position:relative;overflow:hidden;color:#fff;background:radial-gradient(46% 70% at 0% 100%,rgba(92,222,186,.5),transparent 72%),var(--verde-2)}
 .bn-foto{position:absolute;right:0;top:0;width:72%;height:100%;object-fit:cover;object-position:60% 40%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 34%,#000 70%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 34%,#000 70%)}
 .bn::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,76,69,.94) 18%,rgba(0,76,69,.62) 46%,rgba(0,76,69,.06) 80%);pointer-events:none}
 .bn-in{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;gap:150px;padding-top:100px;padding-bottom:84px}
@@ -106,7 +106,7 @@
 @keyframes bnZap{0%,100%{transform:scale(.88)}50%{transform:scale(1.08)}}
 @keyframes bnDot{0%,100%{opacity:.15}40%{opacity:1}}
 @media (prefers-reduced-motion:reduce){.bn-nums .ic *{animation:none!important}}
-.bn-nums strong{display:block;font-size:clamp(44px,5.3vw,76px);font-weight:300;letter-spacing:-.045em;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--amarelo)}
+.bn-nums strong{display:block;font-size:clamp(44px,5.3vw,76px);font-weight:600;letter-spacing:-.045em;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--amarelo)}
 .bn-nums span{display:block;margin-top:10px;font-size:16px;line-height:1.35;color:#fff}
 @media (max-width:1000px){
   .bn-foto{width:100%;height:62%;-webkit-mask-image:none;mask-image:none}
@@ -122,16 +122,16 @@
 }
 
 /* 4. plataforma */
-.haus{overflow:hidden;color:#fff;background:radial-gradient(50% 70% at 100% 20%,rgba(92,222,186,.34),transparent 72%),var(--noite)}
+.haus{--tt:currentColor;overflow:hidden;color:#fff;background:radial-gradient(50% 70% at 100% 20%,rgba(92,222,186,.34),transparent 72%),var(--noite)}
 .haus .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
-.haus small{display:block;margin-bottom:14px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--amarelo)}
+.haus-logo{display:block;width:min(220px,60%);height:auto;margin-bottom:28px}
 .haus .lp-lead{margin-top:20px;color:#D8EBE7}
 .haus .lp-lead+.lp-lead{margin-top:14px}
 .haus-btn{margin-top:30px}
 .haus-mock{display:block;width:118%;max-width:none;height:auto;filter:drop-shadow(0 34px 44px rgba(0,0,0,.45))}
 
 /* 8. contato */
-.lp-cont{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;padding:clamp(28px,4.4vw,64px);border-radius:40px;color:#fff;background:radial-gradient(60% 80% at 0% 0%,rgba(92,222,186,.4),transparent 72%),linear-gradient(180deg,var(--verde),var(--noite))}
+.lp-cont{--tt:currentColor;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;padding:clamp(28px,4.4vw,64px);border-radius:40px;color:#fff;background:radial-gradient(60% 80% at 0% 0%,rgba(92,222,186,.4),transparent 72%),linear-gradient(180deg,var(--verde),var(--noite))}
 .lp-cont .lp-lead{margin-top:20px;color:#D8EBE7}
 .lp-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:clamp(20px,2.4vw,32px);border-radius:var(--r-l);background:#fff;color:var(--texto)}
 .lp-form label{display:grid;gap:6px;font-size:13px;font-weight:500}

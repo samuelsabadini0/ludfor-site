@@ -36,6 +36,16 @@
 .pager a.on,.pager a:hover{background:var(--noite);border-color:var(--noite);color:#fff}
 
 .cast{padding:110px 0;background:radial-gradient(55% 60% at 0% 15%,rgba(92,222,186,.22),transparent 72%),var(--noite)}
+.cast-logo img{display:block;width:clamp(150px,15vw,210px);height:auto}
+.cast .head{align-items:center}
+.cast .head p{color:#B4C9C5}
+/* chamada do Spotify em destaque */
+.spot{display:inline-flex;align-items:center;gap:14px;margin-top:26px;padding:10px 22px 10px 10px;border-radius:99px;background:#1ED760;color:#062B28;font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1;box-shadow:0 14px 34px rgba(30,215,96,.25);transition:transform .4s var(--ease),box-shadow .4s}
+.spot:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(30,215,96,.35)}
+.spot svg{width:48px;height:48px;color:#062B28}
+.spot small{display:block;font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.spot i{font-style:normal;font-size:20px;margin-left:6px;transition:transform .4s var(--ease)}
+.spot:hover i{transform:translate(2px,-2px)}
 .cast .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin-top:56px}
 .cast .main{position:relative;border-radius:var(--r-l);overflow:hidden;min-height:420px;background-size:cover;background-position:center;display:flex;align-items:flex-end}
 .cast .main::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,43,40,.95) 0%,rgba(6,43,40,.1) 60%)}

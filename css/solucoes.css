@@ -1,0 +1,136 @@
+/* Soluções: todas as soluções numa página só. Usa lp.css (topo, percurso, números, Haus, contato) e acrescenta as seções abaixo. */
+html{scroll-padding-top:150px}
+
+/* topo: índice das soluções ao lado do título */
+.lh-idx{list-style:none;display:grid;gap:8px}
+.lh-idx a{display:flex;align-items:center;gap:16px;padding:12px 18px 12px 12px;border-radius:var(--r);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);font-size:clamp(17px,1.5vw,21px);font-weight:300;letter-spacing:-.01em;transition:background .3s,border-color .3s,color .3s,transform .5s var(--ease)}
+.lh-idx i{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--amarelo);color:var(--noite);transition:background .3s,color .3s}
+.lh-idx .ic{width:24px;height:24px;stroke-width:1.6}
+.lh-idx b{margin-left:auto;font-weight:400;font-size:18px;opacity:.5;transition:transform .4s var(--ease),opacity .3s}
+.lh-idx a:hover{background:var(--amarelo);border-color:var(--amarelo);color:var(--noite);transform:translateX(6px)}
+.lh-idx a:hover i{background:var(--noite);color:var(--amarelo)}
+.lh-idx a:hover b{opacity:1;transform:translateY(2px)}
+
+/* barra fixa com as soluções: marca a seção em que a pessoa está */
+.solbar{position:sticky;top:80px;z-index:40;background:#fff;border-bottom:1px solid var(--linha)}
+.solbar .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:12px;padding-bottom:12px}
+.solbar .wrap::-webkit-scrollbar{display:none}
+.solbar a{flex:none;font-size:14px;padding:9px 16px;border-radius:99px;color:var(--muted);transition:background .3s,color .3s}
+.solbar a:hover{color:var(--verde);background:var(--off)}
+.solbar a.on{background:var(--verde);color:#fff}
+
+/* abertura de cada solução */
+.sol{padding:110px 0;background:#fff}
+.sol.off{background:var(--off)}
+.sol-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.sol-top h2{font-size:clamp(40px,4.8vw,70px)}
+.sol-top h2 em{font-style:normal;color:var(--amarelo)}
+.sol-tag{display:inline-flex;margin-top:22px;font-size:14px;font-weight:500;padding:9px 16px;border-radius:99px;background:var(--amarelo);color:var(--noite)}
+.sol-top .lp-lead{margin-top:22px;max-width:560px}
+.sol-top .lp-lead+.lp-lead{margin-top:14px}
+.sol-img{aspect-ratio:4/3;border-radius:40px;background-size:cover;background-position:center}
+.sol-sub{margin-top:90px}
+.sol-sub>h3{font-size:clamp(28px,2.8vw,40px);font-weight:300}
+.sol-sub>p{margin-top:12px;max-width:720px;color:var(--muted);line-height:1.55;font-size:17px}
+.nota{margin-top:14px;font-size:12.5px;font-style:italic;color:var(--muted)}
+.sol .acoes{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* ícones animados dos percursos e cartões */
+.ic .pulsa{transform-box:fill-box;transform-origin:center;animation:solPulsa 3s ease-in-out infinite}
+.ic .gira{transform-box:view-box;transform-origin:12px 12px;animation:solGira 9s linear infinite}
+.ic .chama{transform-box:fill-box;transform-origin:50% 100%;animation:solChama 1.8s ease-in-out infinite}
+@keyframes solPulsa{0%,100%{transform:scale(.86)}50%{transform:scale(1.08)}}
+@keyframes solGira{to{transform:rotate(360deg)}}
+@keyframes solChama{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.9) skewX(-3deg)}}
+@media (prefers-reduced-motion:reduce){.ic .pulsa,.ic .gira,.ic .chama{animation:none}}
+
+/* percurso da Gestão: ícone no lugar do número */
+@media (min-width:1200px){.tr{height:calc(1080 * var(--u))}}
+@media (min-width:1200px){.tr .tx.so{width:calc(250 * var(--u))}}
+.bn .atualiz{margin-top:28px;color:#B4D3CD}
+.tr .ico{position:absolute;left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u));width:calc(64 * var(--u));height:calc(64 * var(--u));margin:calc(-32 * var(--u)) 0 0 calc(-32 * var(--u));display:grid;place-items:center;border-radius:calc(18 * var(--u));background:#E8ECE9;color:#9AA5A2;z-index:2;transition:background .6s,color .6s}
+.tr .ico .ic{width:58%;height:58%;stroke-width:1.5}
+.no.on .ico{background:var(--verde);color:var(--amarelo);animation:trPop .65s var(--ease)}
+.tr .tx.so h3{border-bottom:0;padding-bottom:0;margin:0;font-size:max(17px,calc(22 * var(--u)))}
+
+/* cartões em grade */
+.grade{display:grid;gap:14px;margin-top:36px}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.cart{padding:26px;border-radius:var(--r-l);background:var(--off);line-height:1.5;color:var(--muted);font-size:15px}
+.sol.off .cart{background:#fff}
+.cart h4{font-size:18px;font-weight:500;letter-spacing:-.01em;line-height:1.25;color:var(--verde);margin-bottom:8px}
+.cart .n{display:block;font-size:14px;font-weight:600;color:var(--amarelo);margin-bottom:14px;letter-spacing:.04em}
+.cart>.ic{width:40px;height:40px;color:var(--verde);margin-bottom:18px;stroke-width:1.4}
+.cart .tag{display:inline-flex;margin-bottom:14px;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:99px;background:#E4F5D2;color:var(--verde)}
+
+/* benefícios da autoprodução: destaque grande + quatro cartões */
+.bene{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:14px;margin-top:36px}
+.bene .forte{display:flex;flex-direction:column;justify-content:flex-end;padding:34px;border-radius:var(--r-l);color:#D8EBE7;background:radial-gradient(80% 70% at 0% 0%,rgba(92,222,186,.38),transparent 72%),var(--verde);font-size:15px;line-height:1.5}
+.bene .forte strong{font-size:clamp(64px,7vw,104px);font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--amarelo)}
+.bene .forte h4{font-size:24px;font-weight:400;color:#fff;margin:10px 0 14px;line-height:1.2}
+.bene .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+
+/* projetos sob demanda */
+.dem{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:36px}
+.dem>div{padding:0 0 26px;border-radius:var(--r-l);background:#fff;overflow:hidden}
+.dem h4{padding:16px 26px;font-size:18px;font-weight:500;background:var(--verde);color:#fff}
+.dem>div:nth-child(2) h4{background:#CFEA9B;color:var(--verde)}
+.dem>div:nth-child(3) h4{background:var(--amarelo);color:var(--noite)}
+.dem ul{list-style:none;display:grid;gap:12px;padding:22px 26px 0;font-size:15px;line-height:1.45;color:var(--muted)}
+.dem li{display:grid;grid-template-columns:8px minmax(0,1fr);gap:12px}
+.dem li::before{content:"";width:6px;height:6px;margin-top:8px;border-radius:2px;background:var(--amarelo)}
+.dem-pub{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.dem-pub div{padding:26px;border-radius:var(--r-l);background:var(--noite);color:#C9D8D5;font-size:15px;line-height:1.5}
+.dem-pub h4{font-size:20px;font-weight:500;color:#fff;margin-bottom:6px}
+
+/* chamada final de cada solução */
+.chama-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 40px;margin-top:90px;padding:clamp(30px,4vw,56px);border-radius:40px;color:#fff;background:radial-gradient(60% 120% at 0% 0%,rgba(92,222,186,.4),transparent 72%),linear-gradient(180deg,var(--verde),var(--noite))}
+.chama-cta h3{--tt:currentColor;font-size:clamp(28px,3vw,44px);font-weight:300;max-width:620px}
+
+/* números das soluções */
+.nums{display:grid;grid-template-columns:repeat(var(--c,3),minmax(0,1fr));gap:14px;margin-top:36px}
+.nums>div{padding:28px;border-radius:var(--r-l);background:var(--verde);color:#D8EBE7;font-size:15px;line-height:1.4}
+.nums strong{display:block;margin-bottom:8px;font-size:clamp(38px,4vw,58px);font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--amarelo);white-space:nowrap}
+.nums b{font-weight:600;color:#fff}
+
+/* listas "o que entregamos" */
+.lista{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 32px;margin-top:30px}
+.lista li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--linha);font-size:16px;line-height:1.45}
+.lista .ic{width:24px;height:24px;color:var(--verde);stroke-width:1.6}
+
+/* Geração Distribuída: soluções da Simplifica */
+.simp-tit{font-size:17px;color:var(--muted)}
+.simp-tit b{color:var(--verde);font-weight:600}
+.simp .cart>.ic{width:46px;height:46px;padding:10px;box-sizing:content-box;border-radius:16px;background:#7DB33A;color:#fff}
+
+/* Bess e Grid Zero: conteúdo ainda não recebido */
+.sol.breve{color:#fff;background:radial-gradient(50% 90% at 100% 0%,rgba(92,222,186,.3),transparent 72%),var(--noite)}
+.sol.breve .sol-top{--tt:currentColor}
+.sol.breve .lp-lead{color:#C9D8D5}
+
+@media (max-width:1100px){
+  .sol-top,.bene{grid-template-columns:minmax(0,1fr);gap:32px}
+  .g5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sol{padding:80px 0}
+  .sol-sub,.chama-cta{margin-top:64px}
+}
+@media (max-width:900px){
+  .g3,.dem,.dem-pub{grid-template-columns:minmax(0,1fr)}
+  .g5{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lista{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:1199px){
+  .tr .ico{position:static;width:52px;height:52px;margin:0 0 12px;border-radius:15px}
+  .tr .tx.so h3{font-size:19px}
+  .no.so{padding-bottom:26px}
+}
+@media (max-width:640px){
+  html{scroll-padding-top:140px}
+  .solbar{top:80px}
+  .sol{padding:64px 0}
+  .sol-img{border-radius:28px}
+  .bene .g2,.nums{grid-template-columns:minmax(0,1fr)}
+  .g5{grid-template-columns:minmax(0,1fr)}
+  .chama-cta{border-radius:28px}
+}
